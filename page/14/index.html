@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+  <link rel="preload" href="/css/main.css?v=f69566cf7130a214" as="style">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=f69566cf7130a214">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha256-4Lad8m4ZWW1Lgb9+sMVLYEfnIh7BjV1NQMEe79Pviks=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.1.14/fancybox/fancybox.css" integrity="sha256-mdaMxrItEW6hMIVJJNPKuX0B7KCSJQVEv3mVY4N2we4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"abandon1a2b.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.29.1","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"width":300},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":3,"unescape":true,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js?v=a65fc965d74fd991" defer></script>
+
+    <meta name="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="abandon">
+<meta property="og:url" content="https://abandon1a2b.github.io/page/14/index.html">
+<meta property="og:site_name" content="abandon">
+<meta property="og:description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="饼干">
+<meta property="article:tag" content="Go, PHP, 后端开发, 开源, Lean Code Box, GooseForum">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://abandon1a2b.github.io/page/14/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/14/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>abandon - 代码、笔记与开源实践</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.1.14/fancybox/fancybox.umd.js" integrity="sha256-QnJV4HT5r8i89ovZGRD86iynZqHerEbT2xt69vDM36I=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.1/pangu.umd.js" integrity="sha256-kRsxecBnwG6mULFPe2E6UKnNm8XfDOuDwCOprjLZuX8=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js?v=5393bac179fc7d25" defer></script><script src="/js/sidebar.js?v=68cb7edc29fe8aa4" defer></script><script src="/js/next-boot.js?v=9df1930c68362f14" defer></script><script src="/js/pjax.js?v=d94cf43f5074b17e" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js?v=a40ec41db37b9a56" defer></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.3.1/pdfobject.min.js","integrity":"sha256-jI72I8ZLVflVOisZIOaLvRew3tyvzeu6aZXFm7P7dEo="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js?v=0f1d48995a83f9f6" defer></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js?v=fc2b2ebed93ecb58" defer></script>
+
+
+  <script src="/js/third-party/fancybox.js?v=b386dcb99f1c399f" defer></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","display_overflow":"scroll","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-mml-chtml.js","integrity":"sha256-ihPtDDm7pTmSF9ViEsItlvsrBTsNkz0MOXMchzOwCQw="}}</script>
+<script src="/js/third-party/math/mathjax.js?v=727841be3ac0d51b" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css?v=1273f22550d729e4">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-search popup-trigger" aria-label="搜索" role="button">
+      <i class="fa fa-search fa-fw fa-lg"></i>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">abandon</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">代码、笔记与开源实践</p>
+  </div>
+
+  <div class="site-nav-toggle" aria-label="切换导航栏" role="button">
+      <i class="fa fa-ellipsis fa-fw fa-lg"></i>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">41</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">184</span></a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-开源项目"><a href="https://github.com/leancodebox" rel="section" target="_blank"><i class="fab fa-github fa-fw"></i>开源项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  
+  <template id="search-popup-template"><div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div></template>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="饼干"
+      src="/images/theme/wd.gif">
+  <p class="site-author-name" itemprop="name">饼干</p>
+  <div class="site-description" itemprop="description">饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">184</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/abandon1a2b" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;abandon1a2b" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/leancodebox" title="Lean Code Box → https:&#x2F;&#x2F;github.com&#x2F;leancodebox" rel="noopener me" target="_blank"><i class="fas fa-code-branch fa-fw"></i>Lean Code Box</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://gooseforum.online/" title="https:&#x2F;&#x2F;gooseforum.online&#x2F;" rel="noopener" target="_blank">GooseForum 社区</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/leancodebox/GooseForum" title="https:&#x2F;&#x2F;github.com&#x2F;leancodebox&#x2F;GooseForum" rel="noopener" target="_blank">GooseForum 源码</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/leancodebox/rooster" title="https:&#x2F;&#x2F;github.com&#x2F;leancodebox&#x2F;rooster" rel="noopener" target="_blank">Rooster 任务管理</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/leancodebox/dbhelper" title="https:&#x2F;&#x2F;github.com&#x2F;leancodebox&#x2F;dbhelper" rel="noopener" target="_blank">dbhelper 数据库工具</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2018/10/27/coding/php/php_008_%E5%BB%B6%E8%BF%9F%E8%A7%A6%E5%8F%91%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/10/27/coding/php/php_008_%E5%BB%B6%E8%BF%9F%E8%A7%A6%E5%8F%91%E5%99%A8/" class="post-title-link" itemprop="url">PHP[008]:实现延迟触发器</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-27 09:48:41" itemprop="dateCreated datePublished" datetime="2018-10-27T09:48:41+08:00">2018-10-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-15 02:02:05" itemprop="dateModified" datetime="2026-11-15T02:02:05+08:00">2026-11-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$timeManager</span> = [];</span><br><span class="line"><span class="variable">$timeMark</span> = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$i</span> = <span class="number">1000</span>;</span><br><span class="line"><span class="keyword">while</span> (<span class="variable">$i</span>--) &#123;</span><br><span class="line">    <span class="variable">$jobTime</span> = (<span class="title function_ invoke__">time</span>() + <span class="title function_ invoke__">mt_rand</span>(<span class="number">0</span>, <span class="number">1000</span>));</span><br><span class="line">    <span class="keyword">echo</span> (<span class="number">1000</span> - <span class="variable">$i</span>) . <span class="string">&#x27;个任务 将于&#x27;</span> . <span class="title function_ invoke__">date</span>(<span class="string">&#x27;Y-m-d H:i:s&#x27;</span>, <span class="variable">$jobTime</span>) . <span class="string">&#x27;执行&#x27;</span> . PHP_EOL;</span><br><span class="line">    <span class="variable">$timeManager</span>[<span class="variable">$jobTime</span>][] = <span class="string">&#x27;$i 任务 &#x27;</span> . <span class="variable">$i</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="title function_ invoke__">ksort</span>(<span class="variable">$timeManager</span>);</span><br><span class="line">    <span class="variable">$timeMark</span> = <span class="title function_ invoke__">key</span>(<span class="variable">$timeManager</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="title function_ invoke__">count</span>(<span class="variable">$timeManager</span>) &gt; <span class="number">0</span> &amp;&amp; <span class="variable">$timeMark</span> &lt; <span class="title function_ invoke__">time</span>()) &#123;</span><br><span class="line">        <span class="title function_ invoke__">var_dump</span>(<span class="variable">$timeMark</span>);</span><br><span class="line">        <span class="title function_ invoke__">var_dump</span>(<span class="title function_ invoke__">date</span>(<span class="string">&#x27;Y-m-d H:i:s&#x27;</span>, <span class="variable">$timeMark</span>));</span><br><span class="line">        <span class="variable">$job</span> = <span class="variable">$timeManager</span>[<span class="variable">$timeMark</span>];</span><br><span class="line">        <span class="keyword">unset</span>(<span class="variable">$timeManager</span>[<span class="variable">$timeMark</span>]);</span><br><span class="line">        <span class="comment">#$job = array_shift($timeManager);</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="title function_ invoke__">sleep</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2018/10/27/coding/php/php_007_ReflectionClass/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/10/27/coding/php/php_007_ReflectionClass/" class="post-title-link" itemprop="url">PHP[007]:ReflectionClass</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-27 09:48:40" itemprop="dateCreated datePublished" datetime="2018-10-27T09:48:40+08:00">2018-10-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-15 02:02:05" itemprop="dateModified" datetime="2026-11-15T02:02:05+08:00">2026-11-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="调用类私用方法">调用类私用方法</h2>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">want</span>(<span class="params"><span class="variable">$see</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$see</span>.<span class="variable">$see</span>.<span class="variable">$see</span>.PHP_EOL;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$reflector</span> = <span class="keyword">new</span> <span class="title class_">ReflectionClass</span>(<span class="title class_">Cat</span>::<span class="variable language_">class</span>);</span><br><span class="line"><span class="variable">$instance</span>  = <span class="variable">$reflector</span>-&gt;<span class="title function_ invoke__">newInstance</span>();</span><br><span class="line"><span class="variable">$method</span>    = <span class="variable">$reflector</span>-&gt;<span class="title function_ invoke__">getmethod</span>(<span class="string">&#x27;want&#x27;</span>);</span><br><span class="line"><span class="variable">$method</span>-&gt;<span class="title function_ invoke__">setAccessible</span>(<span class="literal">true</span>);</span><br><span class="line"><span class="variable">$result</span> = <span class="variable">$method</span>-&gt;<span class="title function_ invoke__">invoke</span>(<span class="variable">$instance</span>, <span class="string">&#x27;eat food &#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="实例化不可实例的类">实例化不可实例的类</h2>
+<p>使用这个的原因是因为拆分老的业务代码中，有个一个 Aentity 依赖另一个 Bentity （在orm层中调用get_class），如果查询或者Bentity提供的创建方法会导致将其注册到 UnitOfWork 中，会导致最后的入库（虽然也有可能不入库），所以采用 ReflectionClass::newInstanceWithoutConstructor 实例化一个在 get_class 范围内等价的 entity ,并将其作为一个临时的参数对象代替 Bentity 维持代码的运作</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">println</span>(<span class="params">String <span class="variable">$str</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span>(<span class="variable">$str</span>.PHP_EOL);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$name</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$name</span> = <span class="string">&#x27;WangCai&#x27;</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;name = <span class="variable">$name</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setName</span>(<span class="params"><span class="variable">$name</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable language_">$this</span>-&gt;name = <span class="variable">$name</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">$this</span>-&gt;name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$reflector</span> = <span class="keyword">new</span> <span class="title class_">ReflectionClass</span>(<span class="title class_">Dog</span>::<span class="variable language_">class</span>);</span><br><span class="line"><span class="variable">$dog</span> = <span class="variable">$reflector</span>-&gt;<span class="title function_ invoke__">newInstanceWithoutConstructor</span>();</span><br><span class="line"><span class="variable">$dog</span>-&gt;<span class="title function_ invoke__">setName</span>(<span class="string">&#x27;DeFu&#x27;</span>);</span><br><span class="line"><span class="variable">$class</span> = <span class="title function_ invoke__">get_class</span>(<span class="variable">$dog</span>);</span><br><span class="line"><span class="title function_ invoke__">println</span>(<span class="variable">$class</span>);</span><br><span class="line"><span class="title function_ invoke__">println</span>(<span class="variable">$dog</span>-&gt;<span class="title function_ invoke__">getName</span>());</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2018/10/27/coding/php/php_006_%E5%8D%95%E8%BF%9B%E7%A8%8B%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%B9%B6%E8%A1%8C%E5%AE%9E%E7%8E%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/10/27/coding/php/php_006_%E5%8D%95%E8%BF%9B%E7%A8%8B%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%B9%B6%E8%A1%8C%E5%AE%9E%E7%8E%B0/" class="post-title-link" itemprop="url">PHP[006]:单进程多任务并行处理实现</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-27 09:48:39" itemprop="dateCreated datePublished" datetime="2018-10-27T09:48:39+08:00">2018-10-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-15 02:02:05" itemprop="dateModified" datetime="2026-11-15T02:02:05+08:00">2026-11-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$i</span> = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$str</span> = <span class="string">&lt;&lt;&lt;EOF</span></span><br><span class="line"><span class="string">&lt;?php</span></span><br><span class="line"><span class="string"><span class="subst">$logName</span> = basename(__FILE__);</span></span><br><span class="line"><span class="string"><span class="subst">$i</span> =1;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"><span class="subst">$result</span> = &#x27;&#x27;;</span></span><br><span class="line"><span class="string"><span class="subst">$result</span> .= &quot;初始: &quot; . memory_get_usage() . &quot;B\n&quot;;</span></span><br><span class="line"><span class="string"><span class="subst">$result</span> .= &quot;使用: &quot; . memory_get_usage() . &quot;B\n&quot;;</span></span><br><span class="line"><span class="string">while(<span class="subst">$i</span>--)&#123;</span></span><br><span class="line"><span class="string">    sleep(10);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"><span class="subst">$result</span> .= &quot;释放: &quot; . memory_get_usage() . &quot;B\n&quot;;</span></span><br><span class="line"><span class="string"><span class="subst">$result</span> .= &quot;峰值: &quot; . memory_get_peak_usage() . &quot;B\n&quot;;</span></span><br><span class="line"><span class="string">file_put_contents(__DIR__.&#x27;/&#x27;.<span class="subst">$logName</span>.&#x27;.log&#x27;,time().PHP_EOL.<span class="subst">$result</span>,FILE_APPEND);</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">EOF</span>;</span><br><span class="line"><span class="variable">$file_name</span> = [];</span><br><span class="line"><span class="keyword">while</span> (<span class="variable">$i</span> &lt; <span class="number">10</span>) &#123;</span><br><span class="line">    <span class="variable">$file_name</span>[] = <span class="string">&#x27;timeEvent&#x27;</span> . <span class="variable">$i</span> . <span class="string">&#x27;.php&#x27;</span>;</span><br><span class="line">    <span class="title function_ invoke__">file_put_contents</span>(<span class="keyword">__DIR__</span> . <span class="string">&#x27;/&#x27;</span> . <span class="string">&#x27;timeEvent&#x27;</span> . <span class="variable">$i</span> . <span class="string">&#x27;.php&#x27;</span>, <span class="variable">$str</span>);</span><br><span class="line">    <span class="variable">$i</span>++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="variable">$file_name</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$file_name</span> <span class="keyword">as</span> <span class="variable">$name</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$strRun</span> = <span class="string">&#x27;php &#x27;</span> . <span class="keyword">__DIR__</span> . <span class="string">&#x27;/&#x27;</span> . <span class="variable">$name</span> . <span class="string">&#x27; &amp;&#x27;</span>;</span><br><span class="line">    <span class="variable">$waitClose</span> = <span class="title function_ invoke__">pclose</span>(<span class="title function_ invoke__">popen</span>(<span class="variable">$strRun</span>, <span class="string">&#x27;r&#x27;</span>));</span><br><span class="line">    <span class="keyword">echo</span> <span class="title function_ invoke__">time</span>() . PHP_EOL;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$result</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"><span class="variable">$result</span> .= <span class="string">&quot;初始: &quot;</span> . <span class="title function_ invoke__">memory_get_usage</span>() . <span class="string">&quot;B\n&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> .= <span class="string">&quot;使用: &quot;</span> . <span class="title function_ invoke__">memory_get_usage</span>() . <span class="string">&quot;B\n&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> .= <span class="string">&quot;释放: &quot;</span> . <span class="title function_ invoke__">memory_get_usage</span>() . <span class="string">&quot;B\n&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> .= <span class="string">&quot;峰值: &quot;</span> . <span class="title function_ invoke__">memory_get_peak_usage</span>() . <span class="string">&quot;B\n&quot;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2018/10/27/coding/php/php_005_function/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/10/27/coding/php/php_005_function/" class="post-title-link" itemprop="url">PHP[005]:function</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-27 09:48:38" itemprop="dateCreated datePublished" datetime="2018-10-27T09:48:38+08:00">2018-10-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-15 02:02:05" itemprop="dateModified" datetime="2026-11-15T02:02:05+08:00">2026-11-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">ob_start</span>();</span><br><span class="line"><span class="title function_ invoke__">debug_print_backtrace</span>(<span class="variable">$needBacktrace</span> === <span class="number">2</span> ? <span class="number">1</span> : <span class="number">0</span>);</span><br><span class="line"><span class="variable">$trace</span> = <span class="title function_ invoke__">ob_get_contents</span>();</span><br><span class="line"><span class="title function_ invoke__">ob_end_clean</span>();</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">define</span>(<span class="string">&#x27;PROJECT_START&#x27;</span>, <span class="title function_ invoke__">microtime</span>(<span class="literal">true</span>));</span><br><span class="line"><span class="variable">$message</span> = [</span><br><span class="line">    <span class="string">&#x27;memory_used&#x27;</span>  =&gt; <span class="title function_ invoke__">memory_get_usage</span>(),</span><br><span class="line">    <span class="string">&#x27;running_time&#x27;</span> =&gt; (<span class="title function_ invoke__">microtime</span>(<span class="literal">true</span>) - PROJECT_START),</span><br><span class="line">    <span class="string">&#x27;action_name&#x27;</span>  =&gt; <span class="variable">$actionName</span></span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2018/10/27/coding/php/php_003_symfony/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/10/27/coding/php/php_003_symfony/" class="post-title-link" itemprop="url">PHP[003]:symfony</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-27 09:48:36" itemprop="dateCreated datePublished" datetime="2018-10-27T09:48:36+08:00">2018-10-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-15 02:02:05" itemprop="dateModified" datetime="2026-11-15T02:02:05+08:00">2026-11-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">composer create-project symfony/skeleton my-project</span><br><span class="line">cd my-project</span><br><span class="line">composer require symfony/web-server-bundle --dev</span><br><span class="line">composer require annotations         # 注释分析</span><br><span class="line">composer require symfony/orm-pack</span><br><span class="line">composer require symfony/maker-bundle --dev</span><br><span class="line">composer require --dev symfony/profiler-pack # 开发调试工具</span><br><span class="line">composer require sensio/framework-extra-bundle # 自动查询</span><br><span class="line">composer require doctrine/doctrine-fixtures-bundle --dev  # 测试数据</span><br><span class="line">composer require symfony/messenger</span><br><span class="line">composer require symfony/serializer-pack #待定</span><br></pre></td></tr></table></figure>
+<h3 id="起步">起步</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">symfony 提供两种项目 symfony/skeleton 是轻量的， symfony/website-skeleton 是比较重的，具有较全的web功能</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">选择轻量的面向 api 和 console 的 symfony/skeleton 起步</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用 composer 安装symfony</span></span><br><span class="line">composer create-project symfony/skeleton my-project</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用 symfony-cli 安装symfony</span></span><br><span class="line">symfony new xz_symfony</span><br></pre></td></tr></table></figure>
+<p>symfony<a target="_blank" rel="noopener" href="https://symfony.com/doc/current/setup/web_server_configuration.html">Configuring a Web Server</a> symfony<a target="_blank" rel="noopener" href="https://symfony.com/doc/current/reference/requirements.html">Requirements for Running Symfony</a> 进入项目安装开发时使用的 web server 组件 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd xz_symfony</span><br><span class="line">composer require symfony/web-server-bundle --dev</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">composer require annotations         # 注释分析</span><br><span class="line">php bin/console debug:router         # 查看所有的路由</span><br><span class="line">composer require symfony/twig-bundle # symfony 的模板引擎</span><br><span class="line">php bin/console debug:autowiring     # 查看所有可以注入的服务</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html">The Symfony MakerBundle</a> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">composer require symfony/maker-bundle --dev          # 引入 maker-bundle</span><br><span class="line">php bin/console make:controller BrandNewController   # 创建一个新的控制器</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php bin/console config:dump-reference framework</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">composer require symfony/orm-pack</span><br><span class="line">composer require symfony/maker-bundle --dev</span><br><span class="line">php bin/console doctrine:database:create</span><br><span class="line">php bin/console list doctrine</span><br><span class="line">php bin/console make:entity</span><br><span class="line">php bin/console make:migration</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">php bin/console doctrine:query:sql &#x27;SELECT * FROM product&#x27;</span><br><span class="line">composer require sensio/framework-extra-bundle # 自动查询</span><br><span class="line">composer require doctrine/doctrine-fixtures-bundle --dev  # 测试数据</span><br><span class="line">php bin/console doctrine:fixtures:load</span><br></pre></td></tr></table></figure>
+<p>next <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 全局唯一id</span><br><span class="line"># fixtures 文件的生成位置</span><br><span class="line">php bin/console make:fixtures</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2018/10/27/coding/php/php_004_laravel/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/10/27/coding/php/php_004_laravel/" class="post-title-link" itemprop="url">PHP[004]:laravel 5.5</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-27 09:48:36" itemprop="dateCreated datePublished" datetime="2018-10-27T09:48:36+08:00">2018-10-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-15 02:02:05" itemprop="dateModified" datetime="2026-11-15T02:02:05+08:00">2026-11-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">运行 Laravel Mix</span><br><span class="line">Laravel Mix 一款前端任务自动化管理工具，使用了工作流的模式对制定好的任务依次执行。Mix 提供了简洁流畅的 API，让你能够为你的 Laravel 应用定义 Webpack 编译任务。Mix 支持许多常见的 CSS 与 JavaScript 预处理器，通过简单的调用，你可以轻松地管理前端资源。</span><br><span class="line"></span><br><span class="line">使用 Mix 很简单，首先你需要使用以下命令安装 npm 依赖即可。我们将使用 Yarn 来安装依赖，在这之前，因为国内的网络原因，我们还需为 Yarn 配置安装加速：</span><br><span class="line"></span><br><span class="line">$ yarn config set registry https://registry.npm.taobao.org</span><br><span class="line">使用 Yarn 安装依赖：</span><br><span class="line"></span><br><span class="line">$ yarn install</span><br><span class="line">安装成功后，运行以下命令即可：</span><br><span class="line"></span><br><span class="line">$ npm run watch-poll</span><br><span class="line">watch-poll 会在你的终端里持续运行，监控 resources 文件夹下的资源文件是否有发生改变。在 watch-poll 命令运行的情况下，一旦资源文件发生变化，Webpack 会自动重新编译。</span><br><span class="line"></span><br><span class="line">注意：在后面的课程中，我们需要保证 npm run watch-poll 一直处在执行状态中。</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">7</span>. 线上部署须知</span><br><span class="line">在开发环境中，我们为了测试方便，直接在命令行里调用 artisan horizon 进行队列监控。然而在生产环境中，我们需要配置一个进程管理工具来监控 artisan horizon 命令的执行，以便在其意外退出时自动重启。当服务器部署新代码时，需要终止当前 Horizon 主进程，然后通过进程管理工具来重启，从而使用最新的代码。</span><br><span class="line"></span><br><span class="line">简而言之，生产环境下使用队列需要注意以下两个问题：</span><br><span class="line"></span><br><span class="line">使用 Supervisor 进程工具进行管理，配置和使用请参照 文档 进行配置；</span><br><span class="line">每一次部署代码时，需 artisan horizon:terminate 然后再 artisan horizon 重新加载代码。</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2018/10/27/coding/php/php_002_%E7%8E%AF%E5%A2%83%E6%80%AA%E8%B0%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/10/27/coding/php/php_002_%E7%8E%AF%E5%A2%83%E6%80%AA%E8%B0%88/" class="post-title-link" itemprop="url">PHP[002]:More PHP</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-27 09:48:35" itemprop="dateCreated datePublished" datetime="2018-10-27T09:48:35+08:00">2018-10-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-15 02:02:05" itemprop="dateModified" datetime="2026-11-15T02:02:05+08:00">2026-11-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="more-php">more php</h1>
+<blockquote>
+<p>虽然 wsl 可以模拟 linux 环境，但是请不要用 wsl 作为一种开发环境进行使用，而是作为一个工具系统</p>
+</blockquote>
+<h3 id="一致的环境">一致的环境</h3>
+<ul>
+<li>linux 版本 &amp; 配置</li>
+<li>nginx 版本 &amp; 配置</li>
+<li>mysql 版本 &amp; 配置</li>
+<li>php 版本 &amp; 配置</li>
+<li>composer 版本（这个也很重要）</li>
+</ul>
+<p>一致的环境体现在三个方面，系统（linux/win)是否一直，依赖软件(nginx/mysql/other)是否一致，解析器（php）版本及该使用该解析器所做的软件（composer）版本是否一致。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">composer update</span><br><span class="line">composer install</span><br><span class="line">composer update --no-dev</span><br></pre></td></tr></table></figure>
+<p>Deployer 一个环境部署工具</p>
+<h1 id="about-use">about use</h1>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="variable">$needBacktrace</span> != <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="title function_ invoke__">ob_start</span>();</span><br><span class="line">    <span class="title function_ invoke__">debug_print_backtrace</span>(<span class="variable">$needBacktrace</span> === <span class="number">2</span> ? <span class="number">1</span> : <span class="number">0</span>);</span><br><span class="line">    <span class="variable">$trace</span> = <span class="title function_ invoke__">ob_get_contents</span>();</span><br><span class="line">    <span class="title function_ invoke__">ob_end_clean</span>();</span><br><span class="line">    <span class="variable">$msg</span> = <span class="variable">$msg</span> . <span class="string">&#x27;##  trace:&#x27;</span> . <span class="variable">$trace</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2018/10/27/coding/php/php_002_Standard/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/10/27/coding/php/php_002_Standard/" class="post-title-link" itemprop="url">PHP[002]:Standard</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-27 09:48:34" itemprop="dateCreated datePublished" datetime="2018-10-27T09:48:34+08:00">2018-10-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-15 02:02:05" itemprop="dateModified" datetime="2026-11-15T02:02:05+08:00">2026-11-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>psr</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2018/10/27/coding/php/php_001_%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/10/27/coding/php/php_001_%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">PHP[001]:INSTALL</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-27 09:48:33" itemprop="dateCreated datePublished" datetime="2018-10-27T09:48:33+08:00">2018-10-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-15 02:02:05" itemprop="dateModified" datetime="2026-11-15T02:02:05+08:00">2026-11-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>ubuntu</p>
+<p>ubuntu 中软件的卸载方法：</p>
+<p>1.apt方式安装：(相应的文件夹有相关的软件，先进入到软件的文件夹) 普通安装： sudo apt-get install 软件名 修复安装： sudo apt-get -f install 软件名 重新安装： sudo apt-get –rreinstall install 软件名 　(一般是 .deb　格式) 2.dpkg 方式： 1.普通安装：sudo dpkg -i package_name.deb ===================================== 如果软件的格式为 .rpm 格式包时，则 1.先安装　alien 和　fakeroot 这两个工具， sudo apt-get install alien fakeroot alien 把　.rpm 为　.deb 格式的文件 1. 将　.rpm 格式的文件转为 同文件名的　.deb fakeroot alien xx.rpm 这样就可以按上面的方法安装了</p>
+<p>1.apt 方式： a. 移除式卸载： apt-get remove 软件名 b. 清除式卸载： apt-get –purge remove 软件名 (同时清除配置) c. 清除式卸载： apt-get –purge 软件名 (同时清除配置)</p>
+<p>2.dpkg 方式： a. 移除式卸载：sudo dpkg dpkg_name b. 清除式卸载：sudo -P dpkg_name</p>
+<p>查看已经安装的软件名称：</p>
+<p>dpkg -l</p>
+<p>查找软件库中的软件 apt-cache search 正则表达式 或者 aptitude search 软件包（部分） 可以查看相关软件的名称　标志 i　表示已经安装</p>
+<p>apt-cache search php7 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">./configure \</span><br><span class="line">--prefix=/usr/local/php73 \</span><br><span class="line">--exec-prefix=/usr/local/php73 \</span><br><span class="line">--bindir=/usr/local/php73/bin \</span><br><span class="line">--sbindir=/usr/local/php73/sbin \</span><br><span class="line">--includedir=/usr/local/php73/include \</span><br><span class="line">--libdir=/usr/local/php73/lib/php \</span><br><span class="line">--mandir=/usr/local/php73/php/man \</span><br><span class="line">--with-config-file-path=/usr/local/php73/etc \</span><br><span class="line">--with-openssl \</span><br><span class="line">--enable-mbstring \</span><br><span class="line">--enable-fpm</span><br><span class="line"></span><br><span class="line">sudo make &amp;&amp; sudo make install</span><br></pre></td></tr></table></figure></p>
+<h1 id="编译">编译</h1>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># php7.1</span></span><br><span class="line">./configure --prefix=/usr/local/php71 --with-config-file-path=/usr/local/php71/etc --with-config-file-scan-dir=/usr/local/php71/conf.d --enable-fpm --with-fpm-user=www --with-fpm-group=www --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-iconv-dir --with-freetype-dir=/usr/local/freetype --with-jpeg-dir --with-png-dir --with-zlib --with-libxml-dir=/usr --enable-xml --disable-rpath --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl --enable-mbregex --enable-mbstring --with-mcrypt --enable-ftp --with-gd --enable-gd-native-ttf --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-xmlrpc --enable-zip --enable-soap --with-gettext --disable-fileinfo --enable-intl --with-xsl --enable-maintainer-zts</span><br><span class="line"> ./configure --with-php-config=/usr/local/php71/bin/php-config --with-readline</span><br><span class="line"></span><br><span class="line"><span class="comment"># php7废弃的扩展</span></span><br><span class="line"><span class="comment"># --with-mysql=mysqlnd</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> make &amp;&amp; <span class="built_in">sudo</span> make install</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Warning! a PEAR user config file already exists from a previous PEAR installation at &#x27;/home/hanzhijie/.pearrc&#x27;. You may probably want to remove it.</span><br><span class="line">Wrote PEAR system config file at: /usr/local/php71/etc/pear.conf</span><br><span class="line">You may want to add: /usr/local/php71/lib/php to your php.ini include_path</span><br><span class="line">/mnt/c/Users/hzj/Desktop/boom/tmp/php-7.1.26/build/shtool install -c ext/phar/phar.phar /usr/local/php71/bin</span><br><span class="line">ln -s -f phar.phar /usr/local/php71/bin/phar</span><br><span class="line">Installing PDO headers:           /usr/local/php71/include/php/ext/pdo/</span><br></pre></td></tr></table></figure>
+<h2 id="php7.3">php7.3</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">./configure --prefix=/usr/local/php73 --with-config-file-path=/usr/local/php73/etc --with-config-file-scan-dir=/usr/local/php73/conf.d --enable-fpm --with-fpm-user=www --with-fpm-group=www --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-iconv-dir --with-freetype-dir=/usr/local/freetype --with-jpeg-dir --with-png-dir --with-zlib --with-libxml-dir=/usr --enable-xml --disable-rpath --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl --enable-mbregex --enable-mbstring --enable-ftp --with-gd  --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-xmlrpc --enable-zip --enable-soap --with-gettext --disable-fileinfo --enable-intl --with-xsl --with-kerberos --enable-sysvshm --enable-opcache --enable-libxml --with-bz2 --with-pear --with-pdo-sqlite --with-pcre-regex --with-libdir=lib64 --with-kerberos --enable-maintainer-zts</span><br><span class="line">./configure --with-php-config=/usr/local/php73/bin/php-config --with-readline</span><br><span class="line"><span class="comment"># php7.2废弃的扩展</span></span><br><span class="line"><span class="comment"># --with-mcrypt --enable-gd-native-ttf</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Warning! a PEAR user config file already exists from a previous PEAR installation at <span class="string">&#x27;/home/hanzhijie/.pearrc&#x27;</span>. You may probably want to remove it.</span><br><span class="line">Wrote PEAR system config file at: /usr/local/php73/etc/pear.conf</span><br><span class="line">You may want to add: /usr/local/php73/lib/php to your php.ini include_path</span><br><span class="line">/mnt/c/Users/hzj/Desktop/boom/tmp/php-7.3.2/build/shtool install -c ext/phar/phar.phar /usr/local/php73/bin</span><br><span class="line"><span class="built_in">ln</span> -s -f phar.phar /usr/local/php73/bin/phar</span><br><span class="line">Installing PDO headers:           /usr/local/php73/include/php/ext/pdo/</span><br></pre></td></tr></table></figure>
+<h2 id="pthreads-安装">pthreads 安装</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">----------------------------------------------------------------------</span><br><span class="line">Libraries have been installed in:</span><br><span class="line">   /mnt/c/Users/hzj/Desktop/boom/tmp/pthreads-master/modules</span><br><span class="line"></span><br><span class="line">If you ever happen to want to link against installed libraries</span><br><span class="line">in a given directory, LIBDIR, you must either use libtool, and</span><br><span class="line">specify the full pathname of the library, or use the `-LLIBDIR&#x27;</span><br><span class="line">flag during linking and do at least one of the following:</span><br><span class="line">   - add LIBDIR to the `LD_LIBRARY_PATH&#x27; environment variable</span><br><span class="line">     during execution</span><br><span class="line">   - add LIBDIR to the `LD_RUN_PATH&#x27; environment variable</span><br><span class="line">     during linking</span><br><span class="line">   - use the `-Wl,--rpath -Wl,LIBDIR&#x27; linker flag</span><br><span class="line">   - have your system administrator add LIBDIR to `/etc/ld.so.conf&#x27;</span><br><span class="line"></span><br><span class="line">See any operating system documentation about shared libraries for</span><br><span class="line">more information, such as the ld(1) and ld.so(8) manual pages.</span><br><span class="line">----------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Build complete.</span><br><span class="line">Don&#x27;t forget to run &#x27;make test&#x27;.</span><br><span class="line"></span><br><span class="line">Installing shared extensions:     /usr/local/php73/lib/php/extensions/no-debug-zts-20180731/</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2018/10/27/coding/php/php_001_composer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/10/27/coding/php/php_001_composer/" class="post-title-link" itemprop="url">PHP[001]:Composer</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-27 09:48:32" itemprop="dateCreated datePublished" datetime="2018-10-27T09:48:32+08:00">2018-10-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-15 02:02:05" itemprop="dateModified" datetime="2026-11-15T02:02:05+08:00">2026-11-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>https://github.com/slince/composer-registry-manager</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ composer repo:ls</span><br><span class="line">  composer       https:<span class="comment">//packagist.org</span></span><br><span class="line">  phpcomposer    https:<span class="comment">//packagist.phpcomposer.com</span></span><br><span class="line">* composer-proxy https:<span class="comment">//packagist.composer-proxy.org</span></span><br><span class="line">  laravel-china  https:<span class="comment">//packagist.laravel-china.org</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ composer repo:use</span><br><span class="line">Please select your favorite registry (defaults to composer)</span><br><span class="line">  [0] composer</span><br><span class="line">  [1] phpcomposer</span><br><span class="line">  [2] composer-proxy</span><br><span class="line">  [3] laravel-china</span><br><span class="line"> &gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ composer repo:use phpcomposer</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/15/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2017 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">饼干</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

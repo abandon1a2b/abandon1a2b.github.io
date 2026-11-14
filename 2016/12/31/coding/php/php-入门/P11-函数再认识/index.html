@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+  <link rel="preload" href="/css/main.css?v=f69566cf7130a214" as="style">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=f69566cf7130a214">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha256-4Lad8m4ZWW1Lgb9+sMVLYEfnIh7BjV1NQMEe79Pviks=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.1.14/fancybox/fancybox.css" integrity="sha256-mdaMxrItEW6hMIVJJNPKuX0B7KCSJQVEv3mVY4N2we4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"abandon1a2b.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.29.1","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"width":300},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":3,"unescape":true,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js?v=a65fc965d74fd991" defer></script>
+
+    <meta name="description" content="这是我早期的 php 学习笔记，php 的学习版本版本是 5.6、7，🐟2020&#x2F;05&#x2F;06年从有道笔记导出至此。  day11-函数再认识 &#x2F;&#x2F;注意： 定义函数定义了形参没有给默认值，调用函数的时候会包warning错误缺少参数 回调函数我们要传入可以调用的函数名，那如果传参数是错误的，防止错误的方式 加上判断，判断传入的回调函数名是否正确或者是否可以调用 递归函数： 核心思想： 自己调用自">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="PHP[入门]P11-函数再认识">
+<meta property="og:url" content="https://abandon1a2b.github.io/2016/12/31/coding/php/php-%E5%85%A5%E9%97%A8/P11-%E5%87%BD%E6%95%B0%E5%86%8D%E8%AE%A4%E8%AF%86/index.html">
+<meta property="og:site_name" content="abandon">
+<meta property="og:description" content="这是我早期的 php 学习笔记，php 的学习版本版本是 5.6、7，🐟2020&#x2F;05&#x2F;06年从有道笔记导出至此。  day11-函数再认识 &#x2F;&#x2F;注意： 定义函数定义了形参没有给默认值，调用函数的时候会包warning错误缺少参数 回调函数我们要传入可以调用的函数名，那如果传参数是错误的，防止错误的方式 加上判断，判断传入的回调函数名是否正确或者是否可以调用 递归函数： 核心思想： 自己调用自">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-12-31T17:01:11.000Z">
+<meta property="article:modified_time" content="2026-11-14T18:02:05.196Z">
+<meta property="article:author" content="饼干">
+<meta property="article:tag" content="php">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://abandon1a2b.github.io/2016/12/31/coding/php/php-%E5%85%A5%E9%97%A8/P11-%E5%87%BD%E6%95%B0%E5%86%8D%E8%AE%A4%E8%AF%86/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://abandon1a2b.github.io/2016/12/31/coding/php/php-%E5%85%A5%E9%97%A8/P11-%E5%87%BD%E6%95%B0%E5%86%8D%E8%AE%A4%E8%AF%86/","path":"2016/12/31/coding/php/php-入门/P11-函数再认识/","title":"PHP[入门]P11-函数再认识"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>PHP[入门]P11-函数再认识 | abandon</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.1.14/fancybox/fancybox.umd.js" integrity="sha256-QnJV4HT5r8i89ovZGRD86iynZqHerEbT2xt69vDM36I=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.1/pangu.umd.js" integrity="sha256-kRsxecBnwG6mULFPe2E6UKnNm8XfDOuDwCOprjLZuX8=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js?v=5393bac179fc7d25" defer></script><script src="/js/sidebar.js?v=68cb7edc29fe8aa4" defer></script><script src="/js/next-boot.js?v=9df1930c68362f14" defer></script><script src="/js/pjax.js?v=d94cf43f5074b17e" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js?v=a40ec41db37b9a56" defer></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.3.1/pdfobject.min.js","integrity":"sha256-jI72I8ZLVflVOisZIOaLvRew3tyvzeu6aZXFm7P7dEo="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js?v=0f1d48995a83f9f6" defer></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js?v=fc2b2ebed93ecb58" defer></script>
+
+
+  <script src="/js/third-party/fancybox.js?v=b386dcb99f1c399f" defer></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","display_overflow":"scroll","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-mml-chtml.js","integrity":"sha256-ihPtDDm7pTmSF9ViEsItlvsrBTsNkz0MOXMchzOwCQw="}}</script>
+<script src="/js/third-party/math/mathjax.js?v=727841be3ac0d51b" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css?v=1273f22550d729e4">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-search popup-trigger" aria-label="搜索" role="button">
+      <i class="fa fa-search fa-fw fa-lg"></i>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">abandon</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">代码、笔记与开源实践</p>
+  </div>
+
+  <div class="site-nav-toggle" aria-label="切换导航栏" role="button">
+      <i class="fa fa-ellipsis fa-fw fa-lg"></i>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">41</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">184</span></a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-开源项目"><a href="https://github.com/leancodebox" rel="section" target="_blank"><i class="fab fa-github fa-fw"></i>开源项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  
+  <template id="search-popup-template"><div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div></template>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#day11-%E5%87%BD%E6%95%B0%E5%86%8D%E8%AE%A4%E8%AF%86"><span class="nav-text">day11-函数再认识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E5%87%BD%E6%95%B0"><span class="nav-text">递归函数：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E4%BC%A0%E5%8F%82"><span class="nav-text">引用传参：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E7%B1%BB%E5%9E%8B"><span class="nav-text">可变参数类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#php7.0%E6%96%B0%E7%89%B9%E6%80%A7"><span class="nav-text">… php7.0新特性：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#include-require-include_once-require_once%E5%8C%BA%E5%88%AB"><span class="nav-text">include require include_once require_once：区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E6%B3%A8%E9%87%8A"><span class="nav-text">函数的注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B6%85%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="nav-text">超全局变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%8B%E5%86%8C%E4%BD%BF%E7%94%A8%E6%89%BE%E8%A7%84%E5%BE%8B"><span class="nav-text">手册使用找规律</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="饼干"
+      src="/images/theme/wd.gif">
+  <p class="site-author-name" itemprop="name">饼干</p>
+  <div class="site-description" itemprop="description">饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">184</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/abandon1a2b" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;abandon1a2b" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/leancodebox" title="Lean Code Box → https:&#x2F;&#x2F;github.com&#x2F;leancodebox" rel="noopener me" target="_blank"><i class="fas fa-code-branch fa-fw"></i>Lean Code Box</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://gooseforum.online/" title="https:&#x2F;&#x2F;gooseforum.online&#x2F;" rel="noopener" target="_blank">GooseForum 社区</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/leancodebox/GooseForum" title="https:&#x2F;&#x2F;github.com&#x2F;leancodebox&#x2F;GooseForum" rel="noopener" target="_blank">GooseForum 源码</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/leancodebox/rooster" title="https:&#x2F;&#x2F;github.com&#x2F;leancodebox&#x2F;rooster" rel="noopener" target="_blank">Rooster 任务管理</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/leancodebox/dbhelper" title="https:&#x2F;&#x2F;github.com&#x2F;leancodebox&#x2F;dbhelper" rel="noopener" target="_blank">dbhelper 数据库工具</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2016/12/31/coding/php/php-%E5%85%A5%E9%97%A8/P11-%E5%87%BD%E6%95%B0%E5%86%8D%E8%AE%A4%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="PHP[入门]P11-函数再认识 | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PHP[入门]P11-函数再认识
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-01-01 01:01:11" itemprop="dateCreated datePublished" datetime="2017-01-01T01:01:11+08:00">2017-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-15 02:02:05" itemprop="dateModified" datetime="2026-11-15T02:02:05+08:00">2026-11-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>这是我早期的 php 学习笔记，php 的学习版本版本是 5.6、7，🐟2020/05/06年从有道笔记导出至此。</p>
+</blockquote>
+<h1 id="day11-函数再认识">day11-函数再认识</h1>
+<p>//注意： 定义函数定义了形参没有给默认值，调用函数的时候会包warning错误缺少参数</p>
+<p>回调函数我们要传入可以调用的函数名，那如果传参数是错误的，防止错误的方式</p>
+<p>加上判断，判断传入的回调函数名是否正确或者是否可以调用</p>
+<h2 id="递归函数">递归函数：</h2>
+<p>核心思想：</p>
+<p>自己调用自己的一个过程</p>
+<p>主要三个组成部分：</p>
+<ul>
+<li><p>自己调用自己</p></li>
+<li><p>结束条件</p></li>
+<li><p>核心的逻辑块</p></li>
+</ul>
+<p>优点：</p>
+<p>高大上代码</p>
+<p>缺点:</p>
+<p>效率低，占用内存大，而且可读性差 //大多数人都理解99%</p>
+<h2 id="引用传参">引用传参：</h2>
+<p>使用方式：</p>
+<p>eg:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params">&amp;<span class="variable">$str</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$str</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_ invoke__">show</span>(<span class="variable">$str</span>);</span><br></pre></td></tr></table></figure>
+<p>：</p>
+<ol type="1">
+<li>引用时两个变量指向同一个存储空间</li>
+</ol>
+<p>那么在传实参的时候必须传的是变量</p>
+<ol start="2" type="1">
+<li><p>引用传参的 &amp;必须放在的是我们的形参中</p></li>
+<li><p>使用引用传参 在函数内部改变参数的值，函数外部的值也会改变</p></li>
+<li><p>在使用引用传参时，如果传的是一个没有定义的变量不会报错，相当于定义了一个变量</p></li>
+</ol>
+<h2 id="可变参数类型">可变参数类型</h2>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">func_num_args</span>() <span class="comment">//返回的是调用时候实参参数的个数</span></span><br><span class="line"><span class="title function_ invoke__">func_get_args</span>()<span class="comment">//返回的是实参列表中所有的值 类型是数组</span></span><br><span class="line"><span class="title function_ invoke__">func_get_arg</span>(<span class="variable">$i</span>) <span class="comment">// 返回的是指定的实参中的某一项</span></span><br></pre></td></tr></table></figure>
+<h3 id="php7.0新特性">… php7.0新特性：</h3>
+<ol type="1">
+<li></li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params"><span class="variable">$str</span>, <span class="variable">$str2</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="title function_ invoke__">var_dump</span>(<span class="variable">$str</span>);<span class="comment">//1</span></span><br><span class="line">    <span class="title function_ invoke__">var_dump</span>(<span class="variable">$str2</span>);<span class="comment">//2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$arr</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="title function_ invoke__">show</span>(...<span class="variable">$arr</span>);</span><br><span class="line"><span class="comment">//传实参时候传的是数组，用了...以后将实参数组解析然后依次赋值给函数的形参</span></span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params">...<span class="variable">$arr</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="title function_ invoke__">var_dump</span>(<span class="variable">$arr</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_ invoke__">show</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"><span class="comment">//jiang shican zhong de canshu liebiao jiexi cheng shuzu</span></span><br></pre></td></tr></table></figure>
+<h2 id="include-require-include_once-require_once区别">include require <code>include_once</code> <code>require_once</code>：区别</h2>
+<p>include :包含文件并执行 参数：文件路径跟名字</p>
+<p>如果包含错误 报的是警告的一个错误 但是不影响程序的继续执行</p>
+<p>require ：包含文件参数文件的路径</p>
+<p>如果包含错误 报的是致命的错误影响程序的继续执行（程序不会往下执行）</p>
+<p><code>include_once</code> :包含文件 在包含文件时候首先判断是否已经引入如果有不执行包含如果没有不包含</p>
+<p><code>require_once</code> : 同理</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span>(strict_types = <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params"> <span class="keyword">string</span> <span class="variable">$str</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="title function_ invoke__">var_dump</span>(<span class="variable">$str</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_ invoke__">show</span>(<span class="string">&#x27;2&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>//形参中使用类型定义以后 传参要穿指定的类型，但是因为我们的PHP属于弱类型语言，如果定义的是int传入的是’2’会自动转成int 我们加上declare指令 以后强制传入指定的类型</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params"><span class="variable">$str</span></span>):<span class="title">string</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$str</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>//要求的是函数的返回值类型 如果我们在传实参时候传的是int 返回默认转成string 如果使用declare指令 那么要求传的实参也是string</p>
+<hr />
+<h2 id="函数的注释">函数的注释</h2>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@name</span> 累加函数</span></span><br><span class="line"><span class="comment">* <span class="doctag">@author</span> wlj wanglijuan@1000phone.com</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> int(mixed) $num 累加开始值</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> int $num2 累加结束值</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> array</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="超全局变量">超全局变量</h2>
+<p><code>$GLOBALS</code></p>
+<p><code>$_COOKIE</code> 得到会话控制中cookie传值</p>
+<p><code>$_SESSION</code>得到会话控制中session的值</p>
+<p><code>$_FILES</code>得到文件上传的结果</p>
+<p><code>$_GET</code>得到get传值的结果 //</p>
+<p><code>$_POST</code>得到post传值的结果//</p>
+<p><code>$_REQUEST</code>即能得到get的传值结果，// 也能得到Post传值的结果</p>
+<p><code>__FUNCTION__</code></p>
+<hr />
+<h2 id="手册使用找规律">手册使用找规律</h2>
+<ol type="1">
+<li><p>看函数的功能和版本</p></li>
+<li><p>看返回值 <code>var_dump()</code> <code>gettype()</code> <code>isset()</code> <code>empty()</code></p></li>
+<li><p>看传入的参数要求是什么 <code>copy(复制谁，复制到哪儿去)</code></p></li>
+<li><p>看到<code>[]</code>（中括号）代表可选，参数可传可不传</p></li>
+<li><p>… 就是后面可以传入任意多个参数</p></li>
+<li><p>&amp; 就必须要传变量，并且函数会改变原变量的值</p></li>
+<li><p>Mixed 可传入任意类型</p></li>
+<li><p>Callback 就是可以传入回调函数</p></li>
+<li><p>有没事看手册</p></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/php/" rel="tag"><i class="fa fa-tag"></i> php</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/12/31/coding/php/php-%E5%85%A5%E9%97%A8/P10-%E5%87%BD%E6%95%B0/" rel="prev" title="PHP[入门]P10-函数">
+                  <i class="fa fa-angle-left"></i> PHP[入门]P10-函数
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/12/31/coding/php/php-%E5%85%A5%E9%97%A8/P12-%E6%95%B0%E7%BB%84/" rel="next" title="PHP[入门]P12-数组">
+                  PHP[入门]P12-数组 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2017 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">饼干</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
