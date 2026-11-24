@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+  <link rel="preload" href="/css/main.css?v=65795265c4200cc1" as="style">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=65795265c4200cc1">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha256-4Lad8m4ZWW1Lgb9+sMVLYEfnIh7BjV1NQMEe79Pviks=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.1.14/fancybox/fancybox.css" integrity="sha256-mdaMxrItEW6hMIVJJNPKuX0B7KCSJQVEv3mVY4N2we4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"abandon1a2b.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.29.1","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"width":300},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":3,"unescape":true,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js?v=a65fc965d74fd991" defer></script>
+
+    <meta name="description" content="该部分为 php 面向对象的入门部分，较为肤浅且参杂过分已经不是主流的知识。   这是我早期的 php 学习笔记，php 的学习版本版本是 5.6、7，🐟2020&#x2F;05&#x2F;06年从有道笔记导出至此。  day07-模板引擎类 1、模板引擎 html css 静态页面 php 内嵌到html文件中的服务端脚本语言 1.php 123456&lt;html&gt;&lt;?php echo 123;">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="PHP[OOP入门]PH07-模板引擎类">
+<meta property="og:url" content="https://abandon1a2b.github.io/2016/12/31/coding/php/php-oop-%E5%85%A5%E9%97%A8/PH07-%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E7%B1%BB/index.html">
+<meta property="og:site_name" content="abandon">
+<meta property="og:description" content="该部分为 php 面向对象的入门部分，较为肤浅且参杂过分已经不是主流的知识。   这是我早期的 php 学习笔记，php 的学习版本版本是 5.6、7，🐟2020&#x2F;05&#x2F;06年从有道笔记导出至此。  day07-模板引擎类 1、模板引擎 html css 静态页面 php 内嵌到html文件中的服务端脚本语言 1.php 123456&lt;html&gt;&lt;?php echo 123;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-12-31T17:02:07.000Z">
+<meta property="article:modified_time" content="2026-11-24T06:45:12.716Z">
+<meta property="article:author" content="饼干">
+<meta property="article:tag" content="php">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://abandon1a2b.github.io/2016/12/31/coding/php/php-oop-%E5%85%A5%E9%97%A8/PH07-%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E7%B1%BB/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://abandon1a2b.github.io/2016/12/31/coding/php/php-oop-%E5%85%A5%E9%97%A8/PH07-%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E7%B1%BB/","path":"2016/12/31/coding/php/php-oop-入门/PH07-模板引擎类/","title":"PHP[OOP入门]PH07-模板引擎类"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>PHP[OOP入门]PH07-模板引擎类 | abandon</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.1.14/fancybox/fancybox.umd.js" integrity="sha256-QnJV4HT5r8i89ovZGRD86iynZqHerEbT2xt69vDM36I=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.1/pangu.umd.js" integrity="sha256-kRsxecBnwG6mULFPe2E6UKnNm8XfDOuDwCOprjLZuX8=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js?v=5393bac179fc7d25" defer></script><script src="/js/sidebar.js?v=68cb7edc29fe8aa4" defer></script><script src="/js/next-boot.js?v=9df1930c68362f14" defer></script><script src="/js/pjax.js?v=d94cf43f5074b17e" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js?v=a40ec41db37b9a56" defer></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.3.1/pdfobject.min.js","integrity":"sha256-jI72I8ZLVflVOisZIOaLvRew3tyvzeu6aZXFm7P7dEo="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js?v=0f1d48995a83f9f6" defer></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js?v=fc2b2ebed93ecb58" defer></script>
+
+
+  <script src="/js/third-party/fancybox.js?v=b386dcb99f1c399f" defer></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","display_overflow":"scroll","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-mml-chtml.js","integrity":"sha256-ihPtDDm7pTmSF9ViEsItlvsrBTsNkz0MOXMchzOwCQw="}}</script>
+<script src="/js/third-party/math/mathjax.js?v=727841be3ac0d51b" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css?v=1273f22550d729e4">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-search popup-trigger" aria-label="搜索" role="button">
+      <i class="fa fa-search fa-fw fa-lg"></i>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">abandon</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">代码、笔记与开源实践</p>
+  </div>
+
+  <div class="site-nav-toggle" aria-label="切换导航栏" role="button">
+      <i class="fa fa-ellipsis fa-fw fa-lg"></i>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">41</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">184</span></a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-开源项目"><a href="https://github.com/leancodebox" rel="section" target="_blank"><i class="fab fa-github fa-fw"></i>开源项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  
+  <template id="search-popup-template"><div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div></template>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#day07-%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E7%B1%BB"><span class="nav-text">day07-模板引擎类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E"><span class="nav-text">1、模板引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#php"><span class="nav-text">1.php</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E-1"><span class="nav-text">模板引擎</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E6%9B%BF%E6%8D%A2"><span class="nav-text">2、正则替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#include%E9%97%AE%E9%A2%98%E4%B8%80%E4%BC%9A%E8%AE%B2%E5%90%A7"><span class="nav-text">3、include问题（一会讲吧）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%BA%E7%82%B9"><span class="nav-text">4、缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="nav-text">类的设计：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%B1%9E%E6%80%A7"><span class="nav-text">成员属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95"><span class="nav-text">成员方法</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="饼干"
+      src="/images/theme/wd.gif">
+  <p class="site-author-name" itemprop="name">饼干</p>
+  <div class="site-description" itemprop="description">饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">184</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/abandon1a2b" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;abandon1a2b" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/leancodebox" title="Lean Code Box → https:&#x2F;&#x2F;github.com&#x2F;leancodebox" rel="noopener me" target="_blank"><i class="fas fa-code-branch fa-fw"></i>Lean Code Box</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://gooseforum.online/" title="https:&#x2F;&#x2F;gooseforum.online&#x2F;" rel="noopener" target="_blank">GooseForum 社区</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/leancodebox/GooseForum" title="https:&#x2F;&#x2F;github.com&#x2F;leancodebox&#x2F;GooseForum" rel="noopener" target="_blank">GooseForum 源码</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/leancodebox/rooster" title="https:&#x2F;&#x2F;github.com&#x2F;leancodebox&#x2F;rooster" rel="noopener" target="_blank">Rooster 任务管理</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/leancodebox/dbhelper" title="https:&#x2F;&#x2F;github.com&#x2F;leancodebox&#x2F;dbhelper" rel="noopener" target="_blank">dbhelper 数据库工具</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2016/12/31/coding/php/php-oop-%E5%85%A5%E9%97%A8/PH07-%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="PHP[OOP入门]PH07-模板引擎类 | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PHP[OOP入门]PH07-模板引擎类
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-01-01 01:02:07" itemprop="dateCreated datePublished" datetime="2017-01-01T01:02:07+08:00">2017-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-24 14:45:12" itemprop="dateModified" datetime="2026-11-24T14:45:12+08:00">2026-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>该部分为 php 面向对象的入门部分，较为肤浅且参杂过分已经不是主流的知识。</p>
+</blockquote>
+<blockquote>
+<p>这是我早期的 php 学习笔记，php 的学习版本版本是 5.6、7，🐟2020/05/06年从有道笔记导出至此。</p>
+</blockquote>
+<h1 id="day07-模板引擎类">day07-模板引擎类</h1>
+<h2 id="模板引擎">1、模板引擎</h2>
+<p>html css 静态页面</p>
+<p>php 内嵌到html文件中的服务端脚本语言</p>
+<h3 id="php">1.php</h3>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="meta">&lt;?php echo 123; ?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php foreach ($data as $key =&gt; $value) : ?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&lt;?=$value; ?&gt;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="meta">&lt;?php endforeach; ?&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>弊端：</p>
+<p>html代码和php代码交叉的太厉害,非常乱，而且，真正的工作中，前端的代码是有专门的妹子来写的，后端的代码你们这些汉子负责的</p>
+<h3 id="模板引擎-1">模板引擎</h3>
+<p>就是为了分离html文件和php文件而产生的</p>
+<ol type="1">
+<li><code>html(负责显示数据的)</code>《====模板引擎===1.<code>php(用来获取数据的)</code></li>
+</ol>
+<p>简单的逻辑（得到数据显示出来）</p>
+<p>使用模板引擎的语法来显示</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;$title&#125; =======》 &lt;?=$title; ?&gt;</span><br><span class="line">&#123;if $a &gt; 0&#125; =====&gt; &lt;?php if ($a &gt; 0): ?&gt;</span><br><span class="line">&#123;/if&#125; =======&gt; &lt;?php endif; ?&gt;</span><br></pre></td></tr></table></figure>
+<p>通过模板引擎，将html文件中的模板引擎的语法替换为php的语法,然后将该文件的后缀从html变成php，最终显示这个php文件。这个生成的php文件就是传说中的缓存文件</p>
+<h2 id="正则替换">2、正则替换</h2>
+<p><code>preg_replace</code></p>
+<p>正则表达式有</p>
+<p>定界符 原子（\d \w .） 元字符(+ ? * {n}) () {} . + * ?</p>
+<p><code>preg_quote</code></p>
+<p><code>preg_replace_callback</code></p>
+<h2 id="include问题一会讲吧">3、include问题（一会讲吧）</h2>
+<h2 id="缺点">4、缺点</h2>
+<p>面向过程</p>
+<p>每次都会生成缓存（过期时间）</p>
+<p>分页时候生成都是同一个缓存文件 index.php?page=3</p>
+<h2 id="类的设计">类的设计：</h2>
+<h3 id="成员属性">成员属性</h3>
+<p>模板路径</p>
+<p>缓存路径</p>
+<p>过期时间</p>
+<p>变量数组（用来保存页面需要显示的数据）</p>
+<h3 id="成员方法">成员方法</h3>
+<p>assign（<code>$name</code>, <code>$value</code>） :分配变量</p>
+<p><code>display(模板文件名， 是否include进来， uri)</code> ：展示模板</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">&#123;include &#x27;head.html&#x27;&#125; =&gt; <span class="meta">&lt;?php include &#x27;head.php&#x27;; ?&gt;</span></span><br><span class="line">&#123;include &#x27;foot.html&#x27;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/php/" rel="tag"><i class="fa fa-tag"></i> php</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/12/31/coding/php/php-oop-%E5%85%A5%E9%97%A8/PH06-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C%E7%B1%BB/" rel="prev" title="PHP[OOP入门]PH06-数据库操作类">
+                  <i class="fa fa-angle-left"></i> PHP[OOP入门]PH06-数据库操作类
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/12/31/coding/php/php-oop-%E5%85%A5%E9%97%A8/PH08-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="next" title="PHP[OOP入门]PH08-设计模式">
+                  PHP[OOP入门]PH08-设计模式 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2017 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">饼干</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

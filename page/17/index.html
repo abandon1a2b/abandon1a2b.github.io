@@ -1,0 +1,1875 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+  <link rel="preload" href="/css/main.css?v=65795265c4200cc1" as="style">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=65795265c4200cc1">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha256-4Lad8m4ZWW1Lgb9+sMVLYEfnIh7BjV1NQMEe79Pviks=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.1.14/fancybox/fancybox.css" integrity="sha256-mdaMxrItEW6hMIVJJNPKuX0B7KCSJQVEv3mVY4N2we4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"abandon1a2b.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.29.1","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"width":300},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":3,"unescape":true,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js?v=a65fc965d74fd991" defer></script>
+
+    <meta name="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="abandon">
+<meta property="og:url" content="https://abandon1a2b.github.io/page/17/index.html">
+<meta property="og:site_name" content="abandon">
+<meta property="og:description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="饼干">
+<meta property="article:tag" content="Go, PHP, 后端开发, 开源, Lean Code Box, GooseForum">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://abandon1a2b.github.io/page/17/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/17/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>abandon - 代码、笔记与开源实践</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.1.14/fancybox/fancybox.umd.js" integrity="sha256-QnJV4HT5r8i89ovZGRD86iynZqHerEbT2xt69vDM36I=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.1/pangu.umd.js" integrity="sha256-kRsxecBnwG6mULFPe2E6UKnNm8XfDOuDwCOprjLZuX8=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js?v=5393bac179fc7d25" defer></script><script src="/js/sidebar.js?v=68cb7edc29fe8aa4" defer></script><script src="/js/next-boot.js?v=9df1930c68362f14" defer></script><script src="/js/pjax.js?v=d94cf43f5074b17e" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js?v=a40ec41db37b9a56" defer></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.3.1/pdfobject.min.js","integrity":"sha256-jI72I8ZLVflVOisZIOaLvRew3tyvzeu6aZXFm7P7dEo="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js?v=0f1d48995a83f9f6" defer></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js?v=fc2b2ebed93ecb58" defer></script>
+
+
+  <script src="/js/third-party/fancybox.js?v=b386dcb99f1c399f" defer></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","display_overflow":"scroll","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-mml-chtml.js","integrity":"sha256-ihPtDDm7pTmSF9ViEsItlvsrBTsNkz0MOXMchzOwCQw="}}</script>
+<script src="/js/third-party/math/mathjax.js?v=727841be3ac0d51b" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css?v=1273f22550d729e4">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-search popup-trigger" aria-label="搜索" role="button">
+      <i class="fa fa-search fa-fw fa-lg"></i>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">abandon</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">代码、笔记与开源实践</p>
+  </div>
+
+  <div class="site-nav-toggle" aria-label="切换导航栏" role="button">
+      <i class="fa fa-ellipsis fa-fw fa-lg"></i>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">41</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">184</span></a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-开源项目"><a href="https://github.com/leancodebox" rel="section" target="_blank"><i class="fab fa-github fa-fw"></i>开源项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  
+  <template id="search-popup-template"><div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div></template>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="饼干"
+      src="/images/theme/wd.gif">
+  <p class="site-author-name" itemprop="name">饼干</p>
+  <div class="site-description" itemprop="description">饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">184</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/abandon1a2b" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;abandon1a2b" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/leancodebox" title="Lean Code Box → https:&#x2F;&#x2F;github.com&#x2F;leancodebox" rel="noopener me" target="_blank"><i class="fas fa-code-branch fa-fw"></i>Lean Code Box</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://gooseforum.online/" title="https:&#x2F;&#x2F;gooseforum.online&#x2F;" rel="noopener" target="_blank">GooseForum 社区</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/leancodebox/GooseForum" title="https:&#x2F;&#x2F;github.com&#x2F;leancodebox&#x2F;GooseForum" rel="noopener" target="_blank">GooseForum 源码</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/leancodebox/rooster" title="https:&#x2F;&#x2F;github.com&#x2F;leancodebox&#x2F;rooster" rel="noopener" target="_blank">Rooster 任务管理</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/leancodebox/dbhelper" title="https:&#x2F;&#x2F;github.com&#x2F;leancodebox&#x2F;dbhelper" rel="noopener" target="_blank">dbhelper 数据库工具</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2016/12/31/coding/php/php-oop-%E5%85%A5%E9%97%A8/PH05-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%B1%BB%E3%80%81%E6%B0%B4%E5%8D%B0%E7%BC%A9%E6%94%BE%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/12/31/coding/php/php-oop-%E5%85%A5%E9%97%A8/PH05-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%B1%BB%E3%80%81%E6%B0%B4%E5%8D%B0%E7%BC%A9%E6%94%BE%E7%B1%BB/" class="post-title-link" itemprop="url">PHP[OOP入门]PH05-文件上传类、水印缩放类</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-01-01 01:02:05" itemprop="dateCreated datePublished" datetime="2017-01-01T01:02:05+08:00">2017-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-24 14:45:12" itemprop="dateModified" datetime="2026-11-24T14:45:12+08:00">2026-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>该部分为 php 面向对象的入门部分，较为肤浅且参杂过分已经不是主流的知识。</p>
+</blockquote>
+<blockquote>
+<p>这是我早期的 php 学习笔记，php 的学习版本版本是 5.6、7，🐟2020/05/06年从有道笔记导出至此。</p>
+</blockquote>
+<h1 id="day05-文件上传类水印缩放类">day05-文件上传类、水印缩放类</h1>
+<h2 id="文件上传类">1、文件上传类</h2>
+<h3 id="form表单注意事项">form表单注意事项：</h3>
+<p>post enctype = 'multipart/form-data'</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&#x27;file&#x27;</span> <span class="attr">name</span>=<span class="string">&#x27;f&#x27;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$_FILES</span>[<span class="string">&#x27;f&#x27;</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="类设计">类设计：</h3>
+<h3 id="成员属性">成员属性</h3>
+<p>上传路径</p>
+<p>允许的后缀</p>
+<p>允许mime</p>
+<p>允许的大小</p>
+<p>是否启用随机名字</p>
+<p>前缀 <code>up_</code> <code>water_</code> <code>sf_</code></p>
+<p>错误号码</p>
+<p>错误信息</p>
+<p>//将下面的信息保存起来，方便其他的函数使用而已</p>
+<p>原文件名</p>
+<p>原文件后缀</p>
+<p>原文件大小</p>
+<p>原文件的mime</p>
+<p>文件临时路径</p>
+<h3 id="成员方法">成员方法</h3>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">uploadFile</span>(<span class="variable">$key</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="上传错误">上传错误：</h3>
+<p>官方错误：123467</p>
+<p>自定义错误：-1 -2 -3 -4 -5</p>
+<p>上传成功：0</p>
+<h3 id="错误信息">错误信息：</h3>
+<h2 id="水印缩放类图像类">2、水印缩放类(图像类)</h2>
+<p>100*100</p>
+<p>50*50</p>
+<p>20*80（图片会变形，不变形）</p>
+<h3 id="类的设计">类的设计：</h3>
+<h3 id="成员属性-1">成员属性</h3>
+<p>保存路径</p>
+<p>是否启用随机名字</p>
+<p>保存格式</p>
+<h3 id="成员方法-1">成员方法</h3>
+<p>水印（水印图片，源图片，位置， 透明度， 前缀） <code>water_</code></p>
+<p>缩放（源图片， 宽度， 高度， 前缀） <code>sf_</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">kidOfImage</span>(<span class="params"><span class="variable">$srcImg</span>, <span class="variable">$size</span>, <span class="variable">$imgInfo</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//传入新的尺寸，创建一个指定尺寸的图片</span></span><br><span class="line">    <span class="variable">$newImg</span> = <span class="title function_ invoke__">imagecreatetruecolor</span>(<span class="variable">$size</span>[<span class="string">&#x27;old_w&#x27;</span>],</span><br><span class="line">    <span class="variable">$size</span>[<span class="string">&#x27;old_h&#x27;</span>]);</span><br><span class="line">    <span class="comment">//定义透明色</span></span><br><span class="line">    <span class="variable">$otsc</span> = <span class="title function_ invoke__">imagecolortransparent</span>(<span class="variable">$srcImg</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$otsc</span> &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">//取得透明色</span></span><br><span class="line">        <span class="variable">$transparentcolor</span> = <span class="title function_ invoke__">imagecolorsforindex</span>(<span class="variable">$srcImg</span>, <span class="variable">$otsc</span>);</span><br><span class="line">        <span class="comment">//创建透明色</span></span><br><span class="line">        <span class="variable">$newtransparentcolor</span> = <span class="title function_ invoke__">imagecolorallocate</span>(</span><br><span class="line">        <span class="variable">$newImg</span>,</span><br><span class="line">        <span class="variable">$transparentcolor</span>[<span class="string">&#x27;red&#x27;</span>],</span><br><span class="line">        <span class="variable">$transparentcolor</span>[<span class="string">&#x27;green&#x27;</span>],</span><br><span class="line">        <span class="variable">$transparentcolor</span>[<span class="string">&#x27;blue&#x27;</span>]</span><br><span class="line">        );</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//将黑色作为透明色，因为创建图像后在第一次分配颜色时背景默认为黑色</span></span><br><span class="line">        <span class="variable">$newtransparentcolor</span> = <span class="title function_ invoke__">imagecolorallocate</span>(<span class="variable">$newImg</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//背景填充透明</span></span><br><span class="line">    <span class="title function_ invoke__">imagefill</span>( <span class="variable">$newImg</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="variable">$newtransparentcolor</span>);</span><br><span class="line">    <span class="title function_ invoke__">imagecolortransparent</span>(<span class="variable">$newImg</span>, <span class="variable">$newtransparentcolor</span>);</span><br><span class="line">    <span class="title function_ invoke__">imagecopyresampled</span>( <span class="variable">$newImg</span>, <span class="variable">$srcImg</span>, <span class="variable">$size</span>[<span class="string">&#x27;x&#x27;</span>],</span><br><span class="line">    <span class="variable">$size</span>[<span class="string">&#x27;y&#x27;</span>], <span class="number">0</span>, <span class="number">0</span>, <span class="variable">$size</span>[<span class="string">&quot;new_w&quot;</span>], <span class="variable">$size</span>[<span class="string">&quot;new_h&quot;</span>],</span><br><span class="line">    <span class="variable">$imgInfo</span>[<span class="string">&quot;width&quot;</span>], <span class="variable">$imgInfo</span>[<span class="string">&quot;height&quot;</span>] );</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$newImg</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">$width:最终缩放的宽度</span></span><br><span class="line"><span class="comment">$height:最终缩放的高度</span></span><br><span class="line"><span class="comment">$imgInfo:原始图片的宽度和高度</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">getNewSize</span>(<span class="params"><span class="variable">$width</span>, <span class="variable">$height</span>, <span class="variable">$imgInfo</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$size</span>[<span class="string">&#x27;old_w&#x27;</span>] = <span class="variable">$width</span>;</span><br><span class="line">    <span class="variable">$size</span>[<span class="string">&#x27;old_h&#x27;</span>] = <span class="variable">$height</span>;</span><br><span class="line">    <span class="variable">$scaleWidth</span> = <span class="variable">$width</span> / <span class="variable">$imgInfo</span>[<span class="string">&#x27;width&#x27;</span>];</span><br><span class="line">    <span class="variable">$scaleHeight</span> = <span class="variable">$height</span> / <span class="variable">$imgInfo</span>[<span class="string">&#x27;height&#x27;</span>];</span><br><span class="line">    <span class="variable">$scaleFinal</span> = <span class="title function_ invoke__">min</span>(<span class="variable">$scaleWidth</span>, <span class="variable">$scaleHeight</span>);</span><br><span class="line">    <span class="variable">$size</span>[<span class="string">&#x27;new_w&#x27;</span>] = <span class="title function_ invoke__">round</span>(<span class="variable">$imgInfo</span>[<span class="string">&#x27;width&#x27;</span>] * <span class="variable">$scaleFinal</span>);</span><br><span class="line">    <span class="variable">$size</span>[<span class="string">&#x27;new_h&#x27;</span>] = <span class="title function_ invoke__">round</span>(<span class="variable">$imgInfo</span>[<span class="string">&#x27;height&#x27;</span>] * <span class="variable">$scaleFinal</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$scaleWidth</span> &lt; <span class="variable">$scaleHeight</span>) &#123;</span><br><span class="line">        <span class="variable">$size</span>[<span class="string">&#x27;x&#x27;</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="variable">$size</span>[<span class="string">&#x27;y&#x27;</span>] = <span class="title function_ invoke__">round</span>(<span class="title function_ invoke__">abs</span>(<span class="variable">$size</span>[<span class="string">&#x27;new_h&#x27;</span>] - <span class="variable">$height</span>) / <span class="number">2</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="variable">$size</span>[<span class="string">&#x27;y&#x27;</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="variable">$size</span>[<span class="string">&#x27;x&#x27;</span>] = <span class="title function_ invoke__">round</span>(<span class="title function_ invoke__">abs</span>(<span class="variable">$size</span>[<span class="string">&#x27;new_w&#x27;</span>] - <span class="variable">$width</span>) / <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$size</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2016/12/31/coding/php/php-oop-%E5%85%A5%E9%97%A8/PH04-%E9%AA%8C%E8%AF%81%E7%A0%81%E7%B1%BB%E5%92%8C%E5%88%86%E9%A1%B5%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/12/31/coding/php/php-oop-%E5%85%A5%E9%97%A8/PH04-%E9%AA%8C%E8%AF%81%E7%A0%81%E7%B1%BB%E5%92%8C%E5%88%86%E9%A1%B5%E7%B1%BB/" class="post-title-link" itemprop="url">PHP[OOP入门]PH04-验证码类和分页类</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-01-01 01:02:04" itemprop="dateCreated datePublished" datetime="2017-01-01T01:02:04+08:00">2017-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-24 14:45:12" itemprop="dateModified" datetime="2026-11-24T14:45:12+08:00">2026-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>该部分为 php 面向对象的入门部分，较为肤浅且参杂过分已经不是主流的知识。</p>
+</blockquote>
+<blockquote>
+<p>这是我早期的 php 学习笔记，php 的学习版本版本是 5.6、7，🐟2020/05/06年从有道笔记导出至此。</p>
+</blockquote>
+<h1 id="day04-验证码类和分页类">day04-验证码类和分页类</h1>
+<h2 id="遍历对象">遍历对象</h2>
+<p>对象可以被当成数组来遍历，遍历的时候，键就是属性名，值就是属性值</p>
+<p>类外</p>
+<p>只能遍历public属性</p>
+<p>类内</p>
+<p>所有属性都能遍历出来</p>
+<h2 id="匿名类">匿名类</h2>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$obj</span> = <span class="keyword">new</span> <span class="class"><span class="keyword">class</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$name</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$height</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;100&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="命名空间结合自动加载实现mvc">1、命名空间结合自动加载实现mvc</h2>
+<h3 id="规则">规则：</h3>
+<p>文件夹名都是小写</p>
+<p>文件名和类名相同</p>
+<p>命名空间名都是小写</p>
+<p>文件夹名和命名空间名对应</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">model namespace model; model\UserModel =&gt; model/UserModel.php</span><br><span class="line">UserModel.php</span><br><span class="line">GoodsModel.php</span><br><span class="line">view</span><br><span class="line">controller</span><br><span class="line">IndexController.php</span><br><span class="line">UserController.php</span><br><span class="line">vendor</span><br><span class="line">Tpl.php</span><br><span class="line">Model.php</span><br><span class="line">Code.php</span><br><span class="line">Image.php</span><br><span class="line">index.php</span><br></pre></td></tr></table></figure>
+<h2 id="常量和有关函数自己测试一下">2、常量和有关函数(自己测试一下)</h2>
+<p><code>__NAMESPACE__</code> 当前命名空间名</p>
+<p><code>__CLASS__</code> 当前类名</p>
+<p><code>__METHOD__</code> 当前方法名</p>
+<p>instanceof 判断一个对象是否属于当前类</p>
+<p><code>class_alias</code> 给类起别名</p>
+<p><code>class_exists</code> 判断类是否存在</p>
+<p><code>get_class_methods</code> 得到类所有的方法</p>
+<p><code>get_class_vars</code> 得到类所有的属性</p>
+<p><code>get_class</code> 根据对象得到当前类名</p>
+<p><code>interface_exists</code> 判断接口是否存在</p>
+<p><code>trait_exists</code> 判断trait是否存在</p>
+<p><code>method_exists</code> 判断方法是否存在</p>
+<p><code>property_exists</code> 判断属性是否存在</p>
+<h2 id="验证码类">3、验证码类</h2>
+<p>imagecreatetruecolor</p>
+<p>imagechar</p>
+<p>imagesetpixel</p>
+<p>imagearc</p>
+<p>imagecolorallocate</p>
+<p>imagefill</p>
+<p>imagepng</p>
+<h3 id="类如何写">类如何写：</h3>
+<p>创建一个对象，调用对象的一个方法，立马显示出来验证码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$obj</span>-&gt;<span class="title function_ invoke__">outImage</span>();</span><br></pre></td></tr></table></figure>
+<h3 id="如何设计这个类">如何设计这个类</h3>
+<p>//将这些属性设置为成员属性，方便类里面所有的方法使用</p>
+<p>//宽 高 个数 类型（0--纯数字，1--纯字母，2--字母和数字混合） 验证码字符串 图像资源</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">outImage</span>(<span class="params"></span>)</span>;</span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">drawChar</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="分页类">4、分页类</h2>
+<p>上一页 下一页 首页 尾页</p>
+<p>核心：得到page 得到url</p>
+<p>http://www.baidu.com:80/index.php?username=goudan&amp;password=123&amp;page=3</p>
+<p>prev next first end</p>
+<p><code>$_SERVER</code></p>
+<p><code>REQUEST_URI</code> 获取文件以及后面的请求字符串</p>
+<p><code>SERVER_PORT</code> 获取端口号</p>
+<p><code>SERVER_NAME</code> 获取主机名</p>
+<p><code>REQUEST_SCHEME</code> 获取协议</p>
+<p><code>parse_url</code> 解析url 重点关注里面的 path query这两个键</p>
+<p><code>parse_str</code> 将请求字符串转化为关联数组</p>
+<p><code>http_build_query</code> 将关联数组转化为请求字符串</p>
+<h3 id="分页类-1">分页类：</h3>
+<h3 id="成员属性">成员属性</h3>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$url</span></span><br><span class="line"><span class="variable">$totalCount</span></span><br><span class="line"><span class="variable">$totalPage</span></span><br><span class="line"><span class="variable">$number</span></span><br><span class="line"><span class="variable">$page</span></span><br></pre></td></tr></table></figure>
+<h3 id="成员方法public">成员方法（public）</h3>
+<p>first</p>
+<p>next</p>
+<p>prev</p>
+<p>end</p>
+<p>allPage</p>
+<p>limit</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2016/12/31/coding/php/php-oop-%E5%85%A5%E9%97%A8/PH03-%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95%E3%80%81%E6%8A%BD%E8%B1%A1%E7%B1%BB%E3%80%81%E6%8E%A5%E5%8F%A3%E3%80%81%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/12/31/coding/php/php-oop-%E5%85%A5%E9%97%A8/PH03-%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95%E3%80%81%E6%8A%BD%E8%B1%A1%E7%B1%BB%E3%80%81%E6%8E%A5%E5%8F%A3%E3%80%81%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/" class="post-title-link" itemprop="url">PHP[OOP入门]PH03-魔术方法、抽象类、接口、命名空间</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-01-01 01:02:03" itemprop="dateCreated datePublished" datetime="2017-01-01T01:02:03+08:00">2017-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-24 14:45:12" itemprop="dateModified" datetime="2026-11-24T14:45:12+08:00">2026-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>该部分为 php 面向对象的入门部分，较为肤浅且参杂过分已经不是主流的知识。</p>
+</blockquote>
+<blockquote>
+<p>这是我早期的 php 学习笔记，php 的学习版本版本是 5.6、7，🐟2020/05/06年从有道笔记导出至此。</p>
+</blockquote>
+<h1 id="day03-魔术方法抽象类接口命名空间">day03-魔术方法、抽象类、接口、命名空间</h1>
+<h2 id="目录文件夹结构">目录（文件夹）结构</h2>
+<p>文件夹名字小写，类名和文件名相同</p>
+<p>单一入口 index.php?m=index&amp;a=test</p>
+<p>通过url告诉我到底应该执行哪个控制器下面的哪个方法</p>
+<p>IndexController类中 test方法</p>
+<p>MVC:一种设计模式</p>
+<p>model 数据模型</p>
+<p>view 视图</p>
+<p>controller 控制器</p>
+<p>vendor 第三方库文件</p>
+<h2 id="魔术方法">1、魔术方法</h2>
+<h3 id="callstatic"><code>__callStatic</code></h3>
+<p>触发时机：当调用不存在的静态方法的时候自动执行这个方法</p>
+<p>参数：函数名 数组</p>
+<p>【注】该方法必须是static的</p>
+<p>serialize:序列化</p>
+<p>将程序中的一个对象进行序列化，然后保存起来</p>
+<p>unserialize:反序列化</p>
+<h3 id="sleep了解"><code>__sleep</code>（了解）</h3>
+<p>触发时机：当序列化一个对象的时候调用这个方法</p>
+<p>没有参数，有返回值，返回你要序列化的属性，组成一个数组</p>
+<h3 id="wakeup了解"><code>__wakeup</code>（了解）</h3>
+<p>触发时机：当反序列一个对象的时候调用</p>
+<p>在这里可以做一些自己初始化的一些工作</p>
+<h3 id="clone了解"><code>__clone</code>（了解）</h3>
+<p>触发时机：当clone一个对象的时候会自动调用</p>
+<p>在这里你可以修改一些属性</p>
+<h2 id="函数对象引用">2、函数、对象引用</h2>
+<p><code>call_user_func</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">call_user_func</span>([<span class="variable">$xiang</span>, <span class="string">&#x27;eat&#x27;</span>], <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<p><code>call_user_func_array</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">call_user_func_array</span>([<span class="variable">$xiang</span>, <span class="string">&#x27;eat&#x27;</span>], [<span class="number">1000</span>, <span class="number">2000</span>, <span class="number">3000</span>]);</span><br></pre></td></tr></table></figure>
+<p><code>var_export</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$str</span> = <span class="title function_ invoke__">var_export</span>(<span class="variable">$arr</span>, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+<p>将一个数组变成生成数组的字符串保存起来</p>
+<h3 id="对象引用了解">对象引用（了解）</h3>
+<p>变量引用：加上引用就是同一个变量（一级指针）</p>
+<p>对象引用：不管加不加引用，都是同一个对象（二级指针）</p>
+<h2 id="抽象类">3、抽象类</h2>
+<p>抽象类：就是普通的类在前面加上一个关键字 abstract ,代表这个类是一个抽象类</p>
+<p>【注】抽象类不能实例化对象</p>
+<p>【注】抽象类存在的目的就是让子类继承并且实现其规定的抽象方法</p>
+<p>【注】子类中必须实现抽象类中规定的抽象方法，一般情况下，抽象类中都有抽象方法</p>
+<p>【注】如果抽象方法中有参数并且参数有默认值，那么子类实现的时候也要有参数和默认值</p>
+<p>【注】抽象方法必须是public或者protected</p>
+<p>【注】抽象类可以继承抽象类，但是子类必须实现所有的抽象方法</p>
+<h2 id="接口抽象的抽象类interface">4、接口（抽象的抽象类）interface</h2>
+<p>接口：usb接口</p>
+<p>代码中的接口：</p>
+<p>【注】接口中的方法都是抽象方法，而且是public</p>
+<p>实现接口使用implements</p>
+<p>可以实现多个接口，中间使用逗号隔开</p>
+<p>先继承父类再实现接口</p>
+<p>接口可以继承接口，但是子类必须将所有的方法都给实现</p>
+<p>接口中不能添加成员变量</p>
+<h2 id="多态了解">5、多态（了解）</h2>
+<p>在php中，多态其实不明显，我们这个重写就是一种多态，相同的接口给不同的对象，得到的响应不同，这就是多态</p>
+<h2 id="trait特性">6、<code>trait(特性)</code></h2>
+<p>php是一种单继承语言，不能使用多继承，trait就是模拟实现多继承的新特性</p>
+<p>trait写法和类写法一模一样，只是将class变成了trait</p>
+<p>trait中可以添加成员属性，但是一般不加，一般只加成员方法</p>
+<p>trait中的方法如果想让子类使用，必须是public</p>
+<p>trait不能被实例化，就是不能创建对象</p>
+<p>trait可以嵌套trait</p>
+<h3 id="解决多个trait中方法名冲突问题了解">解决多个trait中方法名冲突问题：（了解）</h3>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Dun</span>, <span class="title">Sword</span>&#123;</span><br><span class="line">    <span class="title">Dun</span>::<span class="title">blood</span> <span class="title">insteadof</span> <span class="title">Sword</span>;</span><br><span class="line">    <span class="title class_">Dun</span>::<span class="variable constant_">blood</span> <span class="keyword">as</span> blood1;</span><br><span class="line">    <span class="title class_">Sword</span>::<span class="variable constant_">blood</span> <span class="keyword">as</span> blood2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="遍历对象">7、遍历对象</h2>
+<h2 id="类型约束">8、类型约束</h2>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">buy</span>(<span class="params">Girl <span class="variable">$girl</span></span>)</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="匿名类了解">9、匿名类（了解）</h2>
+<h2 id="命名空间namespace">10、命名空间（namespace）</h2>
+<p>命名空间要结合自动加载实现MVC框架</p>
+<p>命名空间可以解决同一文件中不能有相同的类名问题</p>
+<p>命名空间一般都小写</p>
+<p>第一个命名空间的前面不能有任何的代码</p>
+<p>命名空间的范围是一直向下，直到下一个命名空间的开始</p>
+<p>\:根空间，没有写命名空间的都在根空间下，</p>
+<p><code>use hello\Person;</code>：使用命名空间下的类</p>
+<p><code>use baby\Person as SeLang;</code>：给命名空间下的类起别名</p>
+<p>子空间</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2016/12/31/coding/php/php-oop-%E5%85%A5%E9%97%A8/PH02-%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E7%B1%BB%E5%B8%B8%E9%87%8F%E3%80%81%E9%9D%99%E6%80%81%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95%E3%80%81%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/12/31/coding/php/php-oop-%E5%85%A5%E9%97%A8/PH02-%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E7%B1%BB%E5%B8%B8%E9%87%8F%E3%80%81%E9%9D%99%E6%80%81%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95%E3%80%81%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD/" class="post-title-link" itemprop="url">PHP[OOP入门]PH02-魔术方法、继承、类常量、静态属性和方法、自动加载</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-01-01 01:02:02" itemprop="dateCreated datePublished" datetime="2017-01-01T01:02:02+08:00">2017-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-24 14:45:12" itemprop="dateModified" datetime="2026-11-24T14:45:12+08:00">2026-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>该部分为 php 面向对象的入门部分，较为肤浅且参杂过分已经不是主流的知识。</p>
+</blockquote>
+<blockquote>
+<p>这是我早期的 php 学习笔记，php 的学习版本版本是 5.6、7，🐟2020/05/06年从有道笔记导出至此。</p>
+</blockquote>
+<h1 id="day02-魔术方法继承类常量静态属性和方法自动加载">day02-魔术方法、继承、类常量、静态属性和方法、自动加载</h1>
+<h2 id="魔术方法">1、魔术方法</h2>
+<h3 id="get"><code>__get</code></h3>
+<h3 id="set"><code>__set</code></h3>
+<h3 id="construct构造方法"><code>__construct</code>：构造方法</h3>
+<h3 id="destruct析构方法"><code>__destruct</code>：析构方法</h3>
+<p>触发时机：在这个对象被销毁的时候自动调用</p>
+<p>在php中，不用内存管理，当脚本运行结束的时候，所有的空间全部销毁</p>
+<p>弱类型 强类型</p>
+<p>参数：没有参数</p>
+<h3 id="unset销毁一个变量"><code>__unset</code>:销毁一个变量</h3>
+<p>触发时机：当销毁私有成员属性的时候自动调用</p>
+<p>参数：属性名</p>
+<h3 id="isset判断这个变量是否被设置过"><code>__isset</code>：判断这个变量是否被设置过</h3>
+<p>触发时机：当在外部判断私有的成员属性是否被设置过时自动调用</p>
+<p>参数：属性名</p>
+<h3 id="invoke了解"><code>__invoke</code>（了解）</h3>
+<p>触发时机：当将一个对象当作函数使用的时候自动调用</p>
+<p>参数：当做函数的时候传递几个参数，这里就写几个参数</p>
+<h3 id="tostring了解"><code>__toString</code>（了解）</h3>
+<p>触发时机：当echo一个对象的时候自动调用</p>
+<p>参数：没有参数</p>
+<p>返回值：必须return一个字符串，这个字符串自己定制</p>
+<h3 id="debuginfo了解"><code>__debugInfo</code>（了解）</h3>
+<p>发现bug需要3秒钟，调试bug需要3个小时，dubug却需要一辈子</p>
+<p>触发时机：通过<code>var_dump</code>来打印对象的时候自动调用</p>
+<p>参数：没有参数</p>
+<p>返回值：必须返回一个数组，该数组自己定制</p>
+<h3 id="call"><code>__call</code></h3>
+<p>触发时机：当调用一个不存在的成员方法的时候自动调用</p>
+<p>参数：函数名 由实参组成的一个数组</p>
+<h3 id="callstatic讲完静态方法时候再讲"><code>__callStatic</code>（讲完静态方法时候再讲）</h3>
+<h3 id="连贯操作">连贯操作</h3>
+<p>成员方法要返回<code>$this</code></p>
+<h3 id="通过__call实现单字段查询">通过<code>__call</code>实现单字段查询</h3>
+<p>去处理特定的函数名，通过函数名得到字段名，根据参数得到字段值，然后拼接sql语句即可</p>
+<h2 id="继承">2、继承</h2>
+<h3 id="认识继承">认识继承</h3>
+<p>生活上</p>
+<p>体现在生物学中的继承</p>
+<p>父类 子类</p>
+<p>父类 子类</p>
+<p>父类 子类</p>
+<p>父类 子类</p>
+<p>生物 动物 哺乳动物 人类 男人累</p>
+<p>女人泪</p>
+<p>从概念上来理解，生物是最大的</p>
+<p>动物从生物衍生过来的，动物具有生物的特性，动物还有自己独有的特性，所以叫做动物</p>
+<p>哺乳动物从动物衍生过来的，他不仅有动物的特性，其还有自己独有的特性，所以叫做哺乳动物</p>
+<p>代码上</p>
+<p>上面的特性就代表属性，属性最多的是男人累和女人泪，从属性方面来理解，是男人累大于人类，从属性方面来理解就是我们代码中的继承</p>
+<h3 id="基本概念">基本概念</h3>
+<p>继承、派生</p>
+<p>从代码上来理解，男人累继承自人类，人类继承自哺乳动物，继承的概念关注的是相同的属性</p>
+<p>派生，其实继承和派生说的是同一个东西，只不过是从不同的角度来理解</p>
+<h3 id="父子类叫法">父子类叫法</h3>
+<p>父类-》子类</p>
+<p>基类-》派生类</p>
+<h3 id="单继承">单继承</h3>
+<p>单继承就是一个子类只能由一个父类，这种叫做单继承</p>
+<p>php面向对象的语法是单继承，c++里面就是多继承</p>
+<h3 id="继承语法">继承语法</h3>
+<p>基本语法</p>
+<p>子类继承了父类，就拥有了父类的成员属性和成员方法</p>
+<h3 id="访问权限">访问权限</h3>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">类外 继承</span><br><span class="line">public：公共的 可以 可以</span><br><span class="line">private：私有的 不可以 不可以</span><br><span class="line">protected：受保护的 不可以 可以</span><br></pre></td></tr></table></figure>
+<h3 id="重写方法重载">重写方法（重载）</h3>
+<p>重写作用</p>
+<p>重写意思：当父类的方法子类继承过来之后，有时候这个方法并不太适合子类，这个时候我们就要在子类中重写这个方法</p>
+<p>重写分两种：</p>
+<p>完全重写</p>
+<p>子类对象调用该方法调用的是重写后的方法，父类执行的还是之前的方法。</p>
+<p>在父类的基础上增加一定的功能</p>
+<p>通过parent关键字首先执行父类的方法，然后再增加自己的功能</p>
+<h3 id="parent关键字普通方法构造方法">parent关键字（普通方法、构造方法）</h3>
+<p>见代码8overwrite.php</p>
+<h3 id="final关键字最后的最终的">final关键字（最后的，最终的）</h3>
+<p>final用来修饰class，代表这个类不能被继承</p>
+<p>final用来修饰成员方法的时候代表这个方法不能被重写</p>
+<h3 id="重写中的方法权限修改">重写中的方法权限修改</h3>
+<p>public</p>
+<p>子类重写的时候权限还必须是public</p>
+<p>protected</p>
+<p>子类重写的时候权限必须是public或者protected</p>
+<p>private protected public</p>
+<p>后面的权限最大 重写的时候权限只能放大不能缩小</p>
+<h2 id="类常量">3、类常量</h2>
+<h3 id="定义方式">定义方式：</h3>
+<p>一般使用define在类外定义常量，使用const在类内定义常量</p>
+<p>定义常量，前面不能加属性修饰符</p>
+<h3 id="调用方法">调用方法</h3>
+<p>类外</p>
+<p>类名::常量名 （<code>$obj</code>::常量名）</p>
+<p>类内</p>
+<p>self::常量名 self就是当前类名 (<code>$this</code>::常量名)</p>
+<h2 id="静态属性和静态方法">4、静态属性和静态方法</h2>
+<h3 id="什么是静态属性和方法static">什么是静态属性和方法（static）</h3>
+<p>如果在成员属性或者成员方法前面加了static进行修饰，那么这个成员属性或者成员方法就不在属于某一个对象，而是属于整个类的</p>
+<h3 id="静态属性调用方法">静态属性调用方法：</h3>
+<p>类外</p>
+<p>类名::静态属性名 (<code>$obj</code>::静态属性名)</p>
+<p>类内</p>
+<p>self::静态属性名 (<code>$this</code>::静态属性名)</p>
+<h3 id="静态方法调用方法">静态方法调用方法</h3>
+<p>类外</p>
+<p>类名::静态方法名 (<code>$obj</code>::静态方法名，<code>$obj</code>-&gt;静态方法名)</p>
+<p>类内</p>
+<p>self::静态方法名 (<code>$this</code>::静态方法名，<code>$this</code>-&gt;静态方法名)</p>
+<h3 id="静态方法注意项">静态方法注意项</h3>
+<ul>
+<li><p>1、静态属性和静态方法前面可以加属性修饰符</p></li>
+<li><p>2、静态属性和静态方法调用效率高</p></li>
+<li><p>3、静态方法可以实现单例</p></li>
+<li><p>4、静态方法中不能出现<code>$this</code></p></li>
+</ul>
+<h2 id="自动加载重点">5、自动加载(重点)</h2>
+<h3 id="规则">规则</h3>
+<p>在我们以后的工作中，一个类就是一个文件，文件名要和类名相同</p>
+<p><code>__autoload</code></p>
+<p>魔术方法：这个方法是唯一写在类外的方法</p>
+<p>触发时机：当文件加载一个类的时候，并没有找到这个类，那么就会自动触发这个方法</p>
+<p>参数：类名</p>
+<h3 id="目录文件夹结构">目录（文件夹）结构</h3>
+<p>MVC:一种设计模式</p>
+<p>model 数据模型</p>
+<p>view 视图</p>
+<p>controller 控制器</p>
+<p>vendor 第三方库文件</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2016/12/31/coding/php/php-oop-%E5%85%A5%E9%97%A8/PH01-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/12/31/coding/php/php-oop-%E5%85%A5%E9%97%A8/PH01-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="post-title-link" itemprop="url">PHP[OOP入门]PH01-面向对象基本语法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-01-01 01:02:01" itemprop="dateCreated datePublished" datetime="2017-01-01T01:02:01+08:00">2017-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-24 14:45:12" itemprop="dateModified" datetime="2026-11-24T14:45:12+08:00">2026-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>该部分为 php 面向对象的入门部分，较为肤浅且参杂过分已经不是主流的知识。</p>
+</blockquote>
+<blockquote>
+<p>这是我早期的 php 学习笔记，php 的学习版本版本是 5.6、7，🐟2020/05/06年从有道笔记导出至此。</p>
+</blockquote>
+<h1 id="day01-面向对象基本语法">day01-面向对象基本语法</h1>
+<h2 id="为什么学习面向对象">为什么学习面向对象</h2>
+<p>对象：此对非彼对象 对象就是普通的对象</p>
+<p>学完面向对象之后我们的代码非常的紧凑和高雅</p>
+<p>现在很多语言都是面向对象的 java c++ c#</p>
+<h2 id="面向过程和面向对象">面向过程和面向对象</h2>
+<p>以前我们写的代码：是面向过程的</p>
+<p>举例子：</p>
+<p>谈个对象====结婚 盖房子</p>
+<ul>
+<li>面向过程
+<ul>
+<li>打地基</li>
+<li>买砖</li>
+<li>盖房子</li>
+<li>装修</li>
+<li>娶媳妇</li>
+</ul></li>
+<li>面向对象
+<ul>
+<li>创建打地基的对象</li>
+<li>创建买砖对象买砖</li>
+<li>包工头</li>
+<li>装修工</li>
+<li>自己来吧</li>
+</ul></li>
+</ul>
+<p>万物皆对象，多个对象协同工作共同完成一个功能</p>
+<p>如果面向过程是数学逻辑的映射，那么面向对象就是生活逻辑的映射</p>
+<p>语法层面：封装、继承、多态</p>
+<p>思想方面：学习面向对象语言最重要的就是思想的转变，语法其实没什么，人家规定怎么写我们就怎么写</p>
+<h2 id="类和对象">类和对象</h2>
+<h3 id="生活角度">生活角度</h3>
+<p>什么是类：人类（统称），都具有共同的属性和行为，是一个抽象的概念</p>
+<p>人类 对象（刘翔）</p>
+<p>汽车 你的奔驰</p>
+<p>电脑 你桌子上面的电脑</p>
+<h3 id="官方解释">官方解释：</h3>
+<p>类：对象的抽象</p>
+<p>对象：类的具象</p>
+<h3 id="编码角度-int">编码角度 （int）</h3>
+<p>在代码中，类就是一种数据类型，int没有占用空间类型，具体到某个变量才有空间类型，类比，我们的对象也是如此，类并没有空间，对象才有空间</p>
+<h2 id="类的简单使用">类的简单使用</h2>
+<p>属性和行为</p>
+<h3 id="类名命名规范">类名命名规范</h3>
+<h3 id="成员属性和成员方法">成员属性和成员方法</h3>
+<ul>
+<li><p>1、要以class关键字开始，问 class就是类的意思</p></li>
+<li><p>2、类名</p></li>
+<li><p>3、大括号里面定义这个类</p></li>
+<li><p>4、成员变量定义都要以public开始，以分号结尾</p></li>
+<li><p>5、成员方法就是以前的函数，以前函数怎么定义，现在还怎么定义</p></li>
+<li><p>6、成员方法前面也可以加public，也可以不加，如果不加的话，默认就是public</p></li>
+<li><p>7、类名：命名规范，大驼峰原则</p></li>
+</ul>
+<p>happybirthday</p>
+<p>happyBirthday 小驼峰</p>
+<p>HappyBirthday 大驼峰</p>
+<h3 id="创建对象三种方法">创建对象三种方法</h3>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建对象第一种</span></span><br><span class="line"><span class="comment">//Person后面的小括号可加可不加</span></span><br><span class="line"><span class="variable">$xiang</span> = <span class="keyword">new</span> <span class="title class_">Person</span>();</span><br><span class="line"><span class="comment">//echo $xiang; //不能使用这种方式打印</span></span><br><span class="line"><span class="comment">//var_dump($xiang);</span></span><br><span class="line"><span class="comment">//创建对象第二种方法 通过对象创建另外一个对象 基本不用</span></span><br><span class="line"><span class="variable">$liu</span> = <span class="keyword">new</span> <span class="variable">$xiang</span>;</span><br><span class="line"><span class="comment">//var_dump($liu);</span></span><br><span class="line"><span class="comment">//创建对象第三种方法 后续经常使用的一种方式</span></span><br><span class="line"><span class="variable">$className</span> = <span class="string">&#x27;Person&#x27;</span>;</span><br><span class="line"><span class="variable">$liuXiang</span> = <span class="keyword">new</span> <span class="variable">$className</span>();</span><br><span class="line"><span class="title function_ invoke__">var_dump</span>(<span class="variable">$liuXiang</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="对象访问属性和方法">对象访问属性和方法</h3>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$fang</span>-&gt;age;</span><br><span class="line"><span class="variable">$fang</span>-&gt;<span class="title function_ invoke__">cook</span>();</span><br></pre></td></tr></table></figure>
+<h2 id="构造方法和this关键字">构造方法和this关键字</h2>
+<p>this:代表的是当前对象，在类里面访问自己的成员属性和成员方法的时候我们就要使用this</p>
+<h3 id="引入构造方法">引入构造方法</h3>
+<p><code>__construct()</code></p>
+<p>不传递参数构造方法</p>
+<p>传递参数构造方法</p>
+<p>在类里面要访问自己的成员属性和成员方法</p>
+<h2 id="访问控制修饰符">访问控制修饰符</h2>
+<p>public：公共的 在类的外部，可以通过对象直接访问这些成员属性</p>
+<p>private：私有的 在类的外部，不可以通过对象直接访问这些成员属性</p>
+<p>在类的内部，都可以通过this关键字来直接访问所有成员属性</p>
+<h3 id="间接访问私有成员变量">间接访问私有成员变量</h3>
+<p>因为私有的成员属性，在类的外部不能直接访问，但是在类的内部可以直接访问，所以我们可以在类里面增加一个函数，通过该函数来间接访问这些私有的成员属性（封装性）</p>
+<h2 id="几个魔术方法">几个魔术方法</h2>
+<p>魔术方法：在php中以 <code>__</code>开头的都是魔术方法</p>
+<p>特点：系统在特定的时机自动调用的方法</p>
+<h3 id="get获取值"><code>__get(获取值)</code></h3>
+<p>触发时机：当外部访问私有的成员属性的时候自动调用这个方法</p>
+<p>参数：属性名</p>
+<h3 id="set设置值"><code>__set(设置值)</code></h3>
+<p>触发时机：当外部设置私有的成员属性的时候自动调用这个方法</p>
+<p>参数：属性名，值</p>
+<p><code>__unset</code></p>
+<p><code>__isset</code></p>
+<p><code>__construct</code></p>
+<p><code>__destruct</code></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2016/12/31/coding/php/php-%E5%85%A5%E9%97%A8/P24-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/12/31/coding/php/php-%E5%85%A5%E9%97%A8/P24-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="post-title-link" itemprop="url">PHP[入门]P24-正则表达式</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-01-01 01:01:24" itemprop="dateCreated datePublished" datetime="2017-01-01T01:01:24+08:00">2017-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-24 14:45:12" itemprop="dateModified" datetime="2026-11-24T14:45:12+08:00">2026-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>这是我早期的 php 学习笔记，php 的学习版本版本是 5.6、7，🐟2020/05/06年从有道笔记导出至此。</p>
+</blockquote>
+<ul>
+<li><code>#d</code>:匹配 0-9一个</li>
+<li><code>#D</code>:除了 0到9</li>
+<li><code>#w</code>:匹配 0-9 a-z A-Z 下划线</li>
+<li><code>#W</code>:非字 除了 0-9 a-z A-Z 下划线</li>
+<li><code>#s</code>:空白字符 n r t</li>
+<li><code>#S</code>:除了空白字符</li>
+<li><code>#b</code>:匹配词边界</li>
+<li><code>#B</code>:除了词边界</li>
+<li><code>#[]</code>:原子列表,匹配其中一个 [0-9]</li>
+<li><code>#[^]</code>:反元素</li>
+<li><code># .</code> 除了n以外的字符</li>
+</ul>
+<h2 id="元字符-修饰原子-不能单独存在">元字符 修饰原子 ，不能单独存在</h2>
+<ul>
+<li><code>#*</code>：贪婪模式，返回最大的匹配值</li>
+<li><code>#+</code>：至少匹配一次</li>
+<li><code>#？</code>：最多多匹配一次(0,1)</li>
+<li><code>#{}</code>： 控制原子次数{n}n次 {m,n}m到n包括m,n{0,n}最多n次</li>
+<li><code>#^</code>:指定开头原子 等同A</li>
+<li><code>#$</code>:指定结尾</li>
+<li><code>#|</code>:或 最低级的</li>
+<li><code>#()</code>:优先级最高 子模式</li>
+</ul>
+<h2 id="模式修正符">模式修正符</h2>
+<p>修饰整个表达式的匹配，模式秀政府卸载定界符之后</p>
+<p>eg: <code>/balabala/i</code></p>
+<ul>
+<li><code>#i</code>:不区分大小写</li>
+<li><code>#s</code>:多行</li>
+<li><code>#A</code>:从目标的字符串开头进行匹配</li>
+<li><code>#U</code>:贪婪模式取反</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2016/12/31/coding/php/php-%E5%85%A5%E9%97%A8/P23-%E4%B8%8B%E8%BD%BD%E4%B8%8A%E4%BC%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/12/31/coding/php/php-%E5%85%A5%E9%97%A8/P23-%E4%B8%8B%E8%BD%BD%E4%B8%8A%E4%BC%A0/" class="post-title-link" itemprop="url">PHP[入门]P23-下载上传</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-01-01 01:01:23" itemprop="dateCreated datePublished" datetime="2017-01-01T01:01:23+08:00">2017-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-24 14:45:12" itemprop="dateModified" datetime="2026-11-24T14:45:12+08:00">2026-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>这是我早期的 php 学习笔记，php 的学习版本版本是 5.6、7，🐟2020/05/06年从有道笔记导出至此。</p>
+</blockquote>
+<ol type="1">
+<li></li>
+</ol>
+<p>fileatime: 在linux下边是正常的.win7以后因为影响性能所以关闭了这个配置</p>
+<p><code>copy()</code> 不能复制目录（递归拷贝文件）</p>
+<p><code>rename()</code> 不仅可以修改文件或者目录名 也可以移动</p>
+<p><code>mkdir()</code> 默认只能创建一个目录 层级目录</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">mkdir</span>(<span class="string">&#x27;1701/2/16&#x27;</span>, <span class="number">0777</span>, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="文件的属性">文件的属性：</h2>
+<p><code>ftruncate('资源',size)</code>：截断文件中的指定长度 返回是截断以后的</p>
+<p><code>scandir()</code> 浏览当前目录</p>
+<p><code>filetype()</code> 返回的是文件的类型 不是文件后缀</p>
+<hr />
+<h2 id="权限">权限</h2>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0 111 111 111</span><br><span class="line">0 7 7 7</span><br><span class="line">- rwx rwx rwx</span><br><span class="line">所有者 所属组 其他</span><br></pre></td></tr></table></figure>
+<p><code>chmod</code> 改变文件的权限 <code>chmod 777 文件名字</code> <code>chmod -R 777 目录</code></p>
+<p><code>chgrp</code> 改变文件的所属组</p>
+<p><code>chown</code>: 改变文件所有者</p>
+<h2 id="文件的上传下载">文件的上传下载</h2>
+<h3 id="使用场景">使用场景：</h3>
+<p>上传：头像，朋友圈，微博 证件 …..</p>
+<p>下载：安装包，图片 …</p>
+<h3 id="准备工作">准备工作：</h3>
+<h3 id="七伤拳">七伤拳：</h3>
+<ol type="1">
+<li><p>准备form表单</p></li>
+<li><p>判断提交的值</p></li>
+<li><p>判断文件是否错误</p></li>
+<li><p>判断是否超出大小 form php 自定义</p></li>
+<li><p>判断是否是允许上传的文件类型 （mime）</p></li>
+<li><p>保存图片</p></li>
+</ol>
+<p>//7.保存数据库图片路径</p>
+<h2 id="配置文件">配置文件：</h2>
+<p><code>upload_tmp_dir ="E:/wamp64/tmp"</code> 上传的文件缓存在的目录</p>
+<p><code>upload_max_filesize = 2M</code> 允许上传文件的大小限制</p>
+<p><code>file_uploads = On</code> 允许上传</p>
+<p><code>max_file_uploads = 20</code> 允许同时上传的文件个数</p>
+<p><code>memory_limit = 128M</code> 允许脚本运行最大的内存</p>
+<h2 id="注意事项">注意事项：</h2>
+<ol type="1">
+<li><p>表单必须以post方式提交 不能忘记enctype</p></li>
+<li><p>表单中传隐藏值：<code>name=MAX_FILE_SIZE</code></p></li>
+<li><p>多文件上传: name是数组</p></li>
+<li><p>临时缓存的目录权限</p></li>
+<li><p>php.ini是否开启允许上传配置</p></li>
+<li><p>’##’配置文件中的一些配置项</p></li>
+</ol>
+<h2 id="下载">下载：</h2>
+<ol type="1">
+<li><p>告知文件类型</p></li>
+<li><p>告知附件</p></li>
+<li><p>文件的大小</p></li>
+<li><p>发送数据</p></li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&#x27;content-type:image/jpeg&#x27;</span>);</span><br><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&#x27;content-disposition:attachment;filename=&quot;aa.jpg&quot;&#x27;</span>);</span><br><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&#x27;content-length:&#x27;</span>. <span class="title function_ invoke__">filesize</span>(<span class="string">&#x27;aa.jpg&#x27;</span>));</span><br><span class="line"><span class="title function_ invoke__">readfile</span>(<span class="string">&#x27;2.jpg&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2016/12/31/coding/php/php-%E5%85%A5%E9%97%A8/P22-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/12/31/coding/php/php-%E5%85%A5%E9%97%A8/P22-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">PHP[入门]P22-文件操作</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-01-01 01:01:22" itemprop="dateCreated datePublished" datetime="2017-01-01T01:01:22+08:00">2017-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-24 14:45:12" itemprop="dateModified" datetime="2026-11-24T14:45:12+08:00">2026-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>这是我早期的 php 学习笔记，php 的学习版本版本是 5.6、7，🐟2020/05/06年从有道笔记导出至此。</p>
+</blockquote>
+<h2 id="缩放">缩放:</h2>
+<ol type="1">
+<li><p>打开或者准备一张图片</p></li>
+<li><p>自己计算尺寸，(直接给一个倍数，形参);</p></li>
+<li><p>变成一张新的图片</p></li>
+<li><p>保存</p></li>
+<li><p>销毁</p></li>
+</ol>
+<hr />
+<h1 id="day22-文件函数">day22 文件函数</h1>
+<h2 id="路径相关的函数">路径相关的函数</h2>
+<p><code>pathinfo('文件的路径+名字')</code> 文件的具体信息</p>
+<p><code>dirname()</code>; 路径的名</p>
+<p>basename 获取的是文件的名字</p>
+<p><code>realpath()</code> 返回绝对路径 从磁盘根部开始</p>
+<p><code>DIRECTORY_SEPARATOR</code>: 返回的是目录分隔符（系统）</p>
+<p>【注】： windows <code>/</code> <code>\</code>都能识别 获取到时<code>\</code></p>
+<p>linux 系统是/ 正斜线</p>
+<h2 id="文件内容的相关函数">文件内容的相关函数</h2>
+<h3 id="整体">整体：</h3>
+<p><code>file_get_contents('文件的名')</code>: 获取文件中的全部内容//不仅可以传一个文件名，还可以是一个url</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">file_put_contents</span>(<span class="string">&#x27;文件&#x27;</span>,<span class="string">&#x27;内容&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>可以将内容写入到文件中，成功返回字节数，失败返回false</p>
+<p>【注】：将原来的文件内容覆盖</p>
+<p>【了解】readfile 将文件的内容输出到缓冲区，真正返回的值是字节数</p>
+<h3 id="内容">内容：</h3>
+<p><code>fopen('文件', '打开的方式')</code> 打开一个文件,</p>
+<h3 id="打开方式">打开方式：</h3>
+<ul>
+<li><p><code>r</code>: 只读的方式打开 文件不存在的时候会报警告错误</p></li>
+<li><p><code>r+</code>：以读写的方式打开, 从头覆盖内容进行写入</p></li>
+<li><p><code>w</code>: 以写入的方式打开 如果文件存在会将文件内容清零，打开的文件不存在则创建</p></li>
+<li><p><code>w+</code>：可读可写： 文件不存在创建，存在内容清零</p></li>
+<li><p><code>a</code>: 追加写入， 不能读文件不存在创建，指针指向文件末尾</p></li>
+<li><p><code>a+</code>：读写方式打开 写的方式追加 文件不存在创建</p></li>
+<li><p><code>x</code>: 创建文件以写入的方式打开，如果文件存在报警告错误</p></li>
+<li><p><code>x+</code>: 创建文件并与读写的方式打开</p></li>
+<li><p><code>c</code>: 以只写的方式打开，会从头覆盖内容写入，文件不存在则创建</p></li>
+<li><p><code>c+</code>: 以读写方式打开，同上</p></li>
+</ul>
+<p><code>fread('打开的资源', '读取的字节数')</code>;返回的是限制读取的字节</p>
+<p><code>fwrite('操作的资源', '写入的字符')</code></p>
+<p><code>rewind()</code> ：将文件指针返回到文件流的开头位置</p>
+<p><code>fseek()</code>: 设置指针的位置：</p>
+<p>参数：资源，移动的字节数，</p>
+<p>常量 <code>SEEK_SET</code>/开头<code>SEEK_CUR</code>/当前 <code>SEEK_END</code>/结尾</p>
+<p><code>ftell()</code> 获取当前文件中指针的位置</p>
+<p><code>feof ()</code>[end of file]判断指针在不在结尾</p>
+<p>//最后一个字节数或者出错时候返回true 其余返回false</p>
+<p><code>fgetc()</code> 读取出来一个字节， 指针位置保留</p>
+<p><code>fgets()</code> 读取一行 指针的位置保留</p>
+<p><code>fgetss()</code> 读取一行 去掉内容中的html标签</p>
+<p><code>fclose()</code> 关闭这个文件</p>
+<h2 id="文件锁">文件锁：</h2>
+<p><code>flock()</code></p>
+<h3 id="常量参数">常量参数：</h3>
+<p><code>LOCK_SH</code>：共享锁</p>
+<p><code>LOCK_EX</code>: 独占锁</p>
+<p><code>LOCK_UN</code>: 解锁</p>
+<h2 id="文件判断相关-状态">文件判断相关 （状态）</h2>
+<p><code>file_exists()</code>;判断文件是否存在 存在 true 不存在false</p>
+<p><code>is_file()</code> :参数名是否是一个文件</p>
+<p><code>is_dir()</code>: 参数是否是一个目录</p>
+<p><code>is_readable()</code>: 判断文件是否可读</p>
+<p><code>is_writeable()</code>:判断文件是否可写</p>
+<p><code>is_executable()</code>; 是否是一个可执行的文件 //window .exe</p>
+<p><code>filesize()</code> :文件字节数</p>
+<p><code>filectime()</code> : 创建时间</p>
+<p><code>filemtime()</code>: 修改时间</p>
+<h2 id="文件相关的函数">文件相关的函数</h2>
+<p><code>touch()</code>: 创建一个文件</p>
+<p><code>unlink()</code>: 删除一个文件</p>
+<p><code>copy()</code>: 1.要拷贝的文件 2.拷贝后新文件的名字（要拷贝的路径+mingzi）</p>
+<p><code>rename()</code>: 重命名：文件 目录</p>
+<h2 id="目录的操作">目录的操作</h2>
+<p><code>mkdir()</code>: 新建目录</p>
+<p><code>rmdir()</code> : 删除目录 (删除空目录)</p>
+<p><code>rename()</code>修改目录名</p>
+<p><code>copy()</code> 拷贝目录</p>
+<p><code>opendir()</code> :打开目录</p>
+<p><code>readdir()</code>读取目录</p>
+<p><code>closedir()</code>关闭目录</p>
+<h2 id="文件的属性">文件的属性</h2>
+<hr />
+<p>作业： 拷贝：大文件 ：一边读，一边写</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2016/12/31/coding/php/php-%E5%85%A5%E9%97%A8/P21-%E9%AA%8C%E8%AF%81%E7%A0%81%E7%94%9F%E6%88%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/12/31/coding/php/php-%E5%85%A5%E9%97%A8/P21-%E9%AA%8C%E8%AF%81%E7%A0%81%E7%94%9F%E6%88%90/" class="post-title-link" itemprop="url">PHP[入门]P21-验证码生成</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-01-01 01:01:21" itemprop="dateCreated datePublished" datetime="2017-01-01T01:01:21+08:00">2017-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-24 14:45:12" itemprop="dateModified" datetime="2026-11-24T14:45:12+08:00">2026-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>这是我早期的 php 学习笔记，php 的学习版本版本是 5.6、7，🐟2020/05/06年从有道笔记导出至此。</p>
+</blockquote>
+<hr />
+<h2 id="验证码思路">验证码思路：</h2>
+<ol type="1">
+<li><p>创建画布指定宽和高(写成一函数，传宽跟高);</p></li>
+<li><p>随机产生的字符串</p></li>
+<li><p>画布随机填充浅色的背景</p></li>
+<li><p>画布上增加上干扰元素（随机产生点，线，弧线的位置，随机的是产生元素的位置）</p></li>
+<li><p>把验证码字符串写上</p></li>
+<li><p>设置header头</p></li>
+<li><p>发送</p></li>
+<li><p>销毁资源</p></li>
+</ol>
+<h2 id="水印">水印：</h2>
+<ol type="1">
+<li><p>准备图片,(两张图片 一张背景，一张水印)</p></li>
+<li><p>确定位置(计算位置)</p></li>
+<li><p>合并处理</p></li>
+<li><p>保存（生成新的图片呢，还是原来，保存位置，文件）</p></li>
+<li><p>释放资源</p></li>
+</ol>
+<h2 id="缩放">缩放:</h2>
+<ol type="1">
+<li><p>打开或者准备一张图片</p></li>
+<li><p>自己计算尺寸，(直接给一个倍数，形参);</p></li>
+<li><p>变成一张新的图片</p></li>
+<li><p>保存</p></li>
+<li><p>销毁</p></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2016/12/31/coding/php/php-%E5%85%A5%E9%97%A8/P20-%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/12/31/coding/php/php-%E5%85%A5%E9%97%A8/P20-%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">PHP[入门]P20-图像处理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-01-01 01:01:20" itemprop="dateCreated datePublished" datetime="2017-01-01T01:01:20+08:00">2017-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-24 14:45:12" itemprop="dateModified" datetime="2026-11-24T14:45:12+08:00">2026-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>这是我早期的 php 学习笔记，php 的学习版本版本是 5.6、7，🐟2020/05/06年从有道笔记导出至此。</p>
+</blockquote>
+<h1 id="图像处理">图像处理</h1>
+<h2 id="准备工作">准备工作：</h2>
+<p>MIME：互联网邮件扩展类型</p>
+<p>服务器会告诉浏览器当前返回的文件类型，当浏览器获取到content-type文件类型 就会自动按照类型打开文件</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&#x27;location:&#x27;</span>);</span><br><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&#x27;content-type:text/css&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="常见的mime类型">常见的mime类型：</h3>
+<p>HTML JavaScript css</p>
+<p>image/png image/jpeg image/gif</p>
+<h3 id="图像后缀">图像后缀：</h3>
+<p>png jpg jpeg gif bmp wbmp</p>
+<p>打开支持的相对应的扩展库php.ini</p>
+<h3 id="修改配置文件">修改配置文件：</h3>
+<p>扩展库所在的目录：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">extension_dir</span> =<span class="string">&quot;E:/wamp64/bin/php/php7.0.0/ext/&quot;</span></span><br></pre></td></tr></table></figure>
+<ol type="1">
+<li>如果是wampsever : 在小绿那-&gt;php-&gt;php extension 前边有对勾的就是支持的，</li>
+</ol>
+<p>直接选择 之后会自动重启</p>
+<ol start="2" type="1">
+<li>修改配置文件：eg:打开gd2扩展库</li>
+</ol>
+<p><code>extension=php_gd2.dll</code> 将分号去掉 ，加上分好就是注释掉</p>
+<p>如果还是没有支持相对应的扩展：</p>
+<p>去扩展库文件目录，找对应.dll文件 如果没有去官网下载或者拷贝别的地方的.dll</p>
+<hr />
+<h2 id="gd库处理图像">GD库处理图像：</h2>
+<p>经常的使用的场景:</p>
+<p>验证码 水印 缩放 数据图 …..</p>
+<h3 id="六脉神剑">六脉神剑：</h3>
+<ol type="1">
+<li>创建画布</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">imagecreatetruecolor</span>()</span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li>准备颜色</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">imagecolorallocate</span>()</span><br></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li>图像的处理</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imagefill</span><br></pre></td></tr></table></figure>
+<ol start="4" type="1">
+<li>设置header 头</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&#x27;content-type:image/png&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<ol start="5" type="1">
+<li>保存/发送图像</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">imagepng</span>()</span><br></pre></td></tr></table></figure>
+<ol start="6" type="1">
+<li>关闭/释放资源</li>
+</ol>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">imagedestroy</span>(<span class="variable">$img</span>);</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="函数">函数：</h2>
+<p>imagecreate：创建画布 推荐使用</p>
+<p><code>imagecreatetruecolor(width, height)</code>; 返回值 资源</p>
+<h3 id="使用图片">–使用图片</h3>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">imagecreatefromjpeg</span>(<span class="string">&#x27;meinv.jpg&#x27;</span>);</span><br><span class="line"><span class="title function_ invoke__">imagecreatefrompng</span>();</span><br><span class="line"><span class="title function_ invoke__">imagecreatefromgif</span>();</span><br></pre></td></tr></table></figure>
+<h3 id="准备颜色">准备颜色</h3>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">imagecolorallocate</span>()</span><br></pre></td></tr></table></figure>
+<h3 id="填充背景颜色">填充背景颜色</h3>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">imagefill</span>()</span><br><span class="line"><span class="title function_ invoke__">imagefilledarc</span>(<span class="variable">$img</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">0</span>, <span class="number">360</span>, <span class="variable">$color3</span>,</span><br><span class="line">IMG_ARC_PIE);<span class="comment">//填充的是圆</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">imagefilledarc</span>(<span class="variable">$img</span>, <span class="number">300</span>, <span class="number">200</span>, <span class="number">80</span>, <span class="number">100</span>, <span class="number">50</span>, <span class="number">180</span>,</span><br><span class="line">    <span class="variable">$color3</span>,IMG_ARC_CHORD);</span><br></pre></td></tr></table></figure>
+<p>弧度变成直线链接 (出来的是个三角形)</p>
+<h3 id="保存图像">保存图像</h3>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">imagepng</span>(<span class="variable">$img</span>, [path/filename]);</span><br><span class="line"><span class="title function_ invoke__">imagegif</span>()</span><br><span class="line"><span class="title function_ invoke__">imagejpeg</span>()</span><br></pre></td></tr></table></figure>
+<h2 id="图像处理-1">图像处理：</h2>
+<p><code>imagesetpixel($img, 100, 100, $color3)</code>; 画一个单一像素点</p>
+<p><code>imageline($img, 0, 0, 500, 400, $color1)</code>; 画一条线</p>
+<p>// <code>imagerectangle($img, 100, 100, 200, 300, $color1)</code>;//画一个矩形 两点可以确定一个矩形</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">imagefilledrectangle</span>(<span class="variable">$img</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">200</span>, <span class="number">300</span>, <span class="variable">$color1</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// imagepolygon($img, [300, 100, 320, 150, 200, 200, 100, 200 ], 4,</span></span><br><span class="line"><span class="variable">$color3</span>);</span><br></pre></td></tr></table></figure>
+<p>多边形</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">imagefilledpolygon</span>(<span class="variable">$img</span>, [<span class="number">300</span>, <span class="number">100</span>, <span class="number">320</span>, <span class="number">150</span>, <span class="number">200</span>, <span class="number">200</span>, <span class="number">100</span>, <span class="number">200</span> ],</span><br><span class="line"><span class="number">4</span>, <span class="variable">$color3</span>);</span><br></pre></td></tr></table></figure>
+<p><code>--</code></p>
+<h2 id="字符">字符：</h2>
+<p><code>imagechar($img, 5, 400, 50, 'A', $color3)</code>;水平的画一个字符</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">imagechar</span>(<span class="variable">$img</span>, <span class="number">5</span>, <span class="number">400</span>, <span class="number">50</span>, <span class="string">&#x27;A&#x27;</span>, <span class="variable">$color3</span>);</span><br><span class="line"><span class="title function_ invoke__">imagestring</span>(<span class="variable">$img</span>, <span class="number">5</span>, <span class="number">400</span>, <span class="number">100</span>, <span class="string">&#x27;ABCD&#x27;</span>, <span class="variable">$color3</span>);<span class="comment">//水平的画一行字符</span></span><br></pre></td></tr></table></figure>
+<p>(不能是中文)</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">imagefttext</span>(<span class="variable">$img</span>, <span class="number">50</span>,<span class="number">10</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="variable">$color1</span>, <span class="string">&#x27;STXINGKA.ttf&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;明天就是情人节&#x27;</span>);<span class="comment">//</span></span><br></pre></td></tr></table></figure>
+<p>资源，字体的大小，倾斜的角度，开始的位置，color,ttf, string，</p>
+<h3 id="获取指定图片的宽-高">—–获取指定图片的宽 高</h3>
+<p><code>getimagesize('图片名')</code>; 返回值是数组 下标0 的是宽，1的是高</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">list</span>(<span class="variable">$width</span>, <span class="variable">$height</span>) = <span class="title function_ invoke__">getimagesize</span>(<span class="string">&#x27;filename&#x27;</span>);</span><br><span class="line"><span class="title function_ invoke__">imagecopymerge</span>(<span class="variable">$img</span>, <span class="variable">$imgto</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>,</span><br><span class="line"><span class="number">30</span>);<span class="comment">//拷贝图像中的一部分，设置透明程度</span></span><br></pre></td></tr></table></figure>
+<p>参数：作为画布的原始图，拷贝的图，起始位置， 拷贝图的起始位置， 拷贝图像的宽,高，0-100透明程度</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">imagecopy</span>(<span class="variable">$img</span>, <span class="variable">$imgto</span>, <span class="number">100</span>, <span class="number">100</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+<hr />
+<h2 id="验证码思路">验证码思路：</h2>
+<ol type="1">
+<li><p>创建画布指定宽和高(写成一函数，传宽跟高);</p></li>
+<li><p>随机产生的字符串</p></li>
+<li><p>画布随机填充浅色的背景</p></li>
+<li><p>画布上增加上干扰元素（随机产生点，线，弧线的位置，随机的是产生元素的位置）</p></li>
+<li><p>把验证码字符串写上</p></li>
+<li><p>设置header头</p></li>
+<li><p>发送</p></li>
+<li><p>销毁资源</p></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/16/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/18/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2017 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">饼干</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

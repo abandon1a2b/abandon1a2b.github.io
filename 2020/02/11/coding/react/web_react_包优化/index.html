@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+  <link rel="preload" href="/css/main.css?v=65795265c4200cc1" as="style">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=65795265c4200cc1">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha256-4Lad8m4ZWW1Lgb9+sMVLYEfnIh7BjV1NQMEe79Pviks=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.1.14/fancybox/fancybox.css" integrity="sha256-mdaMxrItEW6hMIVJJNPKuX0B7KCSJQVEv3mVY4N2we4=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"abandon1a2b.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.29.1","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"width":300},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":3,"unescape":true,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js?v=a65fc965d74fd991" defer></script>
+
+    <meta name="description" content="把一个react项目打包发布到了githubpage上，结果加载速度异常的慢，同比hexo生成的博客项目，加载速度尚可，打开network分析，两者差距较大， react项目的js文件将近1m，但是react的首屏出了一个nav和一段文字描述，其实并没有什么东西。而hexo项目本身文字较多，但js文件累加不足100k。导致react项目在带宽较低的情况下体验极差（我的腾讯云也只有1mbps理论上也">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="react_包优化">
+<meta property="og:url" content="https://abandon1a2b.github.io/2020/02/11/coding/react/web_react_%E5%8C%85%E4%BC%98%E5%8C%96/index.html">
+<meta property="og:site_name" content="abandon">
+<meta property="og:description" content="把一个react项目打包发布到了githubpage上，结果加载速度异常的慢，同比hexo生成的博客项目，加载速度尚可，打开network分析，两者差距较大， react项目的js文件将近1m，但是react的首屏出了一个nav和一段文字描述，其实并没有什么东西。而hexo项目本身文字较多，但js文件累加不足100k。导致react项目在带宽较低的情况下体验极差（我的腾讯云也只有1mbps理论上也">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://abandon1a2b.github.io/images/2020/%E6%9C%AA%E5%91%BD%E5%90%8D1581421863.png">
+<meta property="og:image" content="https://abandon1a2b.github.io/images/2020/%E6%9C%AA%E5%91%BD%E5%90%8D1581421895.png">
+<meta property="article:published_time" content="2020-02-11T09:33:51.000Z">
+<meta property="article:modified_time" content="2026-11-24T06:45:12.719Z">
+<meta property="article:author" content="饼干">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="lazyload">
+<meta property="article:tag" content="php">
+<meta property="article:tag" content="web">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://abandon1a2b.github.io/images/2020/%E6%9C%AA%E5%91%BD%E5%90%8D1581421863.png">
+
+
+<link rel="canonical" href="https://abandon1a2b.github.io/2020/02/11/coding/react/web_react_%E5%8C%85%E4%BC%98%E5%8C%96/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://abandon1a2b.github.io/2020/02/11/coding/react/web_react_%E5%8C%85%E4%BC%98%E5%8C%96/","path":"2020/02/11/coding/react/web_react_包优化/","title":"react_包优化"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>react_包优化 | abandon</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/6.1.14/fancybox/fancybox.umd.js" integrity="sha256-QnJV4HT5r8i89ovZGRD86iynZqHerEbT2xt69vDM36I=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.1/pangu.umd.js" integrity="sha256-kRsxecBnwG6mULFPe2E6UKnNm8XfDOuDwCOprjLZuX8=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js?v=5393bac179fc7d25" defer></script><script src="/js/sidebar.js?v=68cb7edc29fe8aa4" defer></script><script src="/js/next-boot.js?v=9df1930c68362f14" defer></script><script src="/js/pjax.js?v=d94cf43f5074b17e" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js?v=a40ec41db37b9a56" defer></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.3.1/pdfobject.min.js","integrity":"sha256-jI72I8ZLVflVOisZIOaLvRew3tyvzeu6aZXFm7P7dEo="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js?v=0f1d48995a83f9f6" defer></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js?v=fc2b2ebed93ecb58" defer></script>
+
+
+  <script src="/js/third-party/fancybox.js?v=b386dcb99f1c399f" defer></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","display_overflow":"scroll","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.1.3/tex-mml-chtml.js","integrity":"sha256-ihPtDDm7pTmSF9ViEsItlvsrBTsNkz0MOXMchzOwCQw="}}</script>
+<script src="/js/third-party/math/mathjax.js?v=727841be3ac0d51b" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css?v=1273f22550d729e4">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-search popup-trigger" aria-label="搜索" role="button">
+      <i class="fa fa-search fa-fw fa-lg"></i>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">abandon</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">代码、笔记与开源实践</p>
+  </div>
+
+  <div class="site-nav-toggle" aria-label="切换导航栏" role="button">
+      <i class="fa fa-ellipsis fa-fw fa-lg"></i>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">41</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">11</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">184</span></a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-开源项目"><a href="https://github.com/leancodebox" rel="section" target="_blank"><i class="fab fa-github fa-fw"></i>开源项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  
+  <template id="search-popup-template"><div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div></template>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%BC%95%E5%85%A5%E6%8E%A2%E7%B4%A2"><span class="nav-text">文件引入探索</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%87%92%E5%8A%A0%E8%BD%BD%E6%8E%A2%E7%B4%A2"><span class="nav-text">懒加载探索</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="饼干"
+      src="/images/theme/wd.gif">
+  <p class="site-author-name" itemprop="name">饼干</p>
+  <div class="site-description" itemprop="description">饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">184</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/abandon1a2b" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;abandon1a2b" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/leancodebox" title="Lean Code Box → https:&#x2F;&#x2F;github.com&#x2F;leancodebox" rel="noopener me" target="_blank"><i class="fas fa-code-branch fa-fw"></i>Lean Code Box</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://gooseforum.online/" title="https:&#x2F;&#x2F;gooseforum.online&#x2F;" rel="noopener" target="_blank">GooseForum 社区</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/leancodebox/GooseForum" title="https:&#x2F;&#x2F;github.com&#x2F;leancodebox&#x2F;GooseForum" rel="noopener" target="_blank">GooseForum 源码</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/leancodebox/rooster" title="https:&#x2F;&#x2F;github.com&#x2F;leancodebox&#x2F;rooster" rel="noopener" target="_blank">Rooster 任务管理</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://github.com/leancodebox/dbhelper" title="https:&#x2F;&#x2F;github.com&#x2F;leancodebox&#x2F;dbhelper" rel="noopener" target="_blank">dbhelper 数据库工具</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://abandon1a2b.github.io/2020/02/11/coding/react/web_react_%E5%8C%85%E4%BC%98%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/theme/wd.gif">
+      <meta itemprop="name" content="饼干">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="abandon">
+      <meta itemprop="description" content="饼干的个人博客，记录 Go、PHP、后端开发与开源项目实践。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="react_包优化 | abandon">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          react_包优化
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-02-11 17:33:51" itemprop="dateCreated datePublished" datetime="2020-02-11T17:33:51+08:00">2020-02-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-11-24 14:45:12" itemprop="dateModified" datetime="2026-11-24T14:45:12+08:00">2026-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/other/" itemprop="url" rel="index"><span itemprop="name">other</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>把一个react项目打包发布到了githubpage上，结果加载速度异常的慢，同比hexo生成的博客项目，加载速度尚可，打开network分析，两者差距较大， react项目的js文件将近1m，但是react的首屏出了一个nav和一段文字描述，其实并没有什么东西。而hexo项目本身文字较多，但js文件累加不足100k。导致react项目在带宽较低的情况下体验极差（我的腾讯云也只有1mbps理论上也需要将近10s才能加载完成）。因为引入库有限，所以对库文件进行分步引入分析。</p>
+<p>react项目引入了 react本身 + ant 库 + echarts 库 + 其他</p>
+<p>其中ant + echarts 占比 80%</p>
+<p>react清单</p>
+<ul>
+<li>react 40kb +</li>
+<li>ant 245kb +</li>
+<li>react.qr 6kb</li>
+<li>echarts 272 （不引用地图资源）</li>
+<li>echarts chinamap world map 320 kb -&gt; main.js</li>
+<li>业务产生main.js &lt; 3kb</li>
+</ul>
+<p><em>内容较多展开查看</em></p>
+<span id="more"></span>
+<p><em>通过懒加载可以实现这个我已经知道，现在是探究一下到底是什么东西导致懒加载可以生效呢？</em></p>
+<h1 id="文件引入探索">文件引入探索</h1>
+<p>首先有两个js文件 ， 其中一个加入<code>console.log(1111)</code>但不被任何文件import 第二个文件加入<code>console.log(2222)</code>同时被引入，结果如下，222很明显在构建后的文件，111却不存在 <img src="/images/2020/未命名1581421863.png" loading="lazy" alt="222存在" /></p>
+<figure>
+<img src="/images/2020/未命名1581421895.png" loading="lazy" alt="111不存在" /><figcaption aria-hidden="true">111不存在</figcaption>
+</figure>
+<p>在这提一下为什么做这个测试，这个结果有的人可能不做就能想到，但是我过去可能被我经历的一些优化方式所干扰，所以导致希望测一下。我所说的干扰场景就是比如php的部分静态检测工具可以针对单文件检测，单文件扫描，php的某些框架可以对单文件进行优化。就拿js一些语法库扩展库来说一样。php的部分框架是可以在安装依赖后构建缓存文件，这些缓存文件就是优化后的php代码，将一部分带有注解类的文件转为高效并且是真正运行的php代码，还有一些xml,yaml的转换，都是单文件转换。所以采用这种方式的可以给工具的开发者带来不用关心引用路径的问题。但是单页面打包并不是这样，他类似于传统文件的构建，或者c的编译，转换器会从入口文件开始对所有从入口文件。</p>
+<p>举个单线思考的例子</p>
+<p>开发php的时候或者仅仅是开发基于http的网络请求时大多数开发考虑的是单线逻辑，就是另个同级文件不会对我所开发的业务产生影响（比较片面，如果是发布订阅模式的话，许多统计的订阅者会有先后顺序，也会有一定干扰）。如果有人要访问一个基于php-fpm运行下的php代码，那么他的过程是<code>入口-&gt;引导/框架基础处理/中间件处理-&gt;控制器-&gt;业务逻辑1-&gt;-&gt;业务逻辑2-&gt;-&gt;业务逻辑3</code>,当然这条路是服务端提供的规则，前端传入规则（参数）来走通的。非这条路线中的文件是不会被访问和加载的。</p>
+<p>类比来讲。web端的项目更多是引入了但是没有被调用。（如引入了一个ui框架但是你只使用了button组件）</p>
+<p>这个打包过程类似一个树的遍历，从入口文件开始，import就是指针。通过这种方式就可以所有引入的文件进行编译。</p>
+<h1 id="懒加载探索">懒加载探索</h1>
+<p>懒加载/延迟加载的本质是将目的资源的通行证/目录先进行存储，之后通过通行证/目录调用。实现上也种类也有多种，如服务端数据的懒加载可以先将类型和id作为变量存储，如果需要使用这个对象则通过事先存储的类型和id进行转换，也可以构建闭包，使用时将闭包展开即刻。第二种也就是react所说的高阶组件（这种方式在php框架大多作为功能的延迟加载存在）。下面附上一段react延迟加载的手动实现</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; <span class="title class_">Component</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">Loadable</span> = (<span class="params">&#123;</span></span><br><span class="line"><span class="params">  loader,</span></span><br><span class="line"><span class="params">  loading: Loading</span></span><br><span class="line"><span class="params">&#125;</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">class</span> <span class="title class_">LoadableComponent</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Component</span> &#123;</span><br><span class="line">    state = &#123;</span><br><span class="line">      <span class="title class_">LoadedComponent</span>: <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">componentDidMount</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="title function_">loader</span>()</span><br><span class="line">        .<span class="title function_">then</span>(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="variable language_">this</span>.<span class="title function_">setState</span>(&#123;</span><br><span class="line">            <span class="title class_">LoadedComponent</span>: resp.<span class="property">default</span></span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123;</span><br><span class="line">        <span class="title class_">LoadedComponent</span></span><br><span class="line">      &#125; = <span class="variable language_">this</span>.<span class="property">state</span></span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        <span class="title class_">LoadedComponent</span></span><br><span class="line">        ?</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">LoadedComponent</span> /&gt;</span></span></span><br><span class="line">        :</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Loading</span> /&gt;</span></span></span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Loadable</span></span><br></pre></td></tr></table></figure>
+<p>代码逻辑是传入一个延迟加载的闭包loader<code>()=&gt;import('./About')</code>和一个loading(就是一个loading显示的组件) 只用调用这个组件的时候才会真正的去破怪掉loader真正去执行<code>import('./About')</code></p>
+<p>但是<sub>核心内容并没有探究到</sub>~~~~~~~~~~~~~这知识代码的逻辑的懒加载，仅仅是懒加载完全可能是业务逻辑的懒加载，完全不代表文件的懒加载，更不代表主文件减少</p>
+<p>其实这个也比较号理解，就是切割点的查找。 a(b(c(d(()=&gt;{f})))) 就比如上述调用，当我语法解析器或其他分析工具分析到一个闭包中的引用时，我就可以对其进行分割。实现文件上的剪切，打到不可告人的咪咪</p>
+<p>皮一下很开心</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
+              <a href="/tags/web/" rel="tag"><i class="fa fa-tag"></i> web</a>
+              <a href="/tags/php/" rel="tag"><i class="fa fa-tag"></i> php</a>
+              <a href="/tags/lazyload/" rel="tag"><i class="fa fa-tag"></i> lazyload</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/02/07/coding/web_%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7%E4%BA%86%E8%A7%A3/" rel="prev" title="数据可视化工具了解">
+                  <i class="fa fa-angle-left"></i> 数据可视化工具了解
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/02/13/coding/react/web_react-route_react-route-dom/" rel="next" title="react-router&#x2F;react-router-dom二级目录写法">
+                  react-router/react-router-dom二级目录写法 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2017 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">饼干</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
