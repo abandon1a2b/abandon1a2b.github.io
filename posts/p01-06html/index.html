@@ -1,0 +1,908 @@
+<!DOCTYPE html><html lang="zh-CN"><head><link rel="icon" href="/favicon.ico" type="image/x-icon"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PHP[入门]P01~06html · abandon</title><style>footer[data-astro-cid-sz7xmlte]{position:relative;margin-top:80px;border-top:1px solid #e5e5e5;background:#fff}.footer-inner[data-astro-cid-sz7xmlte]{max-width:1024px;margin:auto;display:flex;align-items:center;gap:24px;padding:32px 28px;color:#525252;font-size:14px}.brand[data-astro-cid-sz7xmlte]{color:#171717;font-size:16px}.credits[data-astro-cid-sz7xmlte],nav[data-astro-cid-sz7xmlte]{display:flex;align-items:center;gap:16px}.credits[data-astro-cid-sz7xmlte]{font-size:13px;color:#666;flex-wrap:wrap;gap:4px 16px}nav[data-astro-cid-sz7xmlte]{margin-left:auto}nav[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]{padding:0;color:inherit}a[data-astro-cid-sz7xmlte]:hover,a[data-astro-cid-sz7xmlte]:focus-visible{text-decoration:underline;text-underline-offset:4px}@media(max-width:700px){.footer-inner[data-astro-cid-sz7xmlte]{flex-direction:column;gap:12px;text-align:center}.credits[data-astro-cid-sz7xmlte]{justify-content:center}nav[data-astro-cid-sz7xmlte]{margin:0}footer[data-astro-cid-sz7xmlte]{margin-top:48px}}*{box-sizing:border-box}body{margin:0;color:#171717;font:16px/1.5 ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased}header,main{position:relative}header{height:80px;max-width:1024px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:0 24px}.brand{display:flex;align-items:center;gap:8px;font-weight:600}.brand img,.social svg{width:20px;height:20px}a{color:inherit;text-decoration:none}nav a,details a{padding:6px 12px;color:#666;font-size:14px}details{display:none}.hero,#posts{max-width:896px;margin:auto}.hero{display:flex;align-items:center;justify-content:space-between;margin:96px auto 0;padding:0 28px}.hero>div{width:50%}h1{font-size:60px;line-height:1;margin:0 0 20px}.hero b{font-weight:600}.hero p{color:#525252;margin:24px 0}.social{display:inline-flex}.portrait{width:min(50%,320px);aspect-ratio:1;object-fit:cover;border-radius:24px}.divider{position:relative;margin:80px 0;height:1px}.divider:before{content:"";position:absolute;inset:0;border-top:1px dashed #d4d4d4;mask-image:linear-gradient(90deg,transparent,#000 50%,transparent)}.divider span{position:absolute;top:100%;left:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border:1px solid #f5f5f5;border-radius:999px;background:#fff;color:#737373;box-shadow:0 1px 2px #0001;font-size:12px;line-height:1;letter-spacing:.1em}.divider i{display:grid;place-items:center;width:20px;height:20px;transform:translate(4px);border:1px solid #f5f5f5;border-radius:50%;font: 13px/1 system-ui}h2{font-size:24px;line-height:40px;letter-spacing:-.025em;margin:0}.taxonomy{font-size:14px;line-height:20px;color:#525252;margin:8px 0}.taxonomy a{text-decoration:underline dotted;text-underline-offset:3px}.rows{margin:28px 0;display:grid;gap:28px}.post{display:flex;align-items:flex-start;justify-content:space-between;gap:28px;border:1px dashed #d4d4d4;border-radius:16px;padding:28px}.post h3{font-size:20px;line-height:1.25;letter-spacing:-.025em;margin:0 0 12px}.post span{display:inline-block;font-size:13px;opacity:0;transform:translate(-4px);transition:.2s}.post:is(:hover,:focus-visible) span{opacity:1;transform:translate(4px)}.post p{color:#525252;font-size:14px;line-height:20px;margin:0}.post small{display:block;font-size:12px;font-weight:500;margin-top:10px}.post img{width:128px;aspect-ratio:1;object-fit:cover;border-radius:12px}@media(min-width:1280px){.hero{padding:0}}@media(max-width:1023px){h1{font-size:36px;line-height:1.25}#posts{padding:0 28px}}@media(max-width:767px){.hero{margin-top:64px;display:block}.hero>div{width:100%}.portrait{display:block;width:min(100%,320px);margin-top:40px}.divider:before{left:20px;mask-image:linear-gradient(90deg,#000,transparent)}.divider span{left:20px;transform:translateY(-50%)}.post{padding:20px 24px}.post h3{font-size:18px}.post img{display:none}}@media(max-width:639px){nav{display:none}details{display:block;position:relative}summary{cursor:pointer;list-style:none}details[open]{background:#fff;z-index:1}details[open] a{display:block}}@media(prefers-reduced-motion:reduce){.post span{transition:none}}#projects{max-width:896px;margin:auto}.project-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;margin:28px 0}.more-row{display:flex;align-items:center;justify-content:center;padding:20px 0}.more{display:inline-flex;align-items:center;margin-top:20px;padding:8px 16px;border:1px solid #171717;border-radius:999px;background:#171717;color:#f5f5f5;font-size:14px;font-weight:600;line-height:20px;transition:background-color .3s ease-out,color .3s ease-out,border-color .3s ease-out}.more:focus-visible{outline:2px solid #404040;outline-offset:3px}@media(hover:hover){.more:hover{background:#fff;color:#171717;border-color:#404040}}@media(prefers-reduced-motion:reduce){.more{transition:none}}@media(max-width:1023px){#projects{padding:0 28px}}@media(min-width:640px){.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(min-width:768px){.project-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}.header-slot{height:80px}.header-slot header{position:absolute;inset:0 0 auto;z-index:50;border:1px solid transparent;border-width:0 0 1px}.header-slot header.compact{position:fixed;height:56px;background:#fffc;border-color:#d4d4d480;backdrop-filter:blur(40px)}@media(min-width:1024px){.header-slot header{border-width:0 1px 1px;border-radius:0 0 12px 12px}}@media(max-width:639px){header details[open]{position:absolute;right:20px;top:0;padding-top:26px}header.compact details[open]{padding-top:14px}header details[open] summary{height:49px;text-align:right}header.compact details[open] summary{height:42px}}#posts,#projects{scroll-margin-top:68px}.mermaid-figure{margin:24px 0;padding:clamp(16px,4vw,32px);border:1px solid #dce6df;border-radius:16px;background-color:#f9fbf9;background-image:radial-gradient(#d8e3dc .8px,transparent .8px);background-size:14px 14px;overflow-x:auto}.mermaid-figure img,.reading article .mermaid-figure img{display:block;width:auto;min-width:min(280px,100%);max-width:100%;margin:auto;height:auto;border-radius:0}.reading table{display:block;overflow-x:auto;border-collapse:collapse}.reading td,.reading th{border:1px solid #ddd;padding:.35em .7em}.katex-display{overflow-x:auto;overflow-y:hidden;padding-block:.3em}.copy-code{display:block;margin:16px 0 -6px auto;background:#fff;color:#515e57;border:1px solid #ccd5cf;border-radius:6px;padding:4px 9px;font:inherit;font-size:12px;cursor:pointer}.hero .portrait{width:min(48%,320px);height:auto;aspect-ratio:auto;border-radius:18px}@media(max-width:767px){.hero .portrait{width:min(100%,320px)}}.page-grid{--grid-row:30px;position:absolute;inset:0 0 auto;display:flex;pointer-events:none;overflow:hidden}.grid-half{overflow:hidden;width:50%;mask-image:linear-gradient(to top left,transparent 50%,black 90%)}.grid-half:last-child{transform:scaleX(-1)}.grid-row{display:flex;height:var(--grid-row);border-top:1px dashed #d4d4d4}.grid-row i{flex:0 0 calc(100% / 9);border-left:1px dashed #d4d4d4}.grid-row:nth-child(2n) i:first-child{flex-basis:calc(100% / 18)}@media(min-width:640px){.page-grid{--grid-row:45px}}@media(min-width:768px){.page-grid{--grid-row:60px}}@media(min-width:1280px){.page-grid{--grid-row:88px}}header a[aria-current]{color:#171717;font-weight:600}.section-page .post{background:#fff}.section-page .post:hover,.section-page .project:hover{text-decoration:none}.section-page .listing-title{font-size:24px;line-height:40px;margin:0}.section-page .list-tools{display:flex;align-items:center;gap:16px;margin:24px 0;flex-wrap:wrap}.list-tools input{flex:1;min-width:180px}.list-tools button{border:0;background:transparent;text-decoration:underline;text-underline-offset:4px;cursor:pointer;font:inherit}.project-art{display:grid;place-items:center;aspect-ratio:16/9;background:#f3f5f2;border-radius:8px;margin-bottom:0;overflow:hidden}.project-art img{width:100%;height:100%;min-height:0;object-fit:cover}.project-art b{font:600 30px ui-monospace,monospace;color:#405448}.project-art img.logo{width:30%;height:auto;object-fit:contain}.rows{grid-template-columns:minmax(0,1fr)}.post>div{min-width:0;overflow-wrap:anywhere}.post p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.lift-card{position:relative;isolation:isolate;min-width:0;border-radius:16px}.lift-card:before,.lift-card:after{content:"";position:absolute;inset:0;pointer-events:none;border:1px dashed #d4d4d4;border-radius:inherit;transition:transform .3s ease-out,background-color .3s ease-out,border-color .3s ease-out}.lift-card:after{border-color:transparent}.lift-content{position:relative;z-index:1;min-width:0}.lift-card strong{font-size:16px;font-weight:600;letter-spacing:-.025em}.lift-arrow{display:inline-block;margin-left:4px;font-size:12px;opacity:0;transform:translate(-4px,4px);transition:opacity .2s ease-out,transform .2s ease-out}.project{padding:28px}.project .lift-content{transition:transform .3s ease-out}.project-caption{padding:0 4px;margin:20px 0 4px}.project-caption p{font-size:14px;color:#525252;margin:0;line-height:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.friends{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;margin:32px 0}.friend{padding:20px}.friend .lift-content{display:flex;align-items:flex-start;gap:16px}.friend img{flex:none;object-fit:cover;border-radius:50%;border:1px solid #e5e5e5;background:#fff}.friend p{font-size:14px;color:#525252;margin:4px 0 0;line-height:1.625}.section-page .lift-card:hover{text-decoration:none}@media(min-width:640px){.friends{grid-template-columns:repeat(2,minmax(0,1fr))}.project{padding:12px}.project-caption{margin-top:12px}}@media(hover:hover){.lift-card:hover:before{transform:translate(4px,4px)}.lift-card:hover:after,.project:hover .lift-content{transform:translate(-4px,-4px)}.lift-card:hover:after{border-color:#d4d4d4;background:#fff}.lift-card:hover .lift-arrow{opacity:1;transform:none}}.lift-card:focus-visible:after{border-color:#d4d4d4;background:#fff}.lift-card:focus-visible .lift-arrow{opacity:1;transform:none}@media(prefers-reduced-motion:reduce){.lift-card:before,.lift-card:after,.project .lift-content,.lift-arrow{transition:none}}.social-links{display:flex;align-items:center;gap:20px}.rss-link{color:#ff9800}
+@font-face{font-display:block;font-family:KaTeX_AMS;font-style:normal;font-weight:400;src:url(/_astro/KaTeX_AMS-Regular.BQhdFMY1.woff2) format("woff2"),url(/_astro/KaTeX_AMS-Regular.DMm9YOAa.woff) format("woff"),url(/_astro/KaTeX_AMS-Regular.DRggAlZN.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Caligraphic;font-style:normal;font-weight:700;src:url(/_astro/KaTeX_Caligraphic-Bold.Dq_IR9rO.woff2) format("woff2"),url(/_astro/KaTeX_Caligraphic-Bold.BEiXGLvX.woff) format("woff"),url(/_astro/KaTeX_Caligraphic-Bold.ATXxdsX0.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Caligraphic;font-style:normal;font-weight:400;src:url(/_astro/KaTeX_Caligraphic-Regular.Di6jR-x-.woff2) format("woff2"),url(/_astro/KaTeX_Caligraphic-Regular.CTRA-rTL.woff) format("woff"),url(/_astro/KaTeX_Caligraphic-Regular.wX97UBjC.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Fraktur;font-style:normal;font-weight:700;src:url(/_astro/KaTeX_Fraktur-Bold.CL6g_b3V.woff2) format("woff2"),url(/_astro/KaTeX_Fraktur-Bold.BsDP51OF.woff) format("woff"),url(/_astro/KaTeX_Fraktur-Bold.BdnERNNW.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Fraktur;font-style:normal;font-weight:400;src:url(/_astro/KaTeX_Fraktur-Regular.CTYiF6lA.woff2) format("woff2"),url(/_astro/KaTeX_Fraktur-Regular.Dxdc4cR9.woff) format("woff"),url(/_astro/KaTeX_Fraktur-Regular.CB_wures.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Main;font-style:normal;font-weight:700;src:url(/_astro/KaTeX_Main-Bold.Cx986IdX.woff2) format("woff2"),url(/_astro/KaTeX_Main-Bold.Jm3AIy58.woff) format("woff"),url(/_astro/KaTeX_Main-Bold.waoOVXN0.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Main;font-style:italic;font-weight:700;src:url(/_astro/KaTeX_Main-BoldItalic.DxDJ3AOS.woff2) format("woff2"),url(/_astro/KaTeX_Main-BoldItalic.SpSLRI95.woff) format("woff"),url(/_astro/KaTeX_Main-BoldItalic.DzxPMmG6.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Main;font-style:italic;font-weight:400;src:url(/_astro/KaTeX_Main-Italic.NWA7e6Wa.woff2) format("woff2"),url(/_astro/KaTeX_Main-Italic.BMLOBm91.woff) format("woff"),url(/_astro/KaTeX_Main-Italic.3WenGoN9.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Main;font-style:normal;font-weight:400;src:url(/_astro/KaTeX_Main-Regular.B22Nviop.woff2) format("woff2"),url(/_astro/KaTeX_Main-Regular.Dr94JaBh.woff) format("woff"),url(/_astro/KaTeX_Main-Regular.ypZvNtVU.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Math;font-style:italic;font-weight:700;src:url(/_astro/KaTeX_Math-BoldItalic.CZnvNsCZ.woff2) format("woff2"),url(/_astro/KaTeX_Math-BoldItalic.iY-2wyZ7.woff) format("woff"),url(/_astro/KaTeX_Math-BoldItalic.B3XSjfu4.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Math;font-style:italic;font-weight:400;src:url(/_astro/KaTeX_Math-Italic.t53AETM-.woff2) format("woff2"),url(/_astro/KaTeX_Math-Italic.DA0__PXp.woff) format("woff"),url(/_astro/KaTeX_Math-Italic.flOr_0UB.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_SansSerif;font-style:normal;font-weight:700;src:url(/_astro/KaTeX_SansSerif-Bold.D1sUS0GD.woff2) format("woff2"),url(/_astro/KaTeX_SansSerif-Bold.DbIhKOiC.woff) format("woff"),url(/_astro/KaTeX_SansSerif-Bold.CFMepnvq.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_SansSerif;font-style:italic;font-weight:400;src:url(/_astro/KaTeX_SansSerif-Italic.C3H0VqGB.woff2) format("woff2"),url(/_astro/KaTeX_SansSerif-Italic.DN2j7dab.woff) format("woff"),url(/_astro/KaTeX_SansSerif-Italic.YYjJ1zSn.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_SansSerif;font-style:normal;font-weight:400;src:url(/_astro/KaTeX_SansSerif-Regular.DDBCnlJ7.woff2) format("woff2"),url(/_astro/KaTeX_SansSerif-Regular.CS6fqUqJ.woff) format("woff"),url(/_astro/KaTeX_SansSerif-Regular.BNo7hRIc.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Script;font-style:normal;font-weight:400;src:url(/_astro/KaTeX_Script-Regular.D3wIWfF6.woff2) format("woff2"),url(/_astro/KaTeX_Script-Regular.D5yQViql.woff) format("woff"),url(/_astro/KaTeX_Script-Regular.C5JkGWo-.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Size1;font-style:normal;font-weight:400;src:url(/_astro/KaTeX_Size1-Regular.mCD8mA8B.woff2) format("woff2"),url(/_astro/KaTeX_Size1-Regular.C195tn64.woff) format("woff"),url(/_astro/KaTeX_Size1-Regular.Dbsnue_I.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Size2;font-style:normal;font-weight:400;src:url(/_astro/KaTeX_Size2-Regular.Dy4dx90m.woff2) format("woff2"),url(/_astro/KaTeX_Size2-Regular.oD1tc_U0.woff) format("woff"),url(/_astro/KaTeX_Size2-Regular.B7gKUWhC.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Size3;font-style:normal;font-weight:400;src:url(data:font/woff2;base64,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) format("woff2"),url(/_astro/KaTeX_Size3-Regular.CTq5MqoE.woff) format("woff"),url(/_astro/KaTeX_Size3-Regular.DgpXs0kz.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Size4;font-style:normal;font-weight:400;src:url(/_astro/KaTeX_Size4-Regular.Dl5lxZxV.woff2) format("woff2"),url(/_astro/KaTeX_Size4-Regular.BF-4gkZK.woff) format("woff"),url(/_astro/KaTeX_Size4-Regular.DWFBv043.ttf) format("truetype")}@font-face{font-display:block;font-family:KaTeX_Typewriter;font-style:normal;font-weight:400;src:url(/_astro/KaTeX_Typewriter-Regular.CO6r4hn1.woff2) format("woff2"),url(/_astro/KaTeX_Typewriter-Regular.C0xS9mPB.woff) format("woff"),url(/_astro/KaTeX_Typewriter-Regular.D3Ib7_Hf.ttf) format("truetype")}.katex{font: 1.21em KaTeX_Main,math,Times New Roman,serif;line-height:1.2;position:relative;text-indent:0;text-rendering:auto}.katex *{-ms-high-contrast-adjust:none!important;border-color:currentColor}.katex .katex-version:after{content:"0.19.1"}.katex .katex-mathml{border:0;-webkit-clip-path:inset(50%);clip-path:inset(50%);height:1px;overflow:hidden;padding:0;position:absolute;width:1px}.katex .katex-html>.katex-newline{display:block}.katex .katex-base{position:relative;white-space:nowrap;width:-webkit-min-content;width:-moz-min-content;width:min-content}.katex .katex-base,.katex .katex-strut{display:inline-block}.katex .textbf{font-weight:700}.katex .textit{font-style:italic}.katex .textrm{font-family:KaTeX_Main}.katex .textsf{font-family:KaTeX_SansSerif}.katex .texttt{font-family:KaTeX_Typewriter}.katex .mathnormal{font-family:KaTeX_Math;font-style:italic}.katex .mathit{font-family:KaTeX_Main;font-style:italic}.katex .mathrm{font-style:normal}.katex .mathbf{font-family:KaTeX_Main;font-weight:700}.katex .boldsymbol{font-family:KaTeX_Math;font-style:italic;font-weight:700}.katex .amsrm,.katex .mathbb,.katex .textbb{font-family:KaTeX_AMS}.katex .mathcal{font-family:KaTeX_Caligraphic}.katex .mathfrak,.katex .textfrak{font-family:KaTeX_Fraktur}.katex .mathboldfrak,.katex .textboldfrak{font-family:KaTeX_Fraktur;font-weight:700}.katex .mathtt{font-family:KaTeX_Typewriter}.katex .mathscr,.katex .textscr{font-family:KaTeX_Script}.katex .mathsf,.katex .textsf{font-family:KaTeX_SansSerif}.katex .mathboldsf,.katex .textboldsf{font-family:KaTeX_SansSerif;font-weight:700}.katex .mathitsf,.katex .mathsfit,.katex .textitsf{font-family:KaTeX_SansSerif;font-style:italic}.katex .mainrm{font-family:KaTeX_Main;font-style:normal}.katex .vlist-t{border-collapse:collapse;display:inline-table;table-layout:fixed}.katex .vlist-r{display:table-row}.katex .vlist{display:table-cell;position:relative;vertical-align:bottom}.katex .vlist>span{display:block;height:0;position:relative}.katex .vlist>span>span{display:inline-block}.katex .vlist>span>.pstrut{overflow:hidden;width:0}.katex .vlist-t2{margin-right:-2px}.katex .vlist-s{display:table-cell;font-size:1px;min-width:2px;vertical-align:bottom;width:2px}.katex .katex-vbox{align-items:baseline;display:inline-flex;flex-direction:column}.katex .katex-thinbox{display:inline-flex;flex-direction:row;max-width:0;width:0}.katex .msupsub{text-align:left}.katex .mfrac>span>span{text-align:center}.katex .mfrac .frac-line{border-bottom-style:solid;display:inline-block;width:100%}.katex .katex-hdashline,.katex .katex-hline,.katex .katex-overline .overline-line,.katex .katex-rule,.katex .katex-underline .underline-line,.katex .mfrac .frac-line{min-height:1px}.katex .mspace{display:inline-block}.katex .katex-smash{display:inline;line-height:0}.katex .clap,.katex .llap,.katex .rlap{position:relative;width:0}.katex .clap>.katex-inner,.katex .llap>.katex-inner,.katex .rlap>.katex-inner{position:absolute}.katex .clap>.katex-fix,.katex .llap>.katex-fix,.katex .rlap>.katex-fix{display:inline-block}.katex .llap>.katex-inner{right:0}.katex .clap>.katex-inner,.katex .rlap>.katex-inner{left:0}.katex .clap>.katex-inner>span{margin-left:-50%;margin-right:50%}.katex .katex-rule{border:0 solid;display:inline-block;position:relative}.katex .katex-hline,.katex .katex-overline .overline-line,.katex .katex-underline .underline-line{border-bottom-style:solid;display:inline-block;width:100%}.katex .katex-hdashline{border-bottom-style:dashed;display:inline-block;width:100%}.katex .sqrt>.katex-root{margin-left:.2777777778em;margin-right:-.5555555556em}.katex .fontsize-ensurer.reset-size1.size1,.katex .katex-sizing.reset-size1.size1{font-size:1em}.katex .fontsize-ensurer.reset-size1.size2,.katex .katex-sizing.reset-size1.size2{font-size:1.2em}.katex .fontsize-ensurer.reset-size1.size3,.katex .katex-sizing.reset-size1.size3{font-size:1.4em}.katex .fontsize-ensurer.reset-size1.size4,.katex .katex-sizing.reset-size1.size4{font-size:1.6em}.katex .fontsize-ensurer.reset-size1.size5,.katex .katex-sizing.reset-size1.size5{font-size:1.8em}.katex .fontsize-ensurer.reset-size1.size6,.katex .katex-sizing.reset-size1.size6{font-size:2em}.katex .fontsize-ensurer.reset-size1.size7,.katex .katex-sizing.reset-size1.size7{font-size:2.4em}.katex .fontsize-ensurer.reset-size1.size8,.katex .katex-sizing.reset-size1.size8{font-size:2.88em}.katex .fontsize-ensurer.reset-size1.size9,.katex .katex-sizing.reset-size1.size9{font-size:3.456em}.katex .fontsize-ensurer.reset-size1.size10,.katex .katex-sizing.reset-size1.size10{font-size:4.148em}.katex .fontsize-ensurer.reset-size1.size11,.katex .katex-sizing.reset-size1.size11{font-size:4.976em}.katex .fontsize-ensurer.reset-size2.size1,.katex .katex-sizing.reset-size2.size1{font-size:.8333333333em}.katex .fontsize-ensurer.reset-size2.size2,.katex .katex-sizing.reset-size2.size2{font-size:1em}.katex .fontsize-ensurer.reset-size2.size3,.katex .katex-sizing.reset-size2.size3{font-size:1.1666666667em}.katex .fontsize-ensurer.reset-size2.size4,.katex .katex-sizing.reset-size2.size4{font-size:1.3333333333em}.katex .fontsize-ensurer.reset-size2.size5,.katex .katex-sizing.reset-size2.size5{font-size:1.5em}.katex .fontsize-ensurer.reset-size2.size6,.katex .katex-sizing.reset-size2.size6{font-size:1.6666666667em}.katex .fontsize-ensurer.reset-size2.size7,.katex .katex-sizing.reset-size2.size7{font-size:2em}.katex .fontsize-ensurer.reset-size2.size8,.katex .katex-sizing.reset-size2.size8{font-size:2.4em}.katex .fontsize-ensurer.reset-size2.size9,.katex .katex-sizing.reset-size2.size9{font-size:2.88em}.katex .fontsize-ensurer.reset-size2.size10,.katex .katex-sizing.reset-size2.size10{font-size:3.4566666667em}.katex .fontsize-ensurer.reset-size2.size11,.katex .katex-sizing.reset-size2.size11{font-size:4.1466666667em}.katex .fontsize-ensurer.reset-size3.size1,.katex .katex-sizing.reset-size3.size1{font-size:.7142857143em}.katex .fontsize-ensurer.reset-size3.size2,.katex .katex-sizing.reset-size3.size2{font-size:.8571428571em}.katex .fontsize-ensurer.reset-size3.size3,.katex .katex-sizing.reset-size3.size3{font-size:1em}.katex .fontsize-ensurer.reset-size3.size4,.katex .katex-sizing.reset-size3.size4{font-size:1.1428571429em}.katex .fontsize-ensurer.reset-size3.size5,.katex .katex-sizing.reset-size3.size5{font-size:1.2857142857em}.katex .fontsize-ensurer.reset-size3.size6,.katex .katex-sizing.reset-size3.size6{font-size:1.4285714286em}.katex .fontsize-ensurer.reset-size3.size7,.katex .katex-sizing.reset-size3.size7{font-size:1.7142857143em}.katex .fontsize-ensurer.reset-size3.size8,.katex .katex-sizing.reset-size3.size8{font-size:2.0571428571em}.katex .fontsize-ensurer.reset-size3.size9,.katex .katex-sizing.reset-size3.size9{font-size:2.4685714286em}.katex .fontsize-ensurer.reset-size3.size10,.katex .katex-sizing.reset-size3.size10{font-size:2.9628571429em}.katex .fontsize-ensurer.reset-size3.size11,.katex .katex-sizing.reset-size3.size11{font-size:3.5542857143em}.katex .fontsize-ensurer.reset-size4.size1,.katex .katex-sizing.reset-size4.size1{font-size:.625em}.katex .fontsize-ensurer.reset-size4.size2,.katex .katex-sizing.reset-size4.size2{font-size:.75em}.katex .fontsize-ensurer.reset-size4.size3,.katex .katex-sizing.reset-size4.size3{font-size:.875em}.katex .fontsize-ensurer.reset-size4.size4,.katex .katex-sizing.reset-size4.size4{font-size:1em}.katex .fontsize-ensurer.reset-size4.size5,.katex .katex-sizing.reset-size4.size5{font-size:1.125em}.katex .fontsize-ensurer.reset-size4.size6,.katex .katex-sizing.reset-size4.size6{font-size:1.25em}.katex .fontsize-ensurer.reset-size4.size7,.katex .katex-sizing.reset-size4.size7{font-size:1.5em}.katex .fontsize-ensurer.reset-size4.size8,.katex .katex-sizing.reset-size4.size8{font-size:1.8em}.katex .fontsize-ensurer.reset-size4.size9,.katex .katex-sizing.reset-size4.size9{font-size:2.16em}.katex .fontsize-ensurer.reset-size4.size10,.katex .katex-sizing.reset-size4.size10{font-size:2.5925em}.katex .fontsize-ensurer.reset-size4.size11,.katex .katex-sizing.reset-size4.size11{font-size:3.11em}.katex .fontsize-ensurer.reset-size5.size1,.katex .katex-sizing.reset-size5.size1{font-size:.5555555556em}.katex .fontsize-ensurer.reset-size5.size2,.katex .katex-sizing.reset-size5.size2{font-size:.6666666667em}.katex .fontsize-ensurer.reset-size5.size3,.katex .katex-sizing.reset-size5.size3{font-size:.7777777778em}.katex .fontsize-ensurer.reset-size5.size4,.katex .katex-sizing.reset-size5.size4{font-size:.8888888889em}.katex .fontsize-ensurer.reset-size5.size5,.katex .katex-sizing.reset-size5.size5{font-size:1em}.katex .fontsize-ensurer.reset-size5.size6,.katex .katex-sizing.reset-size5.size6{font-size:1.1111111111em}.katex .fontsize-ensurer.reset-size5.size7,.katex .katex-sizing.reset-size5.size7{font-size:1.3333333333em}.katex .fontsize-ensurer.reset-size5.size8,.katex .katex-sizing.reset-size5.size8{font-size:1.6em}.katex .fontsize-ensurer.reset-size5.size9,.katex .katex-sizing.reset-size5.size9{font-size:1.92em}.katex .fontsize-ensurer.reset-size5.size10,.katex .katex-sizing.reset-size5.size10{font-size:2.3044444444em}.katex .fontsize-ensurer.reset-size5.size11,.katex .katex-sizing.reset-size5.size11{font-size:2.7644444444em}.katex .fontsize-ensurer.reset-size6.size1,.katex .katex-sizing.reset-size6.size1{font-size:.5em}.katex .fontsize-ensurer.reset-size6.size2,.katex .katex-sizing.reset-size6.size2{font-size:.6em}.katex .fontsize-ensurer.reset-size6.size3,.katex .katex-sizing.reset-size6.size3{font-size:.7em}.katex .fontsize-ensurer.reset-size6.size4,.katex .katex-sizing.reset-size6.size4{font-size:.8em}.katex .fontsize-ensurer.reset-size6.size5,.katex .katex-sizing.reset-size6.size5{font-size:.9em}.katex .fontsize-ensurer.reset-size6.size6,.katex .katex-sizing.reset-size6.size6{font-size:1em}.katex .fontsize-ensurer.reset-size6.size7,.katex .katex-sizing.reset-size6.size7{font-size:1.2em}.katex .fontsize-ensurer.reset-size6.size8,.katex .katex-sizing.reset-size6.size8{font-size:1.44em}.katex .fontsize-ensurer.reset-size6.size9,.katex .katex-sizing.reset-size6.size9{font-size:1.728em}.katex .fontsize-ensurer.reset-size6.size10,.katex .katex-sizing.reset-size6.size10{font-size:2.074em}.katex .fontsize-ensurer.reset-size6.size11,.katex .katex-sizing.reset-size6.size11{font-size:2.488em}.katex .fontsize-ensurer.reset-size7.size1,.katex .katex-sizing.reset-size7.size1{font-size:.4166666667em}.katex .fontsize-ensurer.reset-size7.size2,.katex .katex-sizing.reset-size7.size2{font-size:.5em}.katex .fontsize-ensurer.reset-size7.size3,.katex .katex-sizing.reset-size7.size3{font-size:.5833333333em}.katex .fontsize-ensurer.reset-size7.size4,.katex .katex-sizing.reset-size7.size4{font-size:.6666666667em}.katex .fontsize-ensurer.reset-size7.size5,.katex .katex-sizing.reset-size7.size5{font-size:.75em}.katex .fontsize-ensurer.reset-size7.size6,.katex .katex-sizing.reset-size7.size6{font-size:.8333333333em}.katex .fontsize-ensurer.reset-size7.size7,.katex .katex-sizing.reset-size7.size7{font-size:1em}.katex .fontsize-ensurer.reset-size7.size8,.katex .katex-sizing.reset-size7.size8{font-size:1.2em}.katex .fontsize-ensurer.reset-size7.size9,.katex .katex-sizing.reset-size7.size9{font-size:1.44em}.katex .fontsize-ensurer.reset-size7.size10,.katex .katex-sizing.reset-size7.size10{font-size:1.7283333333em}.katex .fontsize-ensurer.reset-size7.size11,.katex .katex-sizing.reset-size7.size11{font-size:2.0733333333em}.katex .fontsize-ensurer.reset-size8.size1,.katex .katex-sizing.reset-size8.size1{font-size:.3472222222em}.katex .fontsize-ensurer.reset-size8.size2,.katex .katex-sizing.reset-size8.size2{font-size:.4166666667em}.katex .fontsize-ensurer.reset-size8.size3,.katex .katex-sizing.reset-size8.size3{font-size:.4861111111em}.katex .fontsize-ensurer.reset-size8.size4,.katex .katex-sizing.reset-size8.size4{font-size:.5555555556em}.katex .fontsize-ensurer.reset-size8.size5,.katex .katex-sizing.reset-size8.size5{font-size:.625em}.katex .fontsize-ensurer.reset-size8.size6,.katex .katex-sizing.reset-size8.size6{font-size:.6944444444em}.katex .fontsize-ensurer.reset-size8.size7,.katex .katex-sizing.reset-size8.size7{font-size:.8333333333em}.katex .fontsize-ensurer.reset-size8.size8,.katex .katex-sizing.reset-size8.size8{font-size:1em}.katex .fontsize-ensurer.reset-size8.size9,.katex .katex-sizing.reset-size8.size9{font-size:1.2em}.katex .fontsize-ensurer.reset-size8.size10,.katex .katex-sizing.reset-size8.size10{font-size:1.4402777778em}.katex .fontsize-ensurer.reset-size8.size11,.katex .katex-sizing.reset-size8.size11{font-size:1.7277777778em}.katex .fontsize-ensurer.reset-size9.size1,.katex .katex-sizing.reset-size9.size1{font-size:.2893518519em}.katex .fontsize-ensurer.reset-size9.size2,.katex .katex-sizing.reset-size9.size2{font-size:.3472222222em}.katex .fontsize-ensurer.reset-size9.size3,.katex .katex-sizing.reset-size9.size3{font-size:.4050925926em}.katex .fontsize-ensurer.reset-size9.size4,.katex .katex-sizing.reset-size9.size4{font-size:.462962963em}.katex .fontsize-ensurer.reset-size9.size5,.katex .katex-sizing.reset-size9.size5{font-size:.5208333333em}.katex .fontsize-ensurer.reset-size9.size6,.katex .katex-sizing.reset-size9.size6{font-size:.5787037037em}.katex .fontsize-ensurer.reset-size9.size7,.katex .katex-sizing.reset-size9.size7{font-size:.6944444444em}.katex .fontsize-ensurer.reset-size9.size8,.katex .katex-sizing.reset-size9.size8{font-size:.8333333333em}.katex .fontsize-ensurer.reset-size9.size9,.katex .katex-sizing.reset-size9.size9{font-size:1em}.katex .fontsize-ensurer.reset-size9.size10,.katex .katex-sizing.reset-size9.size10{font-size:1.2002314815em}.katex .fontsize-ensurer.reset-size9.size11,.katex .katex-sizing.reset-size9.size11{font-size:1.4398148148em}.katex .fontsize-ensurer.reset-size10.size1,.katex .katex-sizing.reset-size10.size1{font-size:.2410800386em}.katex .fontsize-ensurer.reset-size10.size2,.katex .katex-sizing.reset-size10.size2{font-size:.2892960463em}.katex .fontsize-ensurer.reset-size10.size3,.katex .katex-sizing.reset-size10.size3{font-size:.337512054em}.katex .fontsize-ensurer.reset-size10.size4,.katex .katex-sizing.reset-size10.size4{font-size:.3857280617em}.katex .fontsize-ensurer.reset-size10.size5,.katex .katex-sizing.reset-size10.size5{font-size:.4339440694em}.katex .fontsize-ensurer.reset-size10.size6,.katex .katex-sizing.reset-size10.size6{font-size:.4821600771em}.katex .fontsize-ensurer.reset-size10.size7,.katex .katex-sizing.reset-size10.size7{font-size:.5785920926em}.katex .fontsize-ensurer.reset-size10.size8,.katex .katex-sizing.reset-size10.size8{font-size:.6943105111em}.katex .fontsize-ensurer.reset-size10.size9,.katex .katex-sizing.reset-size10.size9{font-size:.8331726133em}.katex .fontsize-ensurer.reset-size10.size10,.katex .katex-sizing.reset-size10.size10{font-size:1em}.katex .fontsize-ensurer.reset-size10.size11,.katex .katex-sizing.reset-size10.size11{font-size:1.1996142719em}.katex .fontsize-ensurer.reset-size11.size1,.katex .katex-sizing.reset-size11.size1{font-size:.2009646302em}.katex .fontsize-ensurer.reset-size11.size2,.katex .katex-sizing.reset-size11.size2{font-size:.2411575563em}.katex .fontsize-ensurer.reset-size11.size3,.katex .katex-sizing.reset-size11.size3{font-size:.2813504823em}.katex .fontsize-ensurer.reset-size11.size4,.katex .katex-sizing.reset-size11.size4{font-size:.3215434084em}.katex .fontsize-ensurer.reset-size11.size5,.katex .katex-sizing.reset-size11.size5{font-size:.3617363344em}.katex .fontsize-ensurer.reset-size11.size6,.katex .katex-sizing.reset-size11.size6{font-size:.4019292605em}.katex .fontsize-ensurer.reset-size11.size7,.katex .katex-sizing.reset-size11.size7{font-size:.4823151125em}.katex .fontsize-ensurer.reset-size11.size8,.katex .katex-sizing.reset-size11.size8{font-size:.578778135em}.katex .fontsize-ensurer.reset-size11.size9,.katex .katex-sizing.reset-size11.size9{font-size:.6945337621em}.katex .fontsize-ensurer.reset-size11.size10,.katex .katex-sizing.reset-size11.size10{font-size:.8336012862em}.katex .fontsize-ensurer.reset-size11.size11,.katex .katex-sizing.reset-size11.size11{font-size:1em}.katex .delimsizing.size1{font-family:KaTeX_Size1}.katex .delimsizing.size2{font-family:KaTeX_Size2}.katex .delimsizing.size3{font-family:KaTeX_Size3}.katex .delimsizing.size4{font-family:KaTeX_Size4}.katex .delimsizing.mult .delim-size1>span{font-family:KaTeX_Size1}.katex .delimsizing.mult .delim-size4>span{font-family:KaTeX_Size4}.katex .nulldelimiter{display:inline-block;width:.12em}.katex .delimcenter,.katex .op-symbol{position:relative}.katex .op-symbol.small-op{font-family:KaTeX_Size1}.katex .op-symbol.large-op{font-family:KaTeX_Size2}.katex .katex-accent>.vlist-t,.katex .op-limits>.vlist-t{text-align:center}.katex .katex-accent .accent-body{position:relative}.katex .katex-accent .accent-body:not(.accent-full){width:0}.katex .katex-overlay{display:block}.katex .mtable .vertical-separator{display:inline-block;min-width:1px}.katex .mtable .arraycolsep{display:inline-block}.katex .mtable .col-align-c>.vlist-t{text-align:center}.katex .mtable .col-align-l>.vlist-t{text-align:left}.katex .mtable .col-align-r>.vlist-t{text-align:right}.katex .svg-align{text-align:left}.katex svg{fill:currentColor;stroke:currentColor;display:block;height:inherit;position:absolute;width:100%}.katex svg path{stroke:none}.katex svg{fill-rule:nonzero;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1}.katex img{border-style:none;max-height:none;max-width:none;min-height:0;min-width:0}.katex .katex-stretchy{display:block;overflow:hidden;position:relative;width:100%}.katex .katex-stretchy:after,.katex .katex-stretchy:before{content:""}.katex .hide-tail{overflow:hidden;position:relative;width:100%}.katex .halfarrow-left{left:0;overflow:hidden;position:absolute;width:50.2%}.katex .halfarrow-right{overflow:hidden;position:absolute;right:0;width:50.2%}.katex .brace-left{left:0;overflow:hidden;position:absolute;width:25.1%}.katex .brace-center{left:25%;overflow:hidden;position:absolute;width:50%}.katex .brace-right{overflow:hidden;position:absolute;right:0;width:25.1%}.katex .x-arrow-pad{padding:0 .5em}.katex .cd-arrow-pad{padding:0 .55556em 0 .27778em}.katex .mover,.katex .munder,.katex .x-arrow{text-align:center}.katex .boxpad{padding:0 .3em}.katex .fbox,.katex .fcolorbox{border:.04em solid;box-sizing:border-box}.katex .cancel-pad{padding:0 .2em}.katex .cancel-lap{margin-left:-.2em;margin-right:-.2em}.katex .katex-sout{border-bottom-style:solid;border-bottom-width:.08em}.katex .angl{border-right:.049em solid;border-top:.049em solid;box-sizing:border-box;margin-right:.03889em}.katex .anglpad{padding:0 .03889em}.katex .reflectbox{display:inline-block;transform:scaleX(-1)}.katex .eqn-num:before{content:"(" counter(katexEqnNo) ")";counter-increment:katexEqnNo}.katex .mml-eqn-num:before{content:"(" counter(mmlEqnNo) ")";counter-increment:mmlEqnNo}.katex .mtr-glue{width:50%}.katex .cd-vert-arrow{display:inline-block;position:relative}.katex .cd-label-left{display:inline-block;position:absolute;right:calc(50% + .3em);text-align:left}.katex .cd-label-right{display:inline-block;left:calc(50% + .3em);position:absolute;text-align:right}.katex-display{display:block;margin:1em 0;text-align:center}.katex-display>.katex{display:block;text-align:center;white-space:nowrap}.katex-display>.katex>.katex-html{display:block;position:relative}.katex-display>.katex>.katex-html>.katex-tag{position:absolute;right:0}.katex-display.leqno>.katex>.katex-html>.katex-tag{left:0;right:auto}.katex-display.fleqn>.katex{padding-left:2em;text-align:left}body{counter-reset:katexEqnNo mmlEqnNo}.reading{max-width:760px;margin:64px auto 80px;padding:0 28px;overflow-wrap:anywhere}.reading h1{font-size:clamp(30px,4vw,46px);line-height:1.25;margin:24px 0 10px}.reading .date,.reading .back,.reading .toc{font-size:14px;color:#575757}.reading .toc{display:block;position:static;margin:26px 0;padding:12px 16px;border:1px dashed #ccc;border-radius:12px}.reading .toc summary{cursor:pointer;list-style:revert}.reading .toc a{display:block;padding:4px 0}.reading article{line-height:1.85;margin:32px 0 48px}.reading article h2{scroll-margin-top:78px;margin:36px 0 14px;line-height:1.4}.reading article img{max-width:100%;height:auto;border-radius:12px}.reading article a,.reading .back:hover{text-decoration:underline;text-underline-offset:3px}.reading pre{max-width:100%;overflow-x:auto;line-height:1.6;padding:18px;border-radius:12px;font-size:14px}@media(max-width:639px){.reading{margin-top:36px;padding:0 22px}}
+</style></head><body><div class="page-grid" aria-hidden="true"><div class="grid-half"><div class="grid-row"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="grid-row"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="grid-row"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="grid-row"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="grid-row"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="grid-row"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="grid-half"><div class="grid-row"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="grid-row"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="grid-row"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="grid-row"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="grid-row"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="grid-row"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div> <div class="header-slot"><header><a class="brand" href="../../index.html"><img src="../../favicon.ico" alt="">Hi, abandon</a><nav><a href="../../index.html">首页</a><a href="../../posts/index.html" aria-current="location">文章</a><a href="../../projects/index.html">项目</a><a href="../../friends/index.html">友邻</a><a href="../../about/index.html">关于</a></nav><details><summary aria-label="导航">☰</summary><a href="../../index.html">首页</a><a href="../../posts/index.html" aria-current="location">文章</a><a href="../../projects/index.html">项目</a><a href="../../friends/index.html">友邻</a><a href="../../about/index.html">关于</a></details></header></div> <script>
+  const header = document.querySelector('.header-slot header');
+  function updateHeader() {
+    header.classList.toggle('compact', window.scrollY > 16);
+  }
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  window.addEventListener('pageshow', updateHeader);
+</script><main class="reading"> <a class="back" href="../../posts/index.html">← 文章列表</a> <h1>PHP[入门]P01~06html</h1><p class="date">2017年1月1日 · php</p> <details class="toc"><summary>文章目录</summary><a href="#bs和cs的简单认识">B/S和C/S的简单认识</a><a href="#网页的工作原理">网页的工作原理</a><a href="#认识标签">认识标签</a><a href="#标签注意事项">标签注意事项：</a><a href="#标签的分类">标签的分类：</a><a href="#全局架构标签">全局架构标签</a><a href="#body常用属性">body常用属性</a><a href="#字体修饰标记如下都是双边标记">字体修饰标记(如下都是双边标记)</a><a href="#排版标记">排版标记</a><a href="#实体符号">实体符号</a><a href="#无序列表">无序列表</a><a href="#10-有序列表">10. 有序列表</a><a href="#自定义列表">自定义列表</a><a href="#动态网页">动态网页：</a><a href="#静态网页">静态网页：</a><a href="#html再认识">HTML再认识</a><a href="#url">URL</a><a href="#超链接">超链接</a><a href="#锚点">锚点：</a><a href="#图片img">图片img</a><a href="#绝对路径">绝对路径：</a><a href="#相对路径">相对路径：</a><a href="#音频-视频">音频 视频</a><a href="#audio">audio:</a><a href="#video">video:</a><a href="#表格">表格</a><a href="#day03-表单">day03-表单</a><a href="#1iframewidthheightsrcnameframeborderscrolling">1：iframe(width\height\src\name\frameborder\scrolling)</a><a href="#2-framesetcolsrowsframeborderborderbordercolornoresize">2: frameset(cols\rows\frameborder\border\bordercolor\noresize)</a><a href="#3-form表单">3: form表单</a><a href="#1input">(1)input</a><a href="#2selectmultiple-size-name">(2)select(multiple size name)</a><a href="#3textareacols-rows">(3)textarea(cols rows)</a><a href="#4头元素">4:头元素</a><a href="#5-无意义的标签">5: 无意义的标签</a><a href="#css初认识">CSS初认识</a><a href="#css">CSS</a><a href="#使用css的好处">使用css的好处</a><a href="#css的三种链接方式">css的三种链接方式</a><a href="#行内样式">行内样式</a><a href="#内联样式">内联样式</a><a href="#外部样式">外部样式</a><a href="#css语法格式和注释">css语法格式和注释</a><a href="#选择器">选择器</a><a href="#class选择器">class选择器：</a><a href="#id选择器">id选择器：</a><a href="#组合选择器">组合选择器:</a><a href="#属性选择器">属性选择器:</a><a href="#尺寸设置">尺寸设置</a><a href="#单位">单位：</a><a href="#7-常用属性">7. 常用属性</a><a href="#字体">字体：</a><a href="#文本">文本:</a><a href="#css-1">CSS</a><a href="#vertical-align">vertical-align</a><a href="#背景">背景</a><a href="#列表">列表</a><a href="#布局">布局</a><a href="#边框">边框</a><a href="#盒子模型">盒子模型</a><a href="#内外边距">内外边距</a></details> <article><blockquote>
+<p>这是我早期的 php 学习笔记，php 的学习版本版本是 5.6、7，🐟2020/05/06年从有道笔记导出至此。</p>
+</blockquote>
+<!-- TOC -->
+<ul>
+<li><a href="#bs%E5%92%8Ccs%E7%9A%84%E7%AE%80%E5%8D%95%E8%AE%A4%E8%AF%86">B/S和C/S的简单认识</a></li>
+<li><a href="#%E7%BD%91%E9%A1%B5%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86">网页的工作原理</a></li>
+<li><a href="#%E8%AE%A4%E8%AF%86%E6%A0%87%E7%AD%BE">认识标签</a>
+<ul>
+<li><a href="#%E6%A0%87%E7%AD%BE%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">标签注意事项：</a></li>
+<li><a href="#%E6%A0%87%E7%AD%BE%E7%9A%84%E5%88%86%E7%B1%BB">标签的分类：</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%A8%E5%B1%80%E6%9E%B6%E6%9E%84%E6%A0%87%E7%AD%BE">全局架构标签</a>
+<ul>
+<li><a href="#body%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7">body常用属性</a></li>
+<li><a href="#%E5%AD%97%E4%BD%93%E4%BF%AE%E9%A5%B0%E6%A0%87%E8%AE%B0%E5%A6%82%E4%B8%8B%E9%83%BD%E6%98%AF%E5%8F%8C%E8%BE%B9%E6%A0%87%E8%AE%B0">字体修饰标记(如下都是双边标记)</a>
+<ul>
+<li><a href="#%E6%8E%92%E7%89%88%E6%A0%87%E8%AE%B0">排版标记</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9E%E4%BD%93%E7%AC%A6%E5%8F%B7">实体符号</a></li>
+<li><a href="#%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8">无序列表</a></li>
+<li><a href="#%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8">10. 有序列表</a></li>
+<li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%97%E8%A1%A8">自定义列表</a>
+<ul>
+<li><a href="#%E5%8A%A8%E6%80%81%E7%BD%91%E9%A1%B5">动态网页：</a></li>
+<li><a href="#%E9%9D%99%E6%80%81%E7%BD%91%E9%A1%B5">静态网页：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#html%E5%86%8D%E8%AE%A4%E8%AF%86">HTML再认识</a>
+<ul>
+<li><a href="#url">URL</a></li>
+<li><a href="#%E8%B6%85%E9%93%BE%E6%8E%A5">超链接</a>
+<ul>
+<li><a href="#%E9%94%9A%E7%82%B9">锚点：</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9B%BE%E7%89%87img">图片img</a>
+<ul>
+<li><a href="#%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84">绝对路径：</a></li>
+<li><a href="#%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84">相对路径：</a></li>
+</ul>
+</li>
+<li><a href="#%E9%9F%B3%E9%A2%91-%E8%A7%86%E9%A2%91">音频 视频</a>
+<ul>
+<li><a href="#audio">audio:</a></li>
+<li><a href="#video">video:</a></li>
+</ul>
+</li>
+<li><a href="#%E8%A1%A8%E6%A0%BC">表格</a></li>
+</ul>
+</li>
+<li><a href="#day03-%E8%A1%A8%E5%8D%95">day03-表单</a>
+<ul>
+<li><a href="#iframewidthheightsrcnameframeborderscrolling">1：<code>iframe(width\height\src\name\frameborder\scrolling)</code></a></li>
+<li><a href="#framesetcolsrowsframeborderborderbordercolornoresize">2: <code>frameset(cols\rows\frameborder\border\bordercolor\noresize)</code></a></li>
+<li><a href="#form%E8%A1%A8%E5%8D%95">3: form表单</a>
+<ul>
+<li><a href="#input">(1)input</a></li>
+<li><a href="#selectmultiple-size-name">(2)select(multiple size name)</a></li>
+<li><a href="#textareacols-rows">(3)textarea(cols rows)</a></li>
+</ul>
+</li>
+<li><a href="#%E5%A4%B4%E5%85%83%E7%B4%A0">4:头元素</a></li>
+<li><a href="#%E6%97%A0%E6%84%8F%E4%B9%89%E7%9A%84%E6%A0%87%E7%AD%BE">5: 无意义的标签</a></li>
+</ul>
+</li>
+<li><a href="#css%E5%88%9D%E8%AE%A4%E8%AF%86">CSS初认识</a>
+<ul>
+<li><a href="#css">CSS</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8css%E7%9A%84%E5%A5%BD%E5%A4%84">使用css的好处</a></li>
+<li><a href="#css%E7%9A%84%E4%B8%89%E7%A7%8D%E9%93%BE%E6%8E%A5%E6%96%B9%E5%BC%8F">css的三种链接方式</a>
+<ul>
+<li><a href="#%E8%A1%8C%E5%86%85%E6%A0%B7%E5%BC%8F">行内样式</a></li>
+<li><a href="#%E5%86%85%E8%81%94%E6%A0%B7%E5%BC%8F">内联样式</a></li>
+<li><a href="#%E5%A4%96%E9%83%A8%E6%A0%B7%E5%BC%8F">外部样式</a></li>
+</ul>
+</li>
+<li><a href="#css%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F%E5%92%8C%E6%B3%A8%E9%87%8A">css语法格式和注释</a></li>
+<li><a href="#%E9%80%89%E6%8B%A9%E5%99%A8">选择器</a>
+<ul>
+<li><a href="#class%E9%80%89%E6%8B%A9%E5%99%A8">class选择器：</a></li>
+<li><a href="#id%E9%80%89%E6%8B%A9%E5%99%A8">id选择器：</a></li>
+<li><a href="#%E7%BB%84%E5%90%88%E9%80%89%E6%8B%A9%E5%99%A8">组合选择器:</a></li>
+<li><a href="#%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8">属性选择器:</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B0%BA%E5%AF%B8%E8%AE%BE%E7%BD%AE">尺寸设置</a>
+<ul>
+<li><a href="#%E5%8D%95%E4%BD%8D">单位：</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B8%B8%E7%94%A8%E5%B1%9E%E6%80%A7">7. 常用属性</a>
+<ul>
+<li><a href="#%E5%AD%97%E4%BD%93">字体：</a></li>
+<li><a href="#%E6%96%87%E6%9C%AC">文本:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#css-1">CSS</a>
+<ul>
+<li><a href="#vertical-align">vertical-align</a></li>
+<li><a href="#%E8%83%8C%E6%99%AF">背景</a></li>
+<li><a href="#%E5%88%97%E8%A1%A8">列表</a></li>
+<li><a href="#%E5%B8%83%E5%B1%80">布局</a></li>
+<li><a href="#%E8%BE%B9%E6%A1%86">边框</a></li>
+<li><a href="#%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B">盒子模型</a></li>
+<li><a href="#%E5%86%85%E5%A4%96%E8%BE%B9%E8%B7%9D">内外边距</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<!-- more -->
+<h1 id="bs和cs的简单认识">B/S和C/S的简单认识</h1>
+<p>client-server : 客户端服务器模式</p>
+<p>开发成本比较高、不易于维护、在客户端部署一套软件，服务器端也要部署</p>
+<p>browser-server : 浏览器服务器模式</p>
+<h1 id="网页的工作原理">网页的工作原理</h1>
+<p>通过域名或者 ip 然后访问服务器 服务器解析请求返回的是一个html文件</p>
+<p>浏览器将 html 文件解析成一个图文并茂的网页</p>
+<p>html 文件的组成部分: html css js(javascript)</p>
+<p>HTML 是 Hypertext Markup Language</p>
+<p>组织->文件夹和搜索选项->查看->隐藏已知文件的扩展名（去掉不选中）</p>
+<h1 id="认识标签">认识标签</h1>
+<p>格式：</p>
+<p><code>&#x3C;标签名 属性名1="属性值1" 属性名2="属性值2">要显示的内容&#x3C;/标签名></code></p>
+<h3 id="标签注意事项">标签注意事项：</h3>
+<ul>
+<li>
+<p>以<code>&#x3C;></code>开始，中间放的是标签名</p>
+</li>
+<li>
+<p>属性跟属性之间 用空格隔开</p>
+</li>
+<li>
+<p>属性值 可以用双引号 单引号 或者不引 我建议使用双引号</p>
+</li>
+</ul>
+<p><code>marquee(direction,scrollamount,width,height,loop)</code></p>
+<h3 id="标签的分类">标签的分类：</h3>
+<p>双边标签 <code>&#x3C;marquee>&#x3C;/marquee></code></p>
+<p>单边标签 <code>&#x3C;br /></code>:换行</p>
+<h1 id="全局架构标签">全局架构标签</h1>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">html</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">head</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">title</span><span style="color:#E1E4E8">>是网页的标题&#x3C;/</span><span style="color:#85E89D">title</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">meta</span><span style="color:#B392F0"> charset</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"utf-8"</span><span style="color:#E1E4E8"> /></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;/</span><span style="color:#85E89D">head</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">body</span><span style="color:#E1E4E8">>要显示在网页的所有内容&#x3C;/</span><span style="color:#85E89D">body</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">html</span><span style="color:#E1E4E8">></span><span style="color:#6A737D">&#x3C;!-- 这是注释 --></span></span>
+<span class="line"></span></code></pre>
+<p>设置字符集 ：告诉浏览器以utf-8编码格式显示</p>
+<p>出现乱码：</p>
+<ul>
+<li>文件的编码的格式（编辑器中选择utf-8无bom）</li>
+<li>在head头部 增加 <code>&#x3C;meta charset="utf-8"></code></li>
+<li>浏览器中：修改编码</li>
+</ul>
+<h2 id="body常用属性">body常用属性</h2>
+<table>
+<thead>
+<tr>
+<th>tag</th>
+<th>desc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bgcolor</td>
+<td>背景颜色</td>
+</tr>
+<tr>
+<td>background</td>
+<td>网页的背景图片</td>
+</tr>
+<tr>
+<td>text</td>
+<td>字体颜色（控制body体中所有的文字颜色）</td>
+</tr>
+<tr>
+<td>left-margin</td>
+<td>左边距</td>
+</tr>
+<tr>
+<td>top-margin</td>
+<td>上边距</td>
+</tr>
+<tr>
+<td>link</td>
+<td>正常状态显示的颜色</td>
+</tr>
+<tr>
+<td>vlink</td>
+<td>访问过后的状态</td>
+</tr>
+<tr>
+<td>alink</td>
+<td>鼠标点击时候的状态</td>
+</tr>
+</tbody>
+</table>
+<h2 id="字体修饰标记如下都是双边标记">字体修饰标记(如下都是双边标记)</h2>
+<p><code>&#x3C;font>&#x3C;/font></code></p>
+<ul>
+<li><code>size</code>: 字体大小 属性值是：1-7</li>
+<li><code>face</code>：字体 (楷体，微软雅黑…)</li>
+<li><code>color</code>: 字体颜色
+颜色： <code>#000000</code> 前两位是红色 中间是绿色 结尾两位是蓝色</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">b</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">b</span><span style="color:#E1E4E8">>：字体加粗(strong)</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">i</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">i</span><span style="color:#E1E4E8">>：斜体显示字体(em,cite)</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">u</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">u</span><span style="color:#E1E4E8">>: 是下划线</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">s</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">s</span><span style="color:#E1E4E8">>: 删除线</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">sub</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">sub</span><span style="color:#E1E4E8">>：下标</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">sup</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">sup</span><span style="color:#E1E4E8">>：上标</span></span></code></pre>
+<h3 id="排版标记">排版标记</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>段落标记&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">> 会自称一行（段）</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">>行标签&#x3C;/</span><span style="color:#85E89D">span</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">br</span><span style="color:#E1E4E8"> />:换行</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#FDAEB7;font-style:italic">nobr</span><span style="color:#E1E4E8"> />：不换行</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">hr</span><span style="color:#E1E4E8"> />水平线：(align: 对其方式 属性值：center left right color：颜色 width：宽 size：粗细尺寸)</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">>标题&#x3C;/</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">>（从h1到h6）通常网页中只会有一个h1</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">h6</span><span style="color:#E1E4E8">>&#x3C;</span><span style="color:#85E89D">h6</span><span style="color:#E1E4E8">>(align)</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">pre</span><span style="color:#E1E4E8">>原样输出&#x3C;/</span><span style="color:#85E89D">pre</span><span style="color:#E1E4E8">>（在学php时候 经常使用输出数据的时候进行格式化）</span></span></code></pre>
+<h2 id="实体符号">实体符号</h2>
+<p>诸如 <code>"&#x3C;"</code> 之类的符号在HTML中拥有特殊的含义，所以在文本中使用它们。</p>
+<blockquote>
+<p><code>&#x26;nbsp;</code> (空格) <code>&#x26;lt;</code> <code>&#x26;gt;</code> <code>&#x26;amp;&#x26;copy;&#x26;trade;</code> <code>&#x26;reg;</code> <code>&#x26;times;</code> <code>&#x26;divide;</code></p>
+</blockquote>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#79B8FF">&#x26;nbsp;</span><span style="color:#E1E4E8"> 空格</span></span>
+<span class="line"><span style="color:#79B8FF">&#x26;lt;</span><span style="color:#E1E4E8"> （</span><span style="color:#FDAEB7;font-style:italic">&#x3C;</span><span style="color:#E1E4E8">）</span></span>
+<span class="line"><span style="color:#79B8FF">&#x26;gt;</span><span style="color:#E1E4E8"> (>)</span></span>
+<span class="line"><span style="color:#79B8FF">&#x26;amp;</span></span>
+<span class="line"><span style="color:#79B8FF">&#x26;copy;</span></span>
+<span class="line"><span style="color:#79B8FF">&#x26;trade;</span></span>
+<span class="line"><span style="color:#79B8FF">&#x26;reg;</span><span style="color:#79B8FF"> &#x26;times;</span><span style="color:#79B8FF"> &#x26;divide;</span></span></code></pre>
+<h2 id="无序列表">无序列表</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">ul</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">> &#x3C;/</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">> &#x3C;/</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">> &#x3C;/</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">> &#x3C;/</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">ul</span><span style="color:#E1E4E8">></span></span></code></pre>
+<ul>
+<li><code>type</code>:</li>
+<li>disc：默认的黑心圆样式</li>
+<li>circle：空心圆</li>
+<li>square: 实心方块</li>
+</ul>
+<h2 id="10-有序列表">10. 有序列表</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">ol</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">ol</span><span style="color:#E1E4E8">></span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">ol</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">ol</span><span style="color:#E1E4E8">></span></span></code></pre>
+<p><code>type</code>: 1 A a I
+<code>start</code>: 要显示列表的起始位置</p>
+<h2 id="自定义列表">自定义列表</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">dl</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">dt</span><span style="color:#E1E4E8">>我是简介名&#x3C;/</span><span style="color:#85E89D">dt</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">dd</span><span style="color:#E1E4E8">>幸福的孩子&#x3C;/</span><span style="color:#85E89D">dd</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">dd</span><span style="color:#E1E4E8">>杜海涛&#x3C;/</span><span style="color:#85E89D">dd</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#85E89D">dd</span><span style="color:#E1E4E8">>刘翔&#x3C;/</span><span style="color:#85E89D">dd</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">dl</span><span style="color:#E1E4E8">></span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">dl</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">dt</span><span style="color:#E1E4E8">>我是简介名&#x3C;/</span><span style="color:#85E89D">dt</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">dd</span><span style="color:#E1E4E8">>幸福的孩子&#x3C;/</span><span style="color:#85E89D">dd</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">dd</span><span style="color:#E1E4E8">>杜海涛&#x3C;/</span><span style="color:#85E89D">dd</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">dd</span><span style="color:#E1E4E8">>刘翔&#x3C;/</span><span style="color:#85E89D">dd</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">dl</span><span style="color:#E1E4E8">></span></span></code></pre>
+<p><code>class id style name</code> 他们四个都是属性名 配合我们的 css 跟 js</p>
+<p><strong>基本上每个标签都有这四个属性</strong></p>
+<h3 id="动态网页">动态网页：</h3>
+<p>数据内容展示出来是有变化的，比如：银行 账户余额（每个人都不一样）</p>
+<h3 id="静态网页">静态网页：</h3>
+<p>做内容展示，所有人访问都是一样叫静态网页</p>
+<h1 id="html再认识">HTML再认识</h1>
+<ul>
+<li><code>nobr</code>:</li>
+</ul>
+<p>双标签 <code>&#x3C;nobr></code>中间的内容不允许换行，这就是nobr<code>&#x3C;/nobr></code></p>
+<h2 id="url">URL</h2>
+<p>Uniform Resource Locator 统一资源定位符</p>
+<p>组成部分： 协议 地址 端口号 文件 参数</p>
+<p>协议：<code>http://</code> <code>https://</code> <code>file://</code> <code>ftp://</code> <code>smtp://</code> 邮件传输协议 <code>news://</code></p>
+<p>地址：<code>www.baidu.com</code> 域名 <code>ip</code> (cmd -> ping 域名)</p>
+<p>端口号：(:80) web <a href="http://%E9%BB%98%E8%AE%A4%E7%9A%84%E7%AB%AF%E5%8F%A3%E5%8F%B7%E6%98%AF80">http://默认的端口号是80</a> 范围：0-65535
+通常已经被使用：0-1024</p>
+<ul>
+<li><code>https</code>: 443 ftp: 21 smtp:// 25</li>
+</ul>
+<p>文件：要请求的文件 默认一般是：index.html</p>
+<p>参数：以？开始 后边跟的就是参数 形式：键1=值1&#x26;键2=值2</p>
+<p>如果有多个参数的时候 中间用&#x26;隔开</p>
+<ul>
+<li><code>http</code>://<a href="http://www.baidu.com:80/index.html?word=qianfeng&#x26;sex=1">www.baidu.com:80/index.html?word=qianfeng&#x26;sex=1</a></li>
+</ul>
+<h2 id="超链接">超链接</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">a</span><span style="color:#B392F0"> href</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">""</span><span style="color:#E1E4E8"> >&#x3C;/</span><span style="color:#85E89D">a</span><span style="color:#E1E4E8">></span></span></code></pre>
+<ul>
+<li><code>href</code>:要跳转的地址</li>
+<li><code>title</code>: 就是鼠标放上去时候显示的内容（变成小手的时候）</li>
+<li><code>target</code>：<code>_self</code> 在本窗口打开 <code>_blank</code> 在新窗口打开</li>
+</ul>
+<h3 id="锚点">锚点：</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">a</span><span style="color:#B392F0"> href</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"#锚点名"</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">a</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">a</span><span style="color:#B392F0"> name</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"锚点名"</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">a</span><span style="color:#E1E4E8">></span></span></code></pre>
+<p>了解（<code>id="锚点名"</code>）</p>
+<h2 id="图片img">图片img</h2>
+<p>src资源地址</p>
+<h3 id="绝对路径">绝对路径：</h3>
+<p>网络绝对：<a href="https://www.baidu.com/img/bd_logo1.png">https://www.baidu.com/img/bd_logo1.png</a></p>
+<p>磁盘绝对：C:/wamp64/www/1701/day02-html/code/ly.jpg</p>
+<p>(也可以使用/)</p>
+<p>站点绝对：</p>
+<ul>
+<li><code>https</code>://<a href="http://www.baidu.com/bd_logo1.png">www.baidu.com/bd_logo1.png</a></li>
+</ul>
+<p>bd_logo.png == <a href="https://www.baidu.com/bd_logo1.png">https://www.baidu.com/bd_logo1.png</a> == <a href="https://www.baidu.com">https://www.baidu.com</a></p>
+<h3 id="相对路径">相对路径：</h3>
+<p>以当前html文件为一个基准 寻找图片所在的位置 （路径）</p>
+<p><code>./</code> 在同一级目录（通常可以省略）</p>
+<p><code>../</code> 表示上一级目录(上两级 <code>../../</code> 层级多用绝对路径)</p>
+<ul>
+<li>
+<p><code>alt</code>:当图片加载失败的时候显示的内容</p>
+</li>
+<li>
+<p><code>title</code>：鼠标悬停时候显示的内容</p>
+</li>
+</ul>
+<p>width height</p>
+<p>【注】当只设置一个宽或者一个高的时候 图片会等比例缩放
+如果给定了宽和高就会失帧 会变形</p>
+<p>热点地图(了解 ，掌握最好) usemap</p>
+<h2 id="音频-视频">音频 视频</h2>
+<h3 id="audio">audio:</h3>
+<ul>
+<li>
+<p><code>src</code>：</p>
+</li>
+<li>
+<p><code>controls</code>:控制条</p>
+</li>
+<li>
+<p><code>loop</code>: 循环播放</p>
+</li>
+<li>
+<p><code>autoplay</code>:自动播放</p>
+</li>
+</ul>
+<h3 id="video">video:</h3>
+<p>width height</p>
+<p>src、controls、loop、autoplay</p>
+<h2 id="表格">表格</h2>
+<ul>
+<li>
+<p><code>table</code>:</p>
+</li>
+<li>
+<p><code>bgcolor</code>:表格的背景颜色</p>
+</li>
+<li>
+<p><code>border</code>：边框</p>
+</li>
+<li>
+<p><code>bordercolor</code>:边框颜色</p>
+</li>
+<li>
+<p><code>align</code>：表格的显示 对其方式</p>
+</li>
+<li>
+<p><code>cellspacing</code>:单元格间距</p>
+</li>
+<li>
+<p><code>cellpadding</code>：单元格中的内容跟边框的距离</p>
+</li>
+</ul>
+<p>width，height</p>
+<ul>
+<li>
+<p><code>tr</code>:width,height,</p>
+</li>
+<li>
+<p><code>align</code>:水平距离</p>
+</li>
+<li>
+<p><code>valign</code>：垂直方向 top bottom middle</p>
+</li>
+<li>
+<p><code>th--td</code>:width,height,align,valign,</p>
+</li>
+<li>
+<p><code>rowspan</code>:</p>
+</li>
+<li>
+<p><code>colspan</code>:</p>
+</li>
+<li>
+<p><code>caption</code>:</p>
+</li>
+<li>
+<p><code>valign</code>: top middle bottom</p>
+</li>
+</ul>
+<h1 id="day03-表单">day03-表单</h1>
+<p>表格</p>
+<p>tel</p>
+<ul>
+<li>
+<p><code>colspan</code>:合并列，需要将同一行的那个td给干掉</p>
+</li>
+<li>
+<p><code>rowspan</code>:合并行，需要将下一行的那个td给干掉</p>
+</li>
+</ul>
+<p>url参数作用:</p>
+<p>a标签扩展：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">a</span><span style="color:#B392F0"> href</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"tel:132603519038"</span><span style="color:#E1E4E8">>dadianhua&#x3C;/</span><span style="color:#85E89D">a</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">a</span><span style="color:#B392F0"> href</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"mailto:wanglijuan@1000phone.com"</span><span style="color:#E1E4E8">>发送邮件&#x3C;/</span><span style="color:#85E89D">a</span><span style="color:#E1E4E8">></span></span></code></pre>
+<h2 id="1iframewidthheightsrcnameframeborderscrolling">1：<code>iframe(width\height\src\name\frameborder\scrolling)</code></h2>
+<ul>
+<li>
+<p><code>frameborder</code>: 0/1</p>
+</li>
+<li>
+<p><code>scrolling</code>: <code>no</code>/<code>yes</code>/<code>auto</code></p>
+</li>
+</ul>
+<h2 id="2-framesetcolsrowsframeborderborderbordercolornoresize">2: <code>frameset(cols\rows\frameborder\border\bordercolor\noresize)</code></h2>
+<p><code>frame(src\name\scrolling)</code></p>
+<h2 id="3-form表单">3: form表单</h2>
+<p>用途：获取有意义的信息，用户键入信息（注册，登陆，留言等等）</p>
+<p>属性:(action/method/enctype(multipart/form-data)/target)</p>
+<p>基本用途：</p>
+<ul>
+<li>
+<p><code>form</code>:</p>
+</li>
+<li>
+<p><code>action</code>:提交的地址</p>
+</li>
+<li>
+<p><code>method</code>:提交的方式</p>
+</li>
+</ul>
+<p>默认：get(在url中显示?参数) post</p>
+<p>【注】:拉取信息是时候一般使用get</p>
+<ul>
+<li><code>post</code>:用户提交数据的时候使用</li>
+</ul>
+<p><code>enctype="multipart/form-data"</code></p>
+<p>现在记住这个，是上传文件的时候必须使用一个属性</p>
+<ul>
+<li><code>target</code>：打开提交页面的方式</li>
+</ul>
+<h3 id="1input">(1)input</h3>
+<p>属性:(</p>
+<ul>
+<li>
+<p><code>type</code>：类型</p>
+</li>
+<li>
+<p><code>size</code>:宽</p>
+</li>
+<li>
+<p><code>value</code>：输入框的默认值（一般的时候不写，因为就是让用户键入信息）</p>
+</li>
+<li>
+<p><code>maxlength</code>：允许键入的最大长度</p>
+</li>
+<li>
+<p><code>readonly</code>：只读</p>
+</li>
+<li>
+<p><code>disabled</code>：禁用状态</p>
+</li>
+</ul>
+<blockquote>
+<p>:一般时候是用在只能看不能二次修改的值的时候（注册公司名）</p>
+</blockquote>
+<ul>
+<li>
+<p><code>placeholder</code>：提示信息 placeholder=“默认提示的信息”</p>
+</li>
+<li>
+<p><code>name</code>:非常重要 要提交的内容的键)</p>
+</li>
+</ul>
+<p><code>type(</code></p>
+<ul>
+<li>
+<p><code>text</code>:文本信息</p>
+</li>
+<li>
+<p><code>password</code>：密码</p>
+</li>
+<li>
+<p><code>radio</code>：单选框</p>
+</li>
+</ul>
+<blockquote>
+<p>必须name值 name要一样</p>
+</blockquote>
+<p>必须value 一般使用习惯：1男 2女 0未知或者保密</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">radio(&#x3C;</span><span style="color:#85E89D">label</span><span style="color:#B392F0"> for</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"id名"</span><span style="color:#E1E4E8">>详细见代码&#x3C;/</span><span style="color:#85E89D">label</span><span style="color:#E1E4E8">> checked)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">checkbox(checked)</span></span></code></pre>
+<blockquote>
+<p>说明:必须有name属性 属性值必须： eg:like</p>
+</blockquote>
+<p>value</p>
+<p>submit</p>
+<ul>
+<li>
+<p><code>hidden</code>：区分，不让用户看见的值用</p>
+</li>
+<li>
+<p><code>file</code>:上传文件时候使用</p>
+</li>
+</ul>
+<p>)</p>
+<p>跳过这个坑：name属性一定要给</p>
+<p>value</p>
+<p>input（必须放在form中）</p>
+<ul>
+<li>
+<p><code>button</code>：最多时候配合js使用</p>
+</li>
+<li>
+<p><code>reset</code>:重置按钮 （清空表单input中用户键入的内容）</p>
+</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">>提交按钮&#x3C;</span><span style="color:#85E89D">button</span><span style="color:#E1E4E8">></span></span></code></pre>
+<h3 id="2selectmultiple-size-name">(2)select(multiple size name)</h3>
+<p>下拉菜单</p>
+<blockquote>
+<p>：name</p>
+</blockquote>
+<p><code>option((value selected))</code></p>
+<blockquote>
+<p>：value</p>
+</blockquote>
+<h3 id="3textareacols-rows">(3)textarea(cols rows)</h3>
+<p>双边标记：<code>&#x3C;textarea></code>默认中间不要有空格或者回车<code>&#x3C;/textarea></code></p>
+<p><strong>提交的都是意义的数据 不包括<code>&#x3C;p>&#x3C;/p></code></strong></p>
+<h2 id="4头元素">4:头元素</h2>
+<p><code>&#x3C;link rel="stylesheet" type="text/css" href="1.css" /></code></p>
+<p>链接外部的css样式</p>
+<p><code>&#x3C;meta charset="utf-8" /></code></p>
+<ul>
+<li><code>SEO</code>:搜索引擎优化</li>
+</ul>
+<p><code>&#x3C;meta name="keywords" content= "" /></code></p>
+<p>堆积网站关键字，用来提高网站的排名</p>
+<p><code>&#x3C;meta name= "description" content= "" /></code></p>
+<p>关于本网站的描述信息</p>
+<p><code>&#x3C;meta http-equiv="refresh" content= "3;url=http://www.baidu.com " /></code></p>
+<p>在几秒以后跳转</p>
+<h2 id="5-无意义的标签">5: 无意义的标签</h2>
+<ul>
+<li>div</li>
+<li>span</li>
+<li>footer</li>
+<li>header</li>
+<li>section</li>
+</ul>
+<p>都是双标签</p>
+<h1 id="css初认识">CSS初认识</h1>
+<h2 id="css">CSS</h2>
+<p>层叠样式表，Cascading Style Sheet</p>
+<p>网页中HTML CSS JavaScript的分工</p>
+<ul>
+<li>
+<p><code>html</code>:负责网页中的内容展示 由标签组成</p>
+</li>
+<li>
+<p><code>css</code>：负责网页的排版 将内容友好的展示出来</p>
+</li>
+<li>
+<p><code>js</code>: 负责网页的特效，一些动画效果 比如说轮播图</p>
+</li>
+</ul>
+<h2 id="使用css的好处">使用css的好处</h2>
+<ul>
+<li>
+<p>可以重复层叠样式 达到我们最终想要展示效果</p>
+</li>
+<li>
+<p>单独分离出来便于管理跟重复调用</p>
+</li>
+<li>
+<p>可以提高访问速度 节省服务器的流量开支</p>
+</li>
+</ul>
+<h2 id="css的三种链接方式">css的三种链接方式</h2>
+<h3 id="行内样式">行内样式</h3>
+<p>格式： <code>style="属性名1:属性值1;属性名2:属性值2;"</code></p>
+<h3 id="内联样式">内联样式</h3>
+<p>格式: 在head头中增加</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">style</span><span style="color:#B392F0"> type</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"text/css"</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">选择器{</span></span>
+<span class="line"><span style="color:#E1E4E8">    属性:属性值;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8">></span></span></code></pre>
+<h3 id="外部样式">外部样式</h3>
+<p>格式：<code>&#x3C;link rel="stylesheet" type="text/css" href="css文件的路径" /></code>,里面的格式，跟内联样式一样</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#E1E4E8">选择器{</span></span>
+<span class="line"><span style="color:#E1E4E8">    属性:属性值;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="css语法格式和注释">css语法格式和注释</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#E1E4E8">选择器{</span></span>
+<span class="line"><span style="color:#E1E4E8">    属性:属性值;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#6A737D"> /* CSS的注释 */</span></span></code></pre>
+<h2 id="选择器">选择器</h2>
+<p>自定义名规则：数字 字母 下划线 不能以数字开始</p>
+<p>标签选择器：所有的标签都可以做标签选择器 如果使用了标签选择器 当前网页中用这个标签的元素都增加了样式</p>
+<h3 id="class选择器">class选择器：</h3>
+<p>在标签内增加class属性 属性值自定义 在CSS样式中使用如下</p>
+<p><code>.class属性名{样式}</code></p>
+<p>一个元素可以有多个class名 中间用空格隔开</p>
+<h3 id="id选择器">id选择器：</h3>
+<p>在标签内增加id属性 属性值自定义 在CSS中使用如下</p>
+<p><code>#id名{样式}</code></p>
+<p><strong>注</strong>:通常一个网页中id名是唯一</p>
+<h3 id="组合选择器">组合选择器:</h3>
+<p>标签选择器,class，id选择器… 形式 ：选择器与选择器之间用逗号隔开</p>
+<p>将多个元素增加共同的样式</p>
+<ul>
+<li><code>eg</code>:</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#85E89D">p</span><span style="color:#E1E4E8">,</span><span style="color:#B392F0">.meixi</span><span style="color:#E1E4E8">,</span><span style="color:#B392F0">#daishu</span><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">    font-size</span><span style="color:#E1E4E8">:</span><span style="color:#79B8FF">35</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>层级选择器：使用具有层级关系 可以从父类找到子类找到孙子类 增加样式</p>
+<p>选择器用空格隔开</p>
+<p>伪类选择器:<code>(link,hover,active,visited,focus,first-child,last-child)</code></p>
+<p>一般用于给 某些选择器增加特殊效果比如 a链接</p>
+<p>超链接状态顺序：</p>
+<p><code>a:link{}</code> 正常状态下（默认状态）
+<code>a:visited{}</code> 访问之后的样式
+<code>a:hover{}</code> 鼠标悬停的时候的样式
+<code>a:active{}</code> 鼠标点击时候的样式</p>
+<p>注意，<code>a:hover</code> 必须位于 <code>a:link</code> 和 <code>a:visited</code> 之后，<code>a:active</code> 必须位于 <code>a:hover</code> 之后</p>
+<p>可靠的顺序是：<code>l(link)ov(visited)e</code> <code>h(hover)a(active)te</code>, 即用喜欢和讨厌两个词来概括</p>
+<ul>
+<li>
+<p><code>focus</code>:使用一般配合input <code>input:focus{样式}</code></p>
+</li>
+<li>
+<p><code>first-child</code>:必须子元素中第一个是要增加样式的元素</p>
+</li>
+<li>
+<p><code>last-child</code>:必须子元素中最后一个是要增加的样式的元素</p>
+</li>
+</ul>
+<p>(IEl不支持的时候 可以声明doctype(大写))</p>
+<h3 id="属性选择器">属性选择器:</h3>
+<p>形式： <code>input[type="password"]{样式}</code></p>
+<p><code>a[title]{样式}</code></p>
+<p><code>*</code> 通配符:给页面上所有的元素增加样式</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>[选择器优先级]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>*&#x3C;标签选择器&#x3C;class&#x3C;id</span></span></code></pre>
+<h2 id="尺寸设置">尺寸设置</h2>
+<p>只有块标签才有宽和高 div p section</p>
+<p>width height min-height max-height min-width max-width</p>
+<h3 id="单位">单位：</h3>
+<p><code>%</code>:使用的是父级 的百分比</p>
+<p><code>px</code>:像素 一个点就是一个像素</p>
+<p><code>em</code>:设置的是当前元素的父级的字体尺寸</p>
+<p><code>rem</code>： html中的尺寸 倍数</p>
+<p>最长使用的字体尺寸: <code>12px</code> <code>14px</code> <code>16px</code></p>
+<h2 id="7-常用属性">7. 常用属性</h2>
+<h3 id="字体">字体：</h3>
+<p><code>font-style</code>：normal 默认状态 italic斜体</p>
+<p><code>font-weight</code>：normal默认状态 bold 加粗</p>
+<p><code>font-size</code>： 字体的大小 谷歌 默认是16px; 最小支持12px;</p>
+<p><code>font-family</code>:楷体 微软雅黑</p>
+<p><code>font</code>: style weight size family</p>
+<h3 id="文本">文本:</h3>
+<p><code>text-indent</code>:文本的缩进 最好用em 一般都是2em</p>
+<p><code>text-align</code>：文本的水平对齐方式 left right center</p>
+<p><code>white-space</code>: nowrap; (了解) 强行在一行显示内容</p>
+<p><code>text-overflow</code>:clip超出部分直接截断 ellipsis：超出部分显示’…’</p>
+<p>配合overflow:hidden使用</p>
+<p>text-decoration(</p>
+<ul>
+<li>
+<p><code>overline</code>:上划线</p>
+</li>
+<li>
+<p><code>line-through</code>：中划线</p>
+</li>
+<li>
+<p><code>underline</code>:下划线 none)</p>
+</li>
+<li>
+<p><code>text-shadow</code>: 水平偏移的值 垂直偏移值 模糊程度 颜色</p>
+</li>
+<li>
+<p><code>line-height</code>：行高 当块标签的高和行高设置值一样会垂直居中</p>
+</li>
+<li>
+<p><code>vertical-align</code>：</p>
+</li>
+</ul>
+<h1 id="css-1">CSS</h1>
+<h2 id="vertical-align">vertical-align</h2>
+<h2 id="背景">背景</h2>
+<ul>
+<li>
+<p><code>background-color</code>： 背景颜色</p>
+</li>
+<li>
+<p><code>background-image</code>: url(图片地址)</p>
+</li>
+</ul>
+<p>background-repeat(</p>
+<ul>
+<li>
+<p><code>repeat</code>：默认平铺</p>
+</li>
+<li>
+<p><code>no-repeat</code>:不平铺</p>
+</li>
+<li>
+<p><code>repeat-x</code>：横向平铺</p>
+</li>
+<li>
+<p><code>repeat-y</code>:纵向平铺</p>
+</li>
+<li>
+<p><code>repeat-y</code>:纵向平铺</p>
+</li>
+</ul>
+<p>)</p>
+<p>background-attachment(</p>
+<ul>
+<li>
+<p><code>fixed</code>：（了解）相对窗口固定，当显示该div的时候，背景图才显示出来</p>
+</li>
+<li>
+<p><code>local</code>：背景图会随着内容的滚动而滚动</p>
+</li>
+<li>
+<p><code>scroll</code>：默认属性，背景图不会随着内容的滚动而滚动</p>
+</li>
+</ul>
+<p>)</p>
+<ul>
+<li><code>background-position</code>：一定要有一个背景图 background-image属性（left、center、right、top、bottom、xy值）</li>
+</ul>
+<p>简写形式：background:url(erha.jpg) no-repeat pink;</p>
+<h2 id="列表">列表</h2>
+<ul>
+<li>
+<p><code>list-style</code>：none</p>
+</li>
+<li>
+<p><code>list-style-image</code>:url()</p>
+</li>
+<li>
+<p><code>list-style-position</code>：inside列表项目标记放置在文本以内/outside</p>
+</li>
+</ul>
+<p>list-style-type</p>
+<h2 id="布局">布局</h2>
+<ul>
+<li>
+<p><code>float</code>：浮动 left right none</p>
+</li>
+<li>
+<p><code>clear</code>: 用于清除浮动 both</p>
+</li>
+<li>
+<p><code>display</code>:把块元素变成行元素 也可以把行元素变成块元素(</p>
+</li>
+</ul>
+<p>none</p>
+<ul>
+<li>
+<p><code>inline-block</code>:切换为行内块</p>
+</li>
+<li>
+<p><code>block</code>：切换为块</p>
+</li>
+<li>
+<p><code>inline</code>：切换为行内元素</p>
+</li>
+<li>
+<p><code>none</code>：让标签消失，位置也不再</p>
+</li>
+</ul>
+<p>)</p>
+<ul>
+<li><code>visibility</code>：(visible、hidden:隐藏元素，但是位置依然存在)</li>
+</ul>
+<p>overflow（</p>
+<ul>
+<li>
+<p><code>visible</code>:默认不做处理</p>
+</li>
+<li>
+<p><code>hidden</code>:超出部分隐藏、</p>
+</li>
+<li>
+<p><code>scroll</code>:超出部分出现滚动条</p>
+</li>
+<li>
+<p><code>auto</code>:自动判断 如果有内容超出处彰显滚动条，如果没有就不显示滚动条</p>
+</li>
+</ul>
+<p>）</p>
+<p>position（</p>
+<ul>
+<li>
+<p><code>relative</code>：相对自身文档流中的位置进行定位</p>
+</li>
+<li>
+<p><code>absolute</code>：相对定位 会脱离文档流 当想从父级定位 在父级中使用position:relative</p>
+</li>
+</ul>
+<p><code>static:默认属性</code></p>
+<ul>
+<li><code>fixed</code>:相对于当前窗口的</li>
+</ul>
+<p>）</p>
+<ul>
+<li><code>z-index</code>：设置元素的层叠顺序 值越大越在上边，这个属性的测试需要都为absolute或者fixed的才有效</li>
+</ul>
+<p>如下属性只有当定位是relative、absolute、fixed时有效</p>
+<p>top</p>
+<p>right</p>
+<p>bottom</p>
+<p>left</p>
+<h2 id="边框">边框</h2>
+<p>border</p>
+<p>border-width</p>
+<p>border-style(</p>
+<ul>
+<li>
+<p><code>dotted</code>:点线</p>
+</li>
+<li>
+<p><code>solid</code>:实线</p>
+</li>
+<li>
+<p><code>dashed</code>:虚线</p>
+</li>
+<li>
+<p><code>double</code>:双线</p>
+</li>
+<li>
+<p><code>border-color</code>：边框颜色</p>
+</li>
+<li>
+<p><code>border-radius</code>:</p>
+</li>
+</ul>
+<p>给一个值：全部变</p>
+<p>给两个值：对角</p>
+<p>三个值: 左上 右上左下 右下</p>
+<ul>
+<li><code>box-shadow</code>:边框的阴影效果</li>
+</ul>
+<h2 id="盒子模型">盒子模型</h2>
+<h2 id="内外边距">内外边距</h2>
+<ul>
+<li><code>padding</code>:内边距</li>
+</ul>
+<p>padding-top</p>
+<p>padding-right</p>
+<p>padding-bottom</p>
+<p>padding-left</p>
+<ul>
+<li>
+<p><code>margin</code>:外边距</p>
+</li>
+<li>
+<p><code>margin</code>: 0 auto;</p>
+</li>
+</ul>
+<p>margin-top</p>
+<p>margin-right</p>
+<p>margin-left</p>
+<p>margin-bottom</p></article><a class="back" href="../../posts/index.html">← 返回文章列表</a></main><footer id="footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <a class="brand" href="../../index.html" data-astro-cid-sz7xmlte><img src="../../favicon.ico" alt="" data-astro-cid-sz7xmlte>Hi, abandon</a> <div class="credits" data-astro-cid-sz7xmlte> <span data-astro-cid-sz7xmlte>© 2017–2026 abandon</span> <span data-astro-cid-sz7xmlte>设计参考 <a href="https://diygod.cc/" data-astro-cid-sz7xmlte>DIYgod</a></span> </div> <nav aria-label="页脚导航" data-astro-cid-sz7xmlte> <a href="../../posts/index.html" data-astro-cid-sz7xmlte>文章归档</a> <a href="../../feed.xml" data-astro-cid-sz7xmlte>RSS</a> </nav> </div> </footer>  <script type="module">for(const e of document.querySelectorAll("article pre")){const t=document.createElement("button");t.type="button",t.textContent="复制代码",t.className="copy-code",e.before(t),t.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(e.textContent??""),t.textContent="已复制"}catch{t.textContent="请选中代码复制"}})}</script></body></html> 
